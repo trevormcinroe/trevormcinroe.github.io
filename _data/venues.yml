@@ -4,3 +4,21 @@
 
 "PhysRev":
   url: https://journals.aps.org/
+
+"ICLR":
+  color: "#348ABD"
+
+"NeurIPS":
+  color: "#A60628"
+
+"NeurIPS Spotlight":
+  color: "#FFD700"
+
+"ICML":
+  color: "#7A68A6"
+
+"TMLR":
+  color: "#467821"
+
+"aicomms":
+  color: "#009E73"
