@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a 2nd year PhD student at The University of Edinburgh in the 
+I am a 3rd year PhD student at The University of Edinburgh in the 
 <a href='https://www.bayeswatch.com/'>Bayesian and Neural Systems</a> group advised by 
 <a href='https://homepages.inf.ed.ac.uk/amos/'>Amos Storkey</a> and the
 <a href="https://agents.inf.ed.ac.uk/">Autonomous Agents Research Group</a> advised by
