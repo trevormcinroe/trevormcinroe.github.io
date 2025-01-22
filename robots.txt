@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://trevormcinroe.github.io/sitemap.xml
+Sitemap: /sitemap.xml
