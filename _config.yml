@@ -1,7 +1,7 @@
 title: TREVOR MCINROE
 author:
-  name: GitHub User
-  email: your-email@domain.com
+  name: Trevor McInroe
+  email: t.mcinroe@ed.ac.uk
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
@@ -28,10 +28,10 @@ plugins:
 
 # If you want to link only specific pages in your header, use this and add the path to the pages
 # in order as they should show up.
-header_pages:
-  - about.md
-  - about.md
-  - about.md
+#header_pages:
+#  - about.md
+#  - about.md
+#  - about.md
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false
 
@@ -53,8 +53,12 @@ minima:
   #date_format: "%b-%d-%Y"
 
   # Generate social links in footer.
-  #social_links:
-  #  - { platform: devto,          user_url: "https://dev.to/jekyll" }
+  social_links:
+    - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=ZjG8iOUAAAAJ" }
+    - {platform: email, user_url: "mailto:t.mcinroe@ed.ac.uk"}
+    - { platform: github, user_url: "https://github.com/trevormcinroe/" }
+    - { platform: twitter, user_url: "https://twitter.com/trevormcinroe" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/trevor-mcinroe/" }
   #  - { platform: dribbble,       user_url: "https://dribbble.com/jekyll" }
   #  - { platform: facebook,       user_url: "https://www.facebook.com/jekyll" }
   #  - { platform: flickr,         user_url: "https://www.flickr.com/photos/jekyll" }

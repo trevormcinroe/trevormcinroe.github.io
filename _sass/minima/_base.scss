@@ -14,7 +14,6 @@ dl, dd, ol, ul, figure {
 }
 
 
-
 /**
  * Basic styling
  */
@@ -39,11 +38,17 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+//h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $spacing-unit * .5;
+}
+
+h4,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit * .15;
 }
 
 hr {
@@ -257,24 +262,31 @@ pre {
 /**
  * Tables
  */
+.pubs-table {
+  top: $spacing-unit * 3;
+  position: relative;
+}
+
 table {
   margin-bottom: $spacing-unit;
   width: 100%;
   text-align: $table-text-align;
   color: $table-text-color;
   border-collapse: collapse;
-  border: 1px solid $table-border-color;
+  border: 2.625px solid #ffffff;  //$table-border-color;
   tr {
     &:nth-child(even) {
       background-color: $table-zebra-color;
     }
   }
   th, td {
+    // top - right - bottom - left
     padding: ($spacing-unit * 33.3333333333 * .01) ($spacing-unit * .5);
   }
   th {
+    @include relative-font-size(1.15);
     background-color: $table-header-bg-color;
-    border: 1px solid $table-header-border;
+    border: 1px solid #ffffff; //$table-header-border;
   }
   td {
     border: 1px solid $table-border-color;

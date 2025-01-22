@@ -117,7 +117,7 @@ $dm-code-background-color: #212121 !default;
 
 $dm-site-title-color:      $dm-text-color !default;
 
-$dm-link-base-color:       #79b8ff !default;
+$dm-link-base-color:       $dm-text-color !default;
 $dm-link-visited-color:    $dm-link-base-color !default;
 $dm-link-hover-color:      $dm-text-color !default;
 
@@ -128,9 +128,9 @@ $dm-border-color-03:       $dm-brand-color !default;
 
 $dm-table-text-color:      $dm-text-color !default;
 $dm-table-zebra-color:     lighten($dm-background-color, 4%) !default;
-$dm-table-header-bg-color: lighten($dm-background-color, 10%) !default;
+$dm-table-header-bg-color: lighten(#262425, 0.0%); //lighten($dm-background-color, 10%) !default;
 $dm-table-header-border:   lighten($dm-background-color, 21%) !default;
-$dm-table-border-color:    $dm-border-color-01 !default;
+$dm-table-border-color:    darken(#ffffff, 50%) !default;
 
 
 // Syntax highlighting styles should be adjusted appropriately for every "skin"

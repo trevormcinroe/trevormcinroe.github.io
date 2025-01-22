@@ -5,12 +5,23 @@
 // $base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Roboto, Roboto, sans-serif !default;
 
 @font-face {
-  font-family: MartianMono;
+  font-family: ProtoNerdMono;
   src: url("../fonts/proto/0xProtoNerdFontMono-Regular.ttf");
 }
 
+@font-face {
+  font-family: ProtoNerdRegular;
+  src: url("../fonts/proto/0xProtoNerdFont-Regular.ttf");
+}
 
-$base-font-family: MartianMono, sans-serif !default;
+@font-face {
+  font-family: ProtoNerdPropo;
+  src: url("../fonts/proto/0xProtoNerdFontMono-Propo.ttf");
+}
+
+
+
+$base-font-family: ProtoNerdMono, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
