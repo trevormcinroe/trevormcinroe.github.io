@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civitas - Build Civilizations, Train Intelligence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a3d2e 0%, #2d5016 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        header {
+            padding: 20px 40px;
+            border-bottom: 2px solid #1a4d3a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a4d3a;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1a4d3a;
+        }
+
+        .hero {
+            padding: 60px 40px 40px;
+            background: white;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            color: #1a4d3a;
+            margin-bottom: 30px;
+            margin-top: 5px;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 1000px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #1a4d3a 0%, #2d5016 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #0d3a28 0%, #1f3a0f 100%);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%px;
+            #border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #B8860B 0%, #DAA520 50%, #FFD700 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Fallback styling if image doesn't load */
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .bottom-section {
+            padding: 40px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid #eee;
+        }
+
+        .fund-info {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .fund-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a4d3a;
+        }
+
+        .fund-label {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 300px;
+            line-height: 1.4;
+        }
+
+        .research-badge {
+            background: linear-gradient(45deg, #1a4d3a 0%, #DAA520 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 0px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a4d3a;
+        }
+
+        .feature h3 {
+            color: #1a4d3a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 40px 20px 20px;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            .bottom-section {
+                padding: 20px;
+                flex-direction: column;
+                gap: 30px;
+                align-items: flex-start;
+            }
+
+            .fund-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Civitas</div>
+            <nav>
+                <a href="#environment">Environment</a>
+                <a href="#research">Research</a>
+                <a href="#docs">Documentation</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main class="hero">
+            <div class="research-badge">RL Research Environment</div>
+            <h1 class="hero-title">
+              CIVITAS
+            </h1>
+
+            <p class="hero-subtitle">
+                Train reinforcement learning agents on the grand challenge of civilization building.
+                Civitas is an environment based on Civilization V, a 4X strategy game, and LekMod, a community-driven patch designed to balance play around six player free-for-alls.
+            </p>
+
+            <a href="#get-started" class="cta-button">
+                Get Started →
+            </a>
+
+            <div class="hero-image">
+                <img src="../assets/map.png" alt="Civilization V Map" onerror="this.style.display='none'">
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
