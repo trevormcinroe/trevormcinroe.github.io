@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civitas Documentation - Environment Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 100%);
+            min-height: 100vh;
+            color: #2C363F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #F2F5EA;
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(44, 54, 63, 0.3);
+        }
+
+        header {
+            padding: 20px 40px;
+            border-bottom: 3px solid #81ADC8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #F2F5EA 0%, rgba(129, 173, 200, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2C363F;
+            letter-spacing: -1px;
+            position: relative;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .logo:hover {
+            color: #81ADC8;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #B68F40 0%, #BB4430 100%);
+            border-radius: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2C363F;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 0px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #F2F5EA;
+            background: #81ADC8;
+        }
+
+        nav a.active {
+            color: #F2F5EA;
+            background: #B68F40;
+        }
+
+        .docs-container {
+            padding: 40px;
+            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.05) 100%);
+            min-height: calc(100vh - 80px);
+        }
+
+        .docs-header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(129, 173, 200, 0.2);
+            padding-bottom: 20px;
+        }
+
+        .docs-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 50%, #B68F40 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            display: inline-block;
+        }
+
+        .docs-subtitle {
+            font-size: 1.2rem;
+            color: rgba(44, 54, 63, 0.8);
+            font-weight: 400;
+        }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.08) 100%);
+            border-radius: 0px;
+            padding: 25px;
+            border: 1px solid rgba(129, 173, 200, 0.2);
+            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h3 {
+            color: #2C363F;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #81ADC8;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            color: rgba(44, 54, 63, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 0px;
+            display: block;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            background: rgba(129, 173, 200, 0.2);
+            color: #2C363F;
+        }
+
+        .sidebar a.active {
+            background: #81ADC8;
+            color: #F2F5EA;
+        }
+
+        .main-content {
+            background: #F2F5EA;
+            border-radius: 0px;
+            padding: 35px;
+            border: 1px solid rgba(129, 173, 200, 0.2);
+            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2C363F;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(182, 143, 64, 0.3);
+        }
+
+        .section h3 {
+            color: #2C363F;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            color: rgba(44, 54, 63, 0.9);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2C363F;
+            color: #F2F5EA;
+            padding: 20px;
+            border-radius: 0px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #81ADC8;
+        }
+
+        .code-inline {
+            background: rgba(129, 173, 200, 0.15);
+            color: #2C363F;
+            padding: 2px 6px;
+            border-radius: 0px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(129, 173, 200, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
+            border-left: 4px solid #81ADC8;
+            padding: 20px;
+            border-radius: 0px;
+            margin: 25px 0;
+        }
+
+        .info-box.warning {
+            border-left-color: #BB4430;
+            background: linear-gradient(135deg, rgba(187, 68, 48, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
+        }
+
+        .info-box h4 {
+            color: #2C363F;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .parameter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #F2F5EA;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(44, 54, 63, 0.1);
+        }
+
+        .parameter-table th {
+            background: #81ADC8;
+            color: #F2F5EA;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .parameter-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(129, 173, 200, 0.2);
+            color: rgba(44, 54, 63, 0.9);
+        }
+
+        .parameter-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .parameter-table tr:nth-child(even) {
+            background: rgba(129, 173, 200, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .docs-container {
+                padding: 20px;
+            }
+
+            .docs-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .docs-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Smooth page load animation */
+        .container {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="civitas" class="logo">Civitas</a>
+            <nav>
+                <a href="#environment">Environment</a>
+                <a href="#research">Research</a>
+                <a href="#docs" class="active">Documentation</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <div class="docs-container">
+            <div class="docs-header">
+                <h1 class="docs-title">Environment Documentation</h1>
+                <p class="docs-subtitle">Complete guide to the Civitas reinforcement learning environment</p>
+            </div>
+
+            <div class="docs-layout">
+                <aside class="sidebar">
+                    <h3>Contents</h3>
+                    <ul>
+                        <li><a href="#installation" class="active">Installation</a></li>
+                        <li><a href="#quickstart">Quick Start</a></li>
+                        <li><a href="#environment">Environment</a></li>
+                        <li><a href="#actions">Actions</a></li>
+                        <li><a href="#observations">Observations</a></li>
+                        <li><a href="#rewards">Rewards</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#api">API Reference</a></li>
+                    </ul>
+                </aside>
+
+                <main class="main-content">
+                    <section id="installation" class="section">
+                        <h2>Installation</h2>
+                        <p>Install Civitas using pip from the official repository:</p>
+
+                        <div class="code-block">pip install civitas-env</div>
+
+                        <p>Or install from source for the latest development version:</p>
+
+                        <div class="code-block">git clone https://github.com/civitas-ai/civitas-env.git
+cd civitas-env
+pip install -e .</div>
+
+                        <div class="info-box">
+                            <h4>Requirements</h4>
+                            <p>Civitas requires Python 3.8+ and has been tested on Linux, macOS, and Windows. GPU acceleration is optional but recommended for training.</p>
+                        </div>
+                    </section>
+
+                    <section id="quickstart" class="section">
+                        <h2>Quick Start</h2>
+                        <p>Get started with Civitas in just a few lines of code:</p>
+
+                        <div class="code-block">import civitas
+
+# Create the environment
+env = civitas.make('CivitasV0')
+
+# Reset and get initial observation
+observation = env.reset()
+
+# Take a random action
+action = env.action_space.sample()
+observation, reward, done, info = env.step(action)
+
+print(f"Reward: {reward}")
+print(f"Done: {done}")</div>
+
+                        <h3>Basic Training Loop</h3>
+                        <p>Here's a simple training loop using the environment:</p>
+
+                        <div class="code-block">import civitas
+import numpy as np
+
+env = civitas.make('CivitasV0')
+
+for episode in range(100):
+    observation = env.reset()
+    total_reward = 0
+
+    while True:
+        # Replace with your agent's policy
+        action = env.action_space.sample()
+
+        observation, reward, done, info = env.step(action)
+        total_reward += reward
+
+        if done:
+            break
+
+    print(f"Episode {episode}: Total Reward = {total_reward}")</div>
+                    </section>
+
+                    <section id="environment" class="section">
+                        <h2>Environment Overview</h2>
+                        <p>Civitas provides a turn-based strategy environment based on Civilization V with LekMod balance patches. The environment supports multiple agents in a 6-player free-for-all setting.</p>
+
+                        <h3>Environment Parameters</h3>
+                        <table class="parameter-table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Default</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code-inline">map_size</code></td>
+                                    <td>str</td>
+                                    <td>'standard'</td>
+                                    <td>Map size: 'tiny', 'small', 'standard', 'large', 'huge'</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code-inline">num_players</code></td>
+                                    <td>int</td>
+                                    <td>6</td>
+                                    <td>Number of players (2-8)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code-inline">difficulty</code></td>
+                                    <td>str</td>
+                                    <td>'prince'</td>
+                                    <td>AI difficulty level</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code-inline">turn_limit</code></td>
+                                    <td>int</td>
+                                    <td>500</td>
+                                    <td>Maximum number of turns</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="info-box warning">
+                            <h4>Performance Note</h4>
+                            <p>Larger maps and more players significantly increase computation time. Start with smaller configurations for development and testing.</p>
+                        </div>
+                    </section>
+
+                    <section id="actions" class="section">
+                        <h2>Action Space</h2>
+                        <p>Civitas uses a hierarchical action space that mirrors the decision-making process in Civilization V. Actions are structured as nested dictionaries with the following main categories:</p>
+
+                        <h3>Action Categories</h3>
+                        <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <li><strong>City Actions:</strong> Build units, buildings, or specialists</li>
+                            <li><strong>Unit Actions:</strong> Move, attack, or perform special abilities</li>
+                            <li><strong>Diplomacy:</strong> Trade deals, declarations, and negotiations</li>
+                            <li><strong>Research:</strong> Choose technology paths</li>
+                            <li><strong>Policy:</strong> Select social policies and government types</li>
+                        </ul>
+
+                        <div class="code-block">action = {
+    'city_actions': {
+        'city_id': 1,
+        'action_type': 'build_unit',
+        'target': 'warrior'
+    },
+    'unit_actions': [
+        {
+            'unit_id': 5,
+            'action_type': 'move',
+            'target_hex': (10, 15)
+        }
+    ],
+    'research': 'bronze_working',
+    'policy': 'tradition_opener'
+}</div>
+                    </section>
+
+                    <section id="observations" class="section">
+                        <h2>Observation Space</h2>
+                        <p>The observation space provides comprehensive information about the game state, including map data, unit positions, city information, and diplomatic status.</p>
+
+                        <h3>Observation Structure</h3>
+                        <div class="code-block">observation = {
+    'map': np.array(...),           # Terrain and improvement data
+    'units': {...},                 # Unit positions and properties
+    'cities': {...},                # City locations and statistics
+    'diplomacy': {...},             # Diplomatic relationships
+    'research': {...},              # Technology progress
+    'resources': {...},             # Available resources
+    'turn_info': {...}              # Current turn and player info
+}</div>
+
+                        <p>Each component of the observation provides detailed information necessary for strategic decision-making.</p>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle sidebar navigation active states
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            const sections = document.querySelectorAll('.section');
+
+            // Function to update active link
+            function updateActiveLink() {
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom > 100) {
+                        currentSection = section.id;
+                    }
+                });
+
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveLink);
+
+            // Update on click
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Initial update
+            updateActiveLink();
+        });
+    </script>
+</body>
+</html>
