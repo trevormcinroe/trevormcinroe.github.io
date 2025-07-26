@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civitas Documentation</title>
+    <title>Civitas Environment Guide</title>
     <style>
         * {
             margin: 0;
@@ -125,7 +125,7 @@
 
         .docs-layout {
             display: grid;
-            grid-template-columns: 250px 1fr;
+            grid-template-columns: 280px 1fr;
             gap: 40px;
             align-items: start;
         }
@@ -154,6 +154,10 @@
         }
 
         .sidebar li {
+            margin-bottom: 4px;
+        }
+
+        .sidebar > ul > li {
             margin-bottom: 8px;
         }
 
@@ -165,6 +169,12 @@
             border-radius: 0px;
             display: block;
             transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .sidebar > ul > li > a {
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .sidebar a:hover {
@@ -177,6 +187,31 @@
             color: #F2F5EA;
         }
 
+        /* Nested sub-navigation styling */
+        .sidebar ul ul {
+            margin-top: 6px;
+            margin-left: 8px;
+            border-left: 2px solid rgba(129, 173, 200, 0.3);
+            padding-left: 8px;
+        }
+
+        .sidebar ul ul a {
+            padding: 4px 8px;
+            font-size: 0.85rem;
+            color: rgba(44, 54, 63, 0.7);
+            font-weight: 400;
+        }
+
+        .sidebar ul ul a:hover {
+            background: rgba(182, 143, 64, 0.15);
+            color: #2C363F;
+        }
+
+        .sidebar ul ul a.active {
+            background: #B68F40;
+            color: #F2F5EA;
+        }
+
         .main-content {
             background: #F2F5EA;
             border-radius: 0px;
@@ -186,7 +221,13 @@
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            scroll-margin-top: 100px;
+        }
+
+        .subsection {
+            margin-bottom: 35px;
+            scroll-margin-top: 100px;
         }
 
         .section h2 {
@@ -198,14 +239,21 @@
             border-bottom: 2px solid rgba(182, 143, 64, 0.3);
         }
 
-        .section h3 {
+        .section h3, .subsection h3 {
             color: #2C363F;
             font-size: 1.3rem;
             font-weight: 600;
             margin: 25px 0 15px 0;
         }
 
-        .section p {
+        .section h4, .subsection h4 {
+            color: #2C363F;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        .section p, .subsection p {
             color: rgba(44, 54, 63, 0.9);
             line-height: 1.7;
             margin-bottom: 15px;
@@ -245,42 +293,89 @@
             background: linear-gradient(135deg, rgba(187, 68, 48, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
         }
 
+        .info-box.success {
+            border-left-color: #6B9080;
+            background: linear-gradient(135deg, rgba(107, 144, 128, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
+        }
+
         .info-box h4 {
             color: #2C363F;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
-        .parameter-table {
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(129, 173, 200, 0.08) 0%, rgba(182, 143, 64, 0.08) 100%);
+            border: 1px solid rgba(129, 173, 200, 0.2);
+            border-radius: 0px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44, 54, 63, 0.15);
+        }
+
+        .feature-card h4 {
+            color: #2C363F;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: rgba(44, 54, 63, 0.8);
+            line-height: 1.6;
+        }
+
+        .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 30px 0;
             background: #F2F5EA;
             border-radius: 0px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(44, 54, 63, 0.1);
+            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
         }
 
-        .parameter-table th {
-            background: #81ADC8;
+        .comparison-table th {
+            background: #2C363F;
             color: #F2F5EA;
             padding: 15px;
             text-align: left;
             font-weight: 600;
         }
 
-        .parameter-table td {
+        .comparison-table td {
             padding: 12px 15px;
             border-bottom: 1px solid rgba(129, 173, 200, 0.2);
             color: rgba(44, 54, 63, 0.9);
         }
 
-        .parameter-table tr:last-child td {
+        .comparison-table tr:last-child td {
             border-bottom: none;
         }
 
-        .parameter-table tr:nth-child(even) {
+        .comparison-table tr:nth-child(even) {
             background: rgba(129, 173, 200, 0.05);
+        }
+
+        .check-mark {
+            color: #6B9080;
+            font-weight: bold;
+        }
+
+        .x-mark {
+            color: #BB4430;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -317,6 +412,10 @@
             .docs-title {
                 font-size: 2.5rem;
             }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Smooth page load animation */
@@ -338,25 +437,14 @@
 </head>
 <body>
     <div class="container">
-      <link rel="stylesheet" href="civitas_header.css">
-      <div id="header-container"></div>
-      <script src="civitas_header.js"></script>
+        <link rel="stylesheet" href="civitas_header.css">
+        <div id="header-container"></div>
+        <script src="civitas_header.js"></script>
 
-        <!--
-        <header>
-            <a href="civitas" class="logo">Civitas</a>
-            <nav>
-                <a href="#environment">Environment</a>
-                <a href="#research">Research</a>
-                <a href="#docs" class="active">Documentation</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-        -->
 
         <div class="docs-container">
             <div class="docs-header">
-                <h1 class="docs-title">Environment Documentation</h1>
+                <h1 class="docs-title">Environment Information</h1>
                 <p class="docs-subtitle">Complete guide to the Civitas reinforcement learning environment</p>
             </div>
 
@@ -364,176 +452,97 @@
                 <aside class="sidebar">
                     <h3>Contents</h3>
                     <ul>
-                        <li><a href="#installation" class="active">Installation</a></li>
-                        <li><a href="#quickstart">Quick Start</a></li>
-                        <li><a href="#environment">Environment</a></li>
-                        <li><a href="#actions">Actions</a></li>
-                        <li><a href="#observations">Observations</a></li>
-                        <li><a href="#rewards">Rewards</a></li>
-                        <li><a href="#examples">Examples</a></li>
-                        <li><a href="#api">API Reference</a></li>
+                        <li>
+                            <a href="#why" class="active">Why Civilization V?</a>
+                        </li>
+                        <li>
+                            <a href="#howto">Scoring and How to Win</a>
+                            <ul>
+                                <li><a href="#victory-conditions">Victory Conditions</a></li>
+                                <li><a href="#scoring-system">Scoring System</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#mechanics">Environment Mechanics</a>
+                            <ul>
+                                <li><a href="#city-mech">Cities</a></li>
+                                <li><a href="#tech-mech">Technology</a></li>
+                                <li><a href="#culture-mech">Culture</a></li>
+                                <li><a href="#religion-mech">Religion</a></li>
+                                <li><a href="#trading-mech">Trading</a></li>
+                                <li><a href="#unit-mech">Units</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </aside>
 
                 <main class="main-content">
-                    <section id="installation" class="section">
-                        <h2>Installation</h2>
-                        <p>Install Civitas using pip from the official repository:</p>
+                    <section id="why" class="section">
+                        <h2>Why Civilization V?</h2>
+                        <p>Lorem to the ipsum.</p>
 
-                        <div class="code-block">pip install civitas-env</div>
 
-                        <p>Or install from source for the latest development version:</p>
+                    <section id="howto" class="section">
+                        <h2>Scoring and How to Win</h2>
 
-                        <div class="code-block">git clone https://github.com/civitas-ai/civitas-env.git
-cd civitas-env
-pip install -e .</div>
+                        <div class="subsection" id="victory-conditions">
+                            <h3>Victory Conditions</h3>
+                            <p>Civitas supports all major victory types from Civilization V, each requiring different strategic approaches:</p>
 
-                        <div class="info-box">
-                            <h4>Requirements</h4>
-                            <p>Civitas requires Python 3.8+ and has been tested on Linux, macOS, and Windows. GPU acceleration is optional but recommended for training.</p>
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                  <h4><img src="./assets/yield_science.png" alt="science-vic" style="height:1.5em; vertical-align:middle;"> Science Victory</h4>
+                                    <p>Build the spaceship parts and launch to Alpha Centauri. Requires heavy investment in science infrastructure and specific technologies.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4><img src="./assets/warfare.png" alt="dominaction-vic" style="height:1.75em; vertical-align:middle;"> Domination Victory</h4>
+                                    <p>Capture all enemy capitals. Demands military might, strategic positioning, and efficient conquest campaigns.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4><img src="./assets/yield_culture.png" alt="cultural-civ" style="height:1.5em; vertical-align:middle;">
+ Cultural Victory</h4>
+                                    <p>Achieve influential status over all civilizations through tourism and cultural policies.</p>
+                                </div>
+                                <div class="feature-card">
+                                    <h4><img src="./assets/diplomacy.png" alt="diplomacy-vic" style="height:1.75em; vertical-align:middle;">
+ Diplomatic Victory</h4>
+                                    <p>Win the United Nations vote by maintaining strong relationships and city-state alliances.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection" id="scoring-system">
+                            <h3>Scoring System</h3>
+                            <p>The scoring system evaluates multiple dimensions of civilization development such a city growth, technological progress, world wonder and great work production, and much more. While Civilization's built-in scoring system corresponds to ...., it is not directly correlated to progress towards winning the game via one of the aforementioned victory conditions. This is similar to a game of chess giving a player points for developing pieces.</p>
+
+
                         </div>
                     </section>
 
-                    <section id="quickstart" class="section">
-                        <h2>Quick Start</h2>
-                        <p>Get started with Civitas in just a few lines of code:</p>
+                    <section class="section" id="mechanics">
+                      <h2>Environment Mechanics</h2>
 
-                        <div class="code-block">import civitas
+                      <div class="subsection" id="city-mech">
+                        <h3>Cities</h3>
+                      </div>
+                      <div class="subsection" id="tech-mech">
+                        <h3>Technology</h3>
+                      </div>
+                      <div class="subsection" id="culture-mech">
+                        <h3>Culture</h3>
+                      </div>
+                      <div class="subsection" id="religion-mech">
+                        <h3>Religion</h3>
+                      </div>
+                      <div class="subsection" id="trading-mech">
+                        <h3>Trading</h3>
+                      </div>
+                      <div class="subsection" id="unit-mech">
+                        <h3>Units</h3>
+                      </div>
 
-# Create the environment
-env = civitas.make('CivitasV0')
-
-# Reset and get initial observation
-observation = env.reset()
-
-# Take a random action
-action = env.action_space.sample()
-observation, reward, done, info = env.step(action)
-
-print(f"Reward: {reward}")
-print(f"Done: {done}")</div>
-
-                        <h3>Basic Training Loop</h3>
-                        <p>Here's a simple training loop using the environment:</p>
-
-                        <div class="code-block">import civitas
-import numpy as np
-
-env = civitas.make('CivitasV0')
-
-for episode in range(100):
-    observation = env.reset()
-    total_reward = 0
-
-    while True:
-        # Replace with your agent's policy
-        action = env.action_space.sample()
-
-        observation, reward, done, info = env.step(action)
-        total_reward += reward
-
-        if done:
-            break
-
-    print(f"Episode {episode}: Total Reward = {total_reward}")</div>
                     </section>
 
-                    <section id="environment" class="section">
-                        <h2>Environment Overview</h2>
-                        <p>Civitas provides a turn-based strategy environment based on Civilization V with LekMod balance patches. The environment supports multiple agents in a 6-player free-for-all setting.</p>
-
-                        <h3>Environment Parameters</h3>
-                        <table class="parameter-table">
-                            <thead>
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Type</th>
-                                    <th>Default</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="code-inline">map_size</code></td>
-                                    <td>str</td>
-                                    <td>'standard'</td>
-                                    <td>Map size: 'tiny', 'small', 'standard', 'large', 'huge'</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">num_players</code></td>
-                                    <td>int</td>
-                                    <td>6</td>
-                                    <td>Number of players (2-8)</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">difficulty</code></td>
-                                    <td>str</td>
-                                    <td>'prince'</td>
-                                    <td>AI difficulty level</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">turn_limit</code></td>
-                                    <td>int</td>
-                                    <td>500</td>
-                                    <td>Maximum number of turns</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="info-box warning">
-                            <h4>Performance Note</h4>
-                            <p>Larger maps and more players significantly increase computation time. Start with smaller configurations for development and testing.</p>
-                        </div>
-                    </section>
-
-                    <section id="actions" class="section">
-                        <h2>Action Space</h2>
-                        <p>Civitas uses a hierarchical action space that mirrors the decision-making process in Civilization V. Actions are structured as nested dictionaries with the following main categories:</p>
-
-                        <h3>Action Categories</h3>
-                        <ul style="margin-left: 20px; margin-bottom: 20px;">
-                            <li><strong>City Actions:</strong> Build units, buildings, or specialists</li>
-                            <li><strong>Unit Actions:</strong> Move, attack, or perform special abilities</li>
-                            <li><strong>Diplomacy:</strong> Trade deals, declarations, and negotiations</li>
-                            <li><strong>Research:</strong> Choose technology paths</li>
-                            <li><strong>Policy:</strong> Select social policies and government types</li>
-                        </ul>
-
-                        <div class="code-block">action = {
-    'city_actions': {
-        'city_id': 1,
-        'action_type': 'build_unit',
-        'target': 'warrior'
-    },
-    'unit_actions': [
-        {
-            'unit_id': 5,
-            'action_type': 'move',
-            'target_hex': (10, 15)
-        }
-    ],
-    'research': 'bronze_working',
-    'policy': 'tradition_opener'
-}</div>
-                    </section>
-
-                    <section id="observations" class="section">
-                        <h2>Observation Space</h2>
-                        <p>The observation space provides comprehensive information about the game state, including map data, unit positions, city information, and diplomatic status.</p>
-
-                        <h3>Observation Structure</h3>
-                        <div class="code-block">observation = {
-    'map': np.array(...),           # Terrain and improvement data
-    'units': {...},                 # Unit positions and properties
-    'cities': {...},                # City locations and statistics
-    'diplomacy': {...},             # Diplomatic relationships
-    'research': {...},              # Technology progress
-    'resources': {...},             # Available resources
-    'turn_info': {...}              # Current turn and player info
-}</div>
-
-                        <p>Each component of the observation provides detailed information necessary for strategic decision-making.</p>
-                    </section>
                 </main>
             </div>
         </div>
@@ -543,16 +552,20 @@ for episode in range(100):
         // Handle sidebar navigation active states
         document.addEventListener('DOMContentLoaded', function() {
             const sidebarLinks = document.querySelectorAll('.sidebar a');
-            const sections = document.querySelectorAll('.section');
+            const sections = document.querySelectorAll('.section, .subsection');
 
             // Function to update active link
             function updateActiveLink() {
                 let currentSection = '';
+                let currentDistance = Infinity;
 
                 sections.forEach(section => {
                     const rect = section.getBoundingClientRect();
-                    if (rect.top <= 100 && rect.bottom > 100) {
+                    const distance = Math.abs(rect.top - 120); // 120px offset for better UX
+
+                    if (rect.top <= 150 && distance < currentDistance) {
                         currentSection = section.id;
+                        currentDistance = distance;
                     }
                 });
 
@@ -564,8 +577,19 @@ for episode in range(100):
                 });
             }
 
-            // Update on scroll
-            window.addEventListener('scroll', updateActiveLink);
+            // Update on scroll with throttling
+            let ticking = false;
+            function handleScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        updateActiveLink();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
 
             // Update on click
             sidebarLinks.forEach(link => {
