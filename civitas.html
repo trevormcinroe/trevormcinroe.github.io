@@ -48,6 +48,12 @@
             color: #2C363F;
             letter-spacing: -1px;
             position: relative;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .logo:hover {
+            color: #81ADC8;
         }
 
         .logo::after {
@@ -60,6 +66,7 @@
             background: linear-gradient(90deg, #B68F40 0%, #BB4430 100%);
             border-radius: 2px;
         }
+
 
         nav {
             display: flex;
@@ -372,11 +379,11 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">Civitas</div>
+            <a href="civitas" class="logo">Civitas</a>
             <nav>
                 <a href="#environment">Environment</a>
                 <a href="#research">Research</a>
-                <a href="#docs">Documentation</a>
+                <a href="civitas_documentation">Documentation</a>
                 <a href="#contact">Contact</a>
             </nav>
         </header>
