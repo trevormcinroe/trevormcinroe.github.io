@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civitas Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 100%);
+            min-height: 100vh;
+            color: #2C363F;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #F2F5EA;
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(44, 54, 63, 0.3);
+        }
+
+        header {
+            padding: 20px 40px;
+            border-bottom: 3px solid #81ADC8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #F2F5EA 0%, rgba(129, 173, 200, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2C363F;
+            letter-spacing: -1px;
+            position: relative;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .logo:hover {
+            color: #81ADC8;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #B68F40 0%, #BB4430 100%);
+            border-radius: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2C363F;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 0px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #F2F5EA;
+            background: #81ADC8;
+        }
+
+        nav a.active {
+            color: #F2F5EA;
+            background: #B68F40;
+        }
+
+        .gallery-container {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.05) 100%);
+            min-height: calc(100vh - 80px);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 50%, #B68F40 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            display: inline-block;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .image-card {
+            background: #F2F5EA;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(44, 54, 63, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(129, 173, 200, 0.2);
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(44, 54, 63, 0.25);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #81ADC8 0%, #B68F40 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F2F5EA;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .maintainer-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .image-placeholder:nth-child(1) {
+            background: linear-gradient(135deg, #81ADC8 0%, #2C363F 100%);
+        }
+
+        .image-placeholder:nth-child(2) {
+            background: linear-gradient(135deg, #B68F40 0%, #BB4430 100%);
+        }
+
+        .image-placeholder:nth-child(3) {
+            background: linear-gradient(135deg, #BB4430 0%, #81ADC8 100%);
+        }
+
+        .image-placeholder:nth-child(4) {
+            background: linear-gradient(135deg, #2C363F 0%, #B68F40 100%);
+        }
+
+        .image-caption {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image-caption h3 {
+            color: #2C363F;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .image-caption p {
+            color: rgba(44, 54, 63, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .description-section {
+            background: #F2F5EA;
+            border-radius: 0px;
+            padding: 40px;
+            border: 1px solid rgba(129, 173, 200, 0.2);
+            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .description-section h2 {
+            color: #2C363F;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(182, 143, 64, 0.3);
+        }
+
+        .description-section p {
+            color: rgba(44, 54, 63, 0.9);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .gallery-container {
+                padding: 40px 20px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery-title {
+                font-size: 2.5rem;
+            }
+
+            .description-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Smooth page load animation */
+        .container {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <link rel="stylesheet" href="civitas_header.css">
+        <div id="header-container"></div>
+        <script src="civitas_header.js"></script>
+
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h1 class="gallery-title">Contact Us</h1>
+            </div>
+
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="./assets/mcinroe.png" alt="trevor" class="maintainer-image">
+                    <div class="image-caption">
+                        <h3>Trevor McInroe</h3>
+                        <p>t.mcinroe@ed.ac.uk</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="./assets/sam.webp" alt="sam" class="maintainer-image">
+                    <div class="image-caption">
+                        <h3>Samuel Garcin</h3>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="./assets/kaleab.webp" alt="kaleab" class="maintainer-image">
+                    <div class="image-caption">
+                        <h3>Kale-ab Tessera</h3>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="./assets/dave.JPG" alt="dave" class="maintainer-image">
+                    <div class="image-caption">
+                        <h3>David Abel</h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="description-section">
+                <h2>Get in Touch</h2>
+                <p>
+                Lorem.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageCards = document.querySelectorAll('.image-card');
+
+            imageCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
