@@ -7,7 +7,7 @@ class CivitasHeader {
             'civitas_why': 'environment',
             'research.html': 'research',
             'civitas_documentation': 'docs',
-            'contact.html': 'contact'
+            'civitas_contact': 'contact'
         };
     }
 
@@ -29,7 +29,7 @@ class CivitasHeader {
                     <a href="civitas_why" class="${currentPage === 'environment' ? 'active' : ''}">Environment</a>
                     <a href="research.html" class="${currentPage === 'research' ? 'active' : ''}">Research</a>
                     <a href="civitas_documentation" class="${currentPage === 'docs' ? 'active' : ''}">Documentation</a>
-                    <a href="contact.html" class="${currentPage === 'contact' ? 'active' : ''}">Contact</a>
+                    <a href="civitas_contact" class="${currentPage === 'contact' ? 'active' : ''}">Contact</a>
                 </nav>
             </header>
         `;
