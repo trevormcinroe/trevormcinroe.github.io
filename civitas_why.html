@@ -1,615 +1,1452 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Civitas Environment Guide</title>
+
+    <!-- --------------------------- GLOBAL STYLES --------------------------- -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* ---------- Reset / base typography ---------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 100%);
-            min-height: 100vh;
-            color: #2C363F;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            line-height: 1.5;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #2c363f 0%, #81adc8 100%);
+        color: #2c363f;
+        line-height: 1.5;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #F2F5EA;
-            min-height: 100vh;
-            box-shadow: 0 0 50px rgba(44, 54, 63, 0.3);
-        }
+      /* ---------- Layout shell ---------- */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background: #f2f5ea;
+        box-shadow: 0 0 50px rgba(44, 54, 63, 0.3);
+      }
 
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 20px 40px;
+        min-height: 80px;
+        border-bottom: 3px solid #81adc8;
+        background: linear-gradient(90deg, #f2f5ea 0%, rgba(129, 173, 200, 0.1) 100%);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        position: relative;
+        font-size: 28px;
+        font-weight: 700;
+        color: #2c363f;
+        text-decoration: none;
+        letter-spacing: -1px;
+        transition: color 0.2s ease;
+      }
+
+      .logo:hover {
+        color: #81adc8;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, #b68f40 0%, #bb4430 100%);
+      }
+
+      nav {
+        display: flex;
+        gap: 35px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        padding: 8px 16px;
+        font-weight: 600;
+        color: #2c363f;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      nav a:hover {
+        background: #81adc8;
+        color: #f2f5ea;
+      }
+
+      nav a.active {
+        background: #b68f40;
+        color: #f2f5ea;
+      }
+
+      /* ---------- Docs wrapper ---------- */
+      .docs-container {
+        padding: 40px;
+        min-height: calc(100vh - 80px);
+        background: linear-gradient(
+          135deg,
+          #f2f5ea 0%,
+          rgba(129, 173, 200, 0.05) 100%
+        );
+      }
+
+      .docs-header {
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgba(129, 173, 200, 0.2);
+      }
+
+      .docs-title {
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: -1px;
+        background: linear-gradient(
+          135deg,
+          #2c363f 0%,
+          #81adc8 50%,
+          #b68f40 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .docs-subtitle {
+        font-size: 1.2rem;
+        color: rgba(44, 54, 63, 0.8);
+      }
+
+      /* ---------- Grid layout: sidebar + main ---------- */
+      .docs-layout {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* ---------- Sidebar ---------- */
+      .sidebar {
+        position: sticky;
+        top: 20px;
+        padding: 25px;
+        border: 1px solid rgba(129, 173, 200, 0.2);
+        background: linear-gradient(
+          135deg,
+          #f2f5ea 0%,
+          rgba(129, 173, 200, 0.08) 100%
+        );
+        box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+      }
+
+      .sidebar h3 {
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #2c363f;
+        border-bottom: 2px solid #81adc8;
+      }
+
+      .sidebar ul {
+        list-style: none;
+      }
+
+      .sidebar li {
+        margin-bottom: 4px;
+      }
+
+      .sidebar > ul > li {
+        margin-bottom: 8px;
+      }
+
+      .sidebar a {
+        display: block;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(44, 54, 63, 0.8);
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .sidebar > ul > li > a {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .sidebar a:hover {
+        background: rgba(129, 173, 200, 0.2);
+        color: #2c363f;
+      }
+
+      .sidebar a.active {
+        background: #81adc8;
+        color: #f2f5ea;
+      }
+
+      /* nested links */
+      .sidebar ul ul {
+        margin-top: 6px;
+        margin-left: 8px;
+        padding-left: 8px;
+        border-left: 2px solid rgba(129, 173, 200, 0.3);
+      }
+
+      .sidebar ul ul a {
+        font-size: 0.85rem;
+        color: rgba(44, 54, 63, 0.7);
+      }
+
+      .sidebar ul ul a.active {
+        background: #b68f40;
+        color: #f2f5ea;
+      }
+
+      /* ---------- Main content ---------- */
+      .main-content {
+        padding: 35px;
+        border: 1px solid rgba(129, 173, 200, 0.2);
+        background: #f2f5ea;
+        box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+        overflow-x: hidden;
+      }
+
+      .section {
+        margin-bottom: 50px;
+        scroll-margin-top: 100px;
+      }
+
+      .subsection {
+        margin-bottom: 35px;
+        scroll-margin-top: 100px;
+      }
+
+      .section h2 {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #2c363f;
+        border-bottom: 2px solid rgba(182, 143, 64, 0.3);
+      }
+
+      .section h3,
+      .subsection h3 {
+        margin: 25px 0 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #2c363f;
+      }
+
+      .section p,
+      .subsection p {
+        margin-bottom: 15px;
+        color: rgba(44, 54, 63, 0.9);
+      }
+
+      /* ---------- Victory cards ---------- */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .feature-card {
+        padding: 25px;
+        border: 1px solid rgba(129, 173, 200, 0.2);
+        background: linear-gradient(
+          135deg,
+          rgba(129, 173, 200, 0.08) 0%,
+          rgba(182, 143, 64, 0.08) 100%
+        );
+        transition: 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(44, 54, 63, 0.15);
+      }
+
+      .feature-card h4 {
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c363f;
+      }
+
+      /* ---------- Unit table & scrollbars ---------- */
+      .table-scroll {
+        position: relative;
+        max-width: 100%;
+      }
+
+      .h-scroll {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        height: 14px; /* just enough to reveal the OS scrollbar */
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #f2f5ea;
+      }
+
+      .body-scroll {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .comparison-table {
+        min-width: 900px;
+        width: max-content;
+        border-collapse: collapse;
+        margin: 30px 0;
+        background: #f2f5ea;
+        box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+      }
+
+      .comparison-table th {
+        padding: 15px;
+        background: #2c363f;
+        color: #f2f5ea;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .comparison-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(129, 173, 200, 0.2);
+        white-space: nowrap;
+        color: rgba(44, 54, 63, 0.9);
+      }
+
+      .comparison-table tr:nth-child(even) {
+        background: rgba(129, 173, 200, 0.05);
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* ---------- Collapsible details ---------- */
+      details.units-table summary {
+        cursor: pointer;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: #2c363f;
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      details.units-table summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details.units-table[open] summary {
+        color: #b68f40;
+      }
+
+      .closed-label,
+      .open-label { font-size: 0.9rem; }
+      details.units-table[open]   .closed-label { display: none; }
+      details.units-table:not([open]) .open-label  { display: none; }
+
+      /* ---------- Responsive tweaks ---------- */
+      @media (max-width: 768px) {
         header {
-            padding: 20px 40px;
-            border-bottom: 3px solid #81ADC8;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(90deg, #F2F5EA 0%, rgba(129, 173, 200, 0.1) 100%);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            min-height: 80px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2C363F;
-            letter-spacing: -1px;
-            position: relative;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .logo:hover {
-            color: #81ADC8;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #B68F40 0%, #BB4430 100%);
-            border-radius: 2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 35px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2C363F;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 0px;
-            transition: all 0.2s ease;
-        }
-
-        nav a:hover {
-            color: #F2F5EA;
-            background: #81ADC8;
-        }
-
-        nav a.active {
-            color: #F2F5EA;
-            background: #B68F40;
+          flex-direction: column;
+          gap: 20px;
+          padding: 15px 20px;
         }
 
         .docs-container {
-            padding: 40px;
-            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.05) 100%);
-            min-height: calc(100vh - 80px);
-        }
-
-        .docs-header {
-            margin-bottom: 40px;
-            border-bottom: 2px solid rgba(129, 173, 200, 0.2);
-            padding-bottom: 20px;
-        }
-
-        .docs-title {
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 50%, #B68F40 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            -moz-background-clip: text;
-            -moz-text-fill-color: transparent;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            display: inline-block;
-        }
-
-        .docs-subtitle {
-            font-size: 1.2rem;
-            color: rgba(44, 54, 63, 0.8);
-            font-weight: 400;
+          padding: 20px;
         }
 
         .docs-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 40px;
-            align-items: start;
+          grid-template-columns: 1fr;
+          gap: 20px;
         }
 
         .sidebar {
-            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.08) 100%);
-            border-radius: 0px;
-            padding: 25px;
-            border: 1px solid rgba(129, 173, 200, 0.2);
-            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
-            position: sticky;
-            top: 20px;
-        }
-
-        .sidebar h3 {
-            color: #2C363F;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #81ADC8;
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 4px;
-        }
-
-        .sidebar > ul > li {
-            margin-bottom: 8px;
-        }
-
-        .sidebar a {
-            color: rgba(44, 54, 63, 0.8);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 0px;
-            display: block;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-        }
-
-        .sidebar > ul > li > a {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .sidebar a:hover {
-            background: rgba(129, 173, 200, 0.2);
-            color: #2C363F;
-        }
-
-        .sidebar a.active {
-            background: #81ADC8;
-            color: #F2F5EA;
-        }
-
-        /* Nested sub-navigation styling */
-        .sidebar ul ul {
-            margin-top: 6px;
-            margin-left: 8px;
-            border-left: 2px solid rgba(129, 173, 200, 0.3);
-            padding-left: 8px;
-        }
-
-        .sidebar ul ul a {
-            padding: 4px 8px;
-            font-size: 0.85rem;
-            color: rgba(44, 54, 63, 0.7);
-            font-weight: 400;
-        }
-
-        .sidebar ul ul a:hover {
-            background: rgba(182, 143, 64, 0.15);
-            color: #2C363F;
-        }
-
-        .sidebar ul ul a.active {
-            background: #B68F40;
-            color: #F2F5EA;
+          position: static;
+          order: 2;
         }
 
         .main-content {
-            background: #F2F5EA;
-            border-radius: 0px;
-            padding: 35px;
-            border: 1px solid rgba(129, 173, 200, 0.2);
-            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
+          padding: 20px;
         }
 
-        .section {
-            margin-bottom: 50px;
-            scroll-margin-top: 100px;
-        }
-
-        .subsection {
-            margin-bottom: 35px;
-            scroll-margin-top: 100px;
-        }
-
-        .section h2 {
-            color: #2C363F;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(182, 143, 64, 0.3);
-        }
-
-        .section h3, .subsection h3 {
-            color: #2C363F;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 25px 0 15px 0;
-        }
-
-        .section h4, .subsection h4 {
-            color: #2C363F;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 20px 0 10px 0;
-        }
-
-        .section p, .subsection p {
-            color: rgba(44, 54, 63, 0.9);
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-
-        .code-block {
-            background: #2C363F;
-            color: #F2F5EA;
-            padding: 20px;
-            border-radius: 0px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin: 20px 0;
-            border-left: 4px solid #81ADC8;
-        }
-
-        .code-inline {
-            background: rgba(129, 173, 200, 0.15);
-            color: #2C363F;
-            padding: 2px 6px;
-            border-radius: 0px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9em;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, rgba(129, 173, 200, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
-            border-left: 4px solid #81ADC8;
-            padding: 20px;
-            border-radius: 0px;
-            margin: 25px 0;
-        }
-
-        .info-box.warning {
-            border-left-color: #BB4430;
-            background: linear-gradient(135deg, rgba(187, 68, 48, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
-        }
-
-        .info-box.success {
-            border-left-color: #6B9080;
-            background: linear-gradient(135deg, rgba(107, 144, 128, 0.1) 0%, rgba(182, 143, 64, 0.1) 100%);
-        }
-
-        .info-box h4 {
-            color: #2C363F;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .docs-title {
+          font-size: 2.5rem;
         }
 
         .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+          grid-template-columns: 1fr;
         }
+      }
 
-        .feature-card {
-            background: linear-gradient(135deg, rgba(129, 173, 200, 0.08) 0%, rgba(182, 143, 64, 0.08) 100%);
-            border: 1px solid rgba(129, 173, 200, 0.2);
-            border-radius: 0px;
-            padding: 25px;
-            transition: all 0.3s ease;
+      /* ---------- Fade-in animation ---------- */
+      .container {
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(44, 54, 63, 0.15);
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-
-        .feature-card h4 {
-            color: #2C363F;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: rgba(44, 54, 63, 0.8);
-            line-height: 1.6;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: #F2F5EA;
-            border-radius: 0px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(44, 54, 63, 0.1);
-        }
-
-        .comparison-table th {
-            background: #2C363F;
-            color: #F2F5EA;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .comparison-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(129, 173, 200, 0.2);
-            color: rgba(44, 54, 63, 0.9);
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: rgba(129, 173, 200, 0.05);
-        }
-
-        .check-mark {
-            color: #6B9080;
-            font-weight: bold;
-        }
-
-        .x-mark {
-            color: #BB4430;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            nav {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .docs-container {
-                padding: 20px;
-            }
-
-            .docs-layout {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .sidebar {
-                position: static;
-                order: 2;
-            }
-
-            .main-content {
-                padding: 20px;
-            }
-
-            .docs-title {
-                font-size: 2.5rem;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth page load animation */
-        .container {
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <div class="container">
-        <link rel="stylesheet" href="civitas_header.css">
-        <div id="header-container"></div>
-        <script src="civitas_header.js"></script>
+      <!-- optional header loaded externally -->
+      <link rel="stylesheet" href="civitas_header.css" />
+      <div id="header-container"></div>
+      <script src="civitas_header.js"></script>
 
-
-        <div class="docs-container">
-            <div class="docs-header">
-                <h1 class="docs-title">Environment Information</h1>
-                <p class="docs-subtitle">Complete guide to the Civitas reinforcement learning environment</p>
-            </div>
-
-            <div class="docs-layout">
-                <aside class="sidebar">
-                    <h3>Contents</h3>
-                    <ul>
-                        <li>
-                            <a href="#why" class="active">Why Civilization V?</a>
-                        </li>
-                        <li>
-                            <a href="#howto">Scoring and How to Win</a>
-                            <ul>
-                                <li><a href="#victory-conditions">Victory Conditions</a></li>
-                                <li><a href="#scoring-system">Scoring System</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#mechanics">Environment Mechanics</a>
-                            <ul>
-                                <li><a href="#city-mech">Cities</a></li>
-                                <li><a href="#tech-mech">Technology</a></li>
-                                <li><a href="#culture-mech">Culture</a></li>
-                                <li><a href="#religion-mech">Religion</a></li>
-                                <li><a href="#trading-mech">Trading</a></li>
-                                <li><a href="#unit-mech">Units</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </aside>
-
-                <main class="main-content">
-                    <section id="why" class="section">
-                        <h2>Why Civilization V?</h2>
-                        <p>Lorem to the ipsum.</p>
-
-
-                    <section id="howto" class="section">
-                        <h2>Scoring and How to Win</h2>
-
-                        <div class="subsection" id="victory-conditions">
-                            <h3>Victory Conditions</h3>
-                            <p>Civitas supports all major victory types from Civilization V, each requiring different strategic approaches:</p>
-
-                            <div class="feature-grid">
-                                <div class="feature-card">
-                                  <h4><img src="./assets/yield_science.png" alt="science-vic" style="height:1.5em; vertical-align:middle;"> Science Victory</h4>
-                                    <p>Build the spaceship parts and launch to Alpha Centauri. Requires heavy investment in science infrastructure and specific technologies.</p>
-                                </div>
-                                <div class="feature-card">
-                                    <h4><img src="./assets/warfare.png" alt="dominaction-vic" style="height:1.75em; vertical-align:middle;"> Domination Victory</h4>
-                                    <p>Capture all enemy capitals. Demands military might, strategic positioning, and efficient conquest campaigns.</p>
-                                </div>
-                                <div class="feature-card">
-                                    <h4><img src="./assets/yield_culture.png" alt="cultural-civ" style="height:1.5em; vertical-align:middle;">
- Cultural Victory</h4>
-                                    <p>Achieve influential status over all civilizations through tourism and cultural policies.</p>
-                                </div>
-                                <div class="feature-card">
-                                    <h4><img src="./assets/diplomacy.png" alt="diplomacy-vic" style="height:1.75em; vertical-align:middle;">
- Diplomatic Victory</h4>
-                                    <p>Win the United Nations vote by maintaining strong relationships and city-state alliances.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="subsection" id="scoring-system">
-                            <h3>Scoring System</h3>
-                            <p>The scoring system evaluates multiple dimensions of civilization development such a city growth, technological progress, world wonder and great work production, and much more. While Civilization's built-in scoring system corresponds to ...., it is not directly correlated to progress towards winning the game via one of the aforementioned victory conditions. This is similar to a game of chess giving a player points for developing pieces.</p>
-
-
-                        </div>
-                    </section>
-
-                    <section class="section" id="mechanics">
-                      <h2>Environment Mechanics</h2>
-
-                      <div class="subsection" id="city-mech">
-                        <h3>Cities</h3>
-                      </div>
-                      <div class="subsection" id="tech-mech">
-                        <h3>Technology</h3>
-                      </div>
-                      <div class="subsection" id="culture-mech">
-                        <h3>Culture</h3>
-                      </div>
-                      <div class="subsection" id="religion-mech">
-                        <h3>Religion</h3>
-                      </div>
-                      <div class="subsection" id="trading-mech">
-                        <h3>Trading</h3>
-                      </div>
-                      <div class="subsection" id="unit-mech">
-                        <h3>Units</h3>
-                      </div>
-
-                    </section>
-
-                </main>
-            </div>
+      <div class="docs-container">
+        <!-- --------------------- Page header --------------------- -->
+        <div class="docs-header">
+          <h1 class="docs-title">Environment Information</h1>
+          <p class="docs-subtitle">
+            Complete guide to the Civitas reinforcement learning environment
+          </p>
         </div>
+
+        <div class="docs-layout">
+          <!-- ----------------------- Sidebar ----------------------- -->
+          <aside class="sidebar">
+            <h3>Contents</h3>
+            <ul>
+              <li><a href="#why" class="active">Why Civilization V?</a></li>
+              <li>
+                <a href="#howto">Scoring and How to Win</a>
+                <ul>
+                  <li><a href="#victory-conditions">Victory Conditions</a></li>
+                  <li><a href="#scoring-system">Scoring System</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#mechanics">Environment Mechanics</a>
+                <ul>
+                  <li><a href="#maps-mech">Maps</a></li>
+                  <li><a href="#yields-mech">Yields</a></li>
+                  <li><a href="#resources-mech">Resources</a></li>
+                  <li><a href="#city-mech">Cities</a></li>
+                  <li><a href="#buildings-mech">Buildings</a></li>
+                  <li><a href="#unit-mech">Units</a></li>
+                  <li><a href="#tech-mech">Technology</a></li>
+                  <li><a href="#culture-mech">Culture</a></li>
+                  <li><a href="#religion-mech">Religion</a></li>
+                  <li><a href="#trading-mech">Trading</a></li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- ----------------------- Main content ----------------------- -->
+          <main class="main-content">
+            <!-- WHY SECTION -->
+            <section id="why" class="section">
+              <h2>Why Civilization V?</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Voluptate sequi ipsa fuga dolore officiis.
+              </p>
+            </section>
+
+            <!-- HOW TO WIN SECTION -->
+            <section id="howto" class="section">
+              <h2>Scoring and How to Win</h2>
+
+              <!-- victory conditions -->
+              <div id="victory-conditions" class="subsection">
+                <h3>Victory Conditions</h3>
+                <p>
+                  Civitas supports all major victory types from Civilization V,
+                  each requiring different strategic approaches:
+                </p>
+
+                <div class="feature-grid">
+                  <div class="feature-card">
+                    <h4>
+                      <img
+                        src="./assets/yield_science.png"
+                        alt="science-vic"
+                        style="height: 1.5em; vertical-align: middle"
+                      />
+                      Science Victory
+                    </h4>
+                    <p>
+                      Build the spaceship parts and launch to Alpha Centauri.
+                      Requires heavy investment in science infrastructure and
+                      key technologies.
+                    </p>
+                  </div>
+
+                  <div class="feature-card">
+                    <h4>
+                      <img
+                        src="./assets/warfare.png"
+                        alt="domination-vic"
+                        style="height: 1.75em; vertical-align: middle"
+                      />
+                      Domination Victory
+                    </h4>
+                    <p>
+                      Capture all enemy capitals. Demands military might and
+                      efficient conquest planning.
+                    </p>
+                  </div>
+
+                  <div class="feature-card">
+                    <h4>
+                      <img
+                        src="./assets/yield_culture.png"
+                        alt="cultural-vic"
+                        style="height: 1.5em; vertical-align: middle"
+                      />
+                      Cultural Victory
+                    </h4>
+                    <p>
+                      Achieve influential status over every civilization via
+                      tourism and cultural output.
+                    </p>
+                  </div>
+
+                  <div class="feature-card">
+                    <h4>
+                      <img
+                        src="./assets/diplomacy.png"
+                        alt="diplomacy-vic"
+                        style="height: 1.75em; vertical-align: middle"
+                      />
+                      Diplomatic Victory
+                    </h4>
+                    <p>
+                      Win the United Nations vote by forging alliances and
+                      currying city‑state favour.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- scoring system -->
+              <div id="scoring-system" class="subsection">
+                <h3>Scoring System</h3>
+                <p>
+                  The default score reflects overall civilization development
+                  (population, techs, wonders, etc.) but does not map directly
+                  to victory probability—similar to chess material not
+                  guaranteeing check‑mate.
+                </p>
+              </div>
+            </section>
+
+            <!-- MECHANICS SECTION -->
+            <section id="mechanics" class="section">
+              <h2>Environment Mechanics</h2>
+
+              <div id="maps-mech" class="subsection"><h3>Maps</h3></div>
+              <p>
+              Maps are procedurally generated by the Civitas game engine. The generation process closely matches the map generation process used in <a href="https://github.com/EnormousApplePie/Lekmod/blob/main/Lekmap/HBMapGenerator.lua">LekMod</a>
+              </p>
+
+              <div id="yields-mech" class="subsection"><h3>Yields</h3></div>
+              <div id="resources-mech" class="subsection"><h3>Resources</h3></div>
+                <p>
+                Maps in Civitas are populated with three types of resources: luxury, strategic, and bonus. Luxury resources are critical to empire growth, as they provide happiness when unique and improved, and can be traded with other players in the game. Strategic resources provide material to build certain units and buildings. Bonus resources provide boosts to a tile's yield output when worked. Each resource has a terrain-type spawn-bias. For example, the banana bonus resource is more likely to spawn in jungle tiles than anywhere else.
+                </p>
+                <p>
+                The table below shows all 53 resources in Civitas: the icon in the game renderer, the name, the resource type, which technology is required for an agent to see the resource, and which technology is required for an agent to improve the resource. Empty cells indicate that a resource is seeable and improvable without technological advancement required.
+                </p>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show resource table ▸</span>
+                    <span class="open-label">Hide resource table ▾</span>
+                  </summary>
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 3em;"></th>
+                          <th style="width: 5em;">Name</th>
+                          <th style="width: 7em;">Type</th>
+                          <th style="width: 9em;">See Tech</th>
+                          <th>Improve Tech</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/dyes.png" alt="dyes" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Dyes</td>
+                          <td>Luxury</td>
+                          <td></td>
+                          <td>Calendar</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/copper.png" alt="copper" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Copper</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/deer.png" alt="deer" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Deer</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Trapping</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/ivory.png" alt="ivory" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Ivory</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Trapping</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/silver.png" alt="silver" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Silver</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/jewelry.png" alt="jewelry" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Jewelry</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/uranium.png" alt="uranium" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Uranium</td>
+                          <td>Strategic</td>
+                          <td>Atomic Theory</td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/lapis.png" alt="lapis" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Lapis</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/gems.png" alt="gems" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Gems</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/iron.png" alt="iron" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Iron</td>
+                          <td>Strategic</td>
+                          <td>Mining</td>
+                          <td>Mining</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/wine.png" alt="wine" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Wine</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                         <tr>
+                          <td><img src="./assets/optimized_images/resources/cow.png" alt="dyes" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Cows</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Animal Husbandry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/coconut.png" alt="coconut" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Coconut</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/wheat.png" alt="wheat" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Wheat</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td> </td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/oil.png" alt="oil" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Oil</td>
+                          <td>Strategic</td>
+                          <td>Biology</td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/marble.png" alt="marble" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Marble</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Masonry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/tobacco.png" alt="tobacco" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Tobacco</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/maize.png" alt="maize" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Maize</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td> </td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/whales.png" alt="whales" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Whales</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Sailing</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/olives.png" alt="olives" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Olives</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/truffles.png" alt="truffles" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Truffles</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Trapping</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/bison.png" alt="bison" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Bison</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Trapping</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/sugar.png" alt="sugar" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Sugar</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/horses.png" alt="horses" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Horses</td>
+                          <td>Strategic</td>
+                          <td>Animal Husbandry</td>
+                          <td>Animal Husbandry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/citrus.png" alt="citrus" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Citrus</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/cotton.png" alt="cotton" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Cotton</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/salt.png" alt="salt" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Salt</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/gold.png" alt="gold" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Gold</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/aluminium.png" alt="aluminium" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Aluminium</td>
+                          <td>Strategic</td>
+                          <td>Electricity</td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/incense.png" alt="incense" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Incense</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/coffee.png" alt="coffee" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Coffee</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/crabs.png" alt="crabs" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Crabs</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Sailing</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/silk.png" alt="silk" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Silk</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/perfume.png" alt="perfume" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Perfume</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/glass.png" alt="glass" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Glass</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/spices.png" alt="spices" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Spices</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/amber.png" alt="amber" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Amber</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/chocolate.png" alt="chocolate" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Chocolate</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/rubber.png" alt="rubber" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Rubber</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/coal.png" alt="coal" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Coal</td>
+                          <td>Strategic</td>
+                          <td>Industrialization</td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/sheep.png" alt="sheep" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Sheep</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Animal Husbandry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/coral.png" alt="coral" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Coral</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Sailing</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/furs.png" alt="furs" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Furs</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Tapping</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/porcelain.png" alt="porcelain" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Porcelain</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Masonry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/fish.png" alt="fish" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Fish</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Sailing</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/tea.png" alt="tea" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Tea</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/hardwood.png" alt="hardwood" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Hardwood</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Bronze Working</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/obsidian.png" alt="obsidian" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Obsidian</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Masonry</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/banana.png" alt="banana" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Banana</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Calendar</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/jade.png" alt="jade" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Jade</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Mining</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/pearls.png" alt="pearls" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Pearls</td>
+                          <td>Luxury</td>
+                          <td> </td>
+                          <td>Sailing</td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/optimized_images/resources/stone.png" alt="stone" style="height:2.5em; vertical-align:middle;"></td>
+                          <td>Stone</td>
+                          <td>Bonus</td>
+                          <td> </td>
+                          <td>Masonry</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+
+
+
+                  <!-- main table scroller -->
+
+
+              <div id="city-mech" class="subsection"><h3>Cities</h3></div>
+              <p>
+              Cities are the foundational building blocks of any game of Civitas, just as they are in Civilization V. They serve as the primary engines of growth, production, and progress, responsible for constructing buildings, training units, generating Great Works, and producing all major yields: Food, Production, Gold, Science, Culture, Faith, and more. At their core, cities are shaped by their population. A higher population allows more citizens to work tiles, directly increasing the city's output. However, growing cities comes at a cost: each additional citizen increases the empire’s Unhappiness. If a civilization expands faster than its Happiness can sustain, it suffers penalties across the board, including reduced growth, Gold, and Science, and eventually risks civil unrest. Balancing city development with empire-wide stability is central to long-term success.
+              </p>
+
+              <p>
+                Players directly control many aspects of their empire's cities. They choose where to settle them, which tiles should be worked, and what buildings or units the city produces. On each turn, a player must choose which tiles within each of their city's ownership borders are worked.
+              </p>
+
+              <figure>
+                <img src="./assets/optimized_images/tile_selection_example.png" alt="" style="max-width: 100%;">
+                <figcaption style="
+                  font-size: 0.9em;
+                  font-style: italic;
+                  color: #555;
+                  padding-left: 1em;
+                  border-left: 3px solid #ccc;
+                  margin-top: 0.5em;
+                ">
+                  A coastal city surrounded by resource-rich lands. The city's border is shown in red, and its worked tiles highlighted in green.
+                </figcaption>
+              </figure>
+
+              <div id="buildings-mech" class="subsection">
+                <h3>Buildings</h3>
+              </div>
+
+              <!-- Units subsection -->
+              <div id="unit-mech" class="subsection">
+                <h3>Units</h3>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show unit table ▸</span>
+                    <span class="open-label">Hide unit table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <!-- floating scrollbar -->
+                  <div class="h-scroll" aria-hidden="true"></div>
+
+                  <!-- main table scroller -->
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Name</th>
+                          <th>Cost</th>
+                          <th>Combat</th>
+                          <th>Unit Type</th>
+                          <th>Unlock Tech</th>
+                          <th>Obsolete Tech</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- 37 unit rows (sample + ellipsis for brevity) -->
+                                                    <tr>
+                              <td>
+                                <img src="./assets/optimized_images/settler.png"
+                                     alt="settler"
+                                     style="height:2.5em; vertical-align:middle;">
+                              </td>
+                              <td>Settler</td>
+
+                              <td>73</td>           <!-- production cost -->
+                              <td>0</td>            <!-- combat strength -->
+                              <td>Civillian</td>        <!-- unit type -->
+                              <td>Agriculture</td>  <!-- unlocked at start -->
+                              <td>N/A</td>     <!-- becomes obsolete when Spearman is available -->
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/warrior.png" alt="warrior" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Warrior</td>
+                              <td>40</td>
+                              <td>8</td>
+                              <td>Melee</td>
+                              <td>Agriculture</td>
+                              <td>Iron Working</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/worker.png" alt="worker" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Worker</td>
+                              <td>48</td>
+                              <td>0</td>
+                              <td>Civillian</td>
+                              <td>Agriculture</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/archer.png" alt="archer" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Archer</td>
+                              <td>40</td>
+                              <td>5</td>
+                              <td>Ranged</td>
+                              <td>Archery</td>
+                              <td>Construction</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/caravan.png" alt="caravan" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Caravan</td>
+                              <td>75</td>
+                              <td>0</td>
+                              <td>Civillian</td>
+                              <td>Animal Husbandry</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/chariot_archer.png" alt="chariot_archer" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Chariot Archer</td>
+                              <td>56</td>
+                              <td>6</td>
+                              <td>Ranged</td>
+                              <td>The Wheel</td>
+                              <td>Chivalry</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/pikeman.png" alt="pikeman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Pikeman</td>
+                              <td>90</td>
+                              <td>16</td>
+                              <td>Melee</td>
+                              <td>Civil Service</td>
+                              <td>Metallurgy</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/scout.png" alt="scout" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Scout</td>
+                              <td>25</td>
+                              <td>5</td>
+                              <td>Melee</td>
+                              <td>Agriculture</td>
+                              <td>Education</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/spearman.png" alt="spearman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Spearman</td>
+                              <td>56</td>
+                              <td>11</td>
+                              <td>Melee</td>
+                              <td>Bronze Working</td>
+                              <td>Civil Service</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/catapult.png" alt="catapult" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Catapult</td>
+                              <td>75</td>
+                              <td>7</td>
+                              <td>Siege</td>
+                              <td>Mathematics</td>
+                              <td>Physics</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/composite_bowman.png" alt="composite_bowman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Composite Bowman</td>
+                              <td>75</td>
+                              <td>7</td>
+                              <td>Ranged</td>
+                              <td>Construction</td>
+                              <td>Machinery</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/horseman.png" alt="horseman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Horseman</td>
+                              <td>75</td>
+                              <td>12</td>
+                              <td>Melee</td>
+                              <td>Horseback Riding</td>
+                              <td>Chivalry</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/swordsman.png" alt="swordsman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Swordsman</td>
+                              <td>75</td>
+                              <td>14</td>
+                              <td>Melee</td>
+                              <td>Iron Working</td>
+                              <td>Steel</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/crossbowman.png" alt="crossbowman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Crossbowman</td>
+                              <td>120</td>
+                              <td>13</td>
+                              <td>Ranged</td>
+                              <td>Machinery</td>
+                              <td>Industrialization</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/knight.png" alt="knight" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Knight</td>
+                              <td>120</td>
+                              <td>20</td>
+                              <td>Melee</td>
+                              <td>Chivalry</td>
+                              <td>Military Science</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/longswordsman.png" alt="longswordsman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Longswordsman</td>
+                              <td>120</td>
+                              <td>21</td>
+                              <td>Melee</td>
+                              <td>Steel</td>
+                              <td>Gunpowder</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/trebuchet.png" alt="trebuchet" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Trebuchet</td>
+                              <td>120</td>
+                              <td>12</td>
+                              <td>Siege</td>
+                              <td>Physics</td>
+                              <td>Chemistry</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/cannon.png" alt="cannon" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Cannon</td>
+                              <td>185</td>
+                              <td>14</td>
+                              <td>Siege</td>
+                              <td>Chemistry</td>
+                              <td>Dynamite</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/lancer.png" alt="lancer" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Lancer</td>
+                              <td>185</td>
+                              <td>25</td>
+                              <td>Melee</td>
+                              <td>Metallurgy</td>
+                              <td>Railroad</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/musketman.png" alt="musketman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Musketman</td>
+                              <td>150</td>
+                              <td>24</td>
+                              <td>Melee</td>
+                              <td>Gunpowder</td>
+                              <td>Rifling</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/airship.png" alt="airship" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Airship</td>
+                              <td>150</td>
+                              <td>15</td>
+                              <td>Melee</td>
+                              <td>Steam Power</td>
+                              <td>Computers</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/artillery.png" alt="artillery" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Artillery</td>
+                              <td>250</td>
+                              <td>21</td>
+                              <td>Siege</td>
+                              <td>Dynamite</td>
+                              <td>Rocketry</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/cavalry.png" alt="cavalry" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Cavalry</td>
+                              <td>225</td>
+                              <td>34</td>
+                              <td>Melee</td>
+                              <td>Military Science</td>
+                              <td>Combustion</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/expeditionary_forces.png" alt="expeditionary_force" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Expeditionary Force</td>
+                              <td>270</td>
+                              <td>40</td>
+                              <td>Melee</td>
+                              <td>Biology</td>
+                              <td>Penicilin</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/gatlinggun.png" alt="gatlinggun" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Gatlinggun</td>
+                              <td>225</td>
+                              <td>30</td>
+                              <td>Ranged</td>
+                              <td>Industrialization</td>
+                              <td>Ballistics</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/rifleman.png" alt="rifleman" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Rifleman</td>
+                              <td>225</td>
+                              <td>34</td>
+                              <td>Melee</td>
+                              <td>Rifling</td>
+                              <td>Replaceable Parts</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/antitank_rifle.png" alt="anti_tank_rifle" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Anti Tank Rifle</td>
+                              <td>300</td>
+                              <td>30</td>
+                              <td>Melee</td>
+                              <td>Railroad</td>
+                              <td>Combined Arms</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/infantry.png" alt="infantry" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Infantry</td>
+                              <td>420</td>
+                              <td>70</td>
+                              <td>Melee</td>
+                              <td>Electronics</td>
+                              <td>Mobile Tactics</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/landship.png" alt="landship" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Landship</td>
+                              <td>390</td>
+                              <td>60</td>
+                              <td>Melee</td>
+                              <td>Combustion</td>
+                              <td>Combined Arms</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/machine_gun.png" alt="machine_gun" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Machine Gun</td>
+                              <td>390</td>
+                              <td>50</td>
+                              <td>Melee</td>
+                              <td>Ballistics</td>
+                              <td>Nuclear Fission</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/antitank_gun.png" alt="anti_tank_gun" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Anti Tank Gun</td>
+                              <td>360</td>
+                              <td>50</td>
+                              <td>Melee</td>
+                              <td>Combined Arms</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/bazooka.png" alt="bazooka" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Bazooka</td>
+                              <td>450</td>
+                              <td>80</td>
+                              <td>Ranged</td>
+                              <td>Nuclear Fission</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/helicopter_gunship.png" alt="helicopter_gunship" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Helicopter Gunship</td>
+                              <td>510</td>
+                              <td>70</td>
+                              <td>Melee</td>
+                              <td>Computers</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/marine.png" alt="marine" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Marine</td>
+                              <td>450</td>
+                              <td>80</td>
+                              <td>Melee</td>
+                              <td>Penicilin</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/rocket_artillery.png" alt="rocket_artillery" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Rocket Artillery</td>
+                              <td>510</td>
+                              <td>45</td>
+                              <td>Ranged</td>
+                              <td>Rocketry</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/tank.png" alt="tank" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Tank</td>
+                              <td>450</td>
+                              <td>70</td>
+                              <td>Melee</td>
+                              <td>Combined Arms</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <td><img src="./assets/optimized_images/xcom.png" alt="xcom_squad" style="height:2.5em; vertical-align:middle;"></td>
+                              <td>Xcom Squad</td>
+                              <td>510</td>
+                              <td>100</td>
+                              <td>Melee</td>
+                              <td>Nanotechnology</td>
+                              <td>N/A</td>
+                            </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+                </details>
+
+              <div id="tech-mech" class="subsection"><h3>Technology</h3></div>
+              <div id="culture-mech" class="subsection"><h3>Culture</h3></div>
+              <div id="religion-mech" class="subsection"><h3>Religion</h3></div>
+              <div id="trading-mech" class="subsection"><h3>Trading</h3></div>
+
+            </section>
+          </main>
+        </div>
+      </div>
     </div>
 
+    <!-- --------------------------- Scripts --------------------------- -->
     <script>
-        // Handle sidebar navigation active states
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebarLinks = document.querySelectorAll('.sidebar a');
-            const sections = document.querySelectorAll('.section, .subsection');
+      /** Sticky sidebar active link */
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebarLinks = document.querySelectorAll(".sidebar a");
+        const sections = document.querySelectorAll(".section, .subsection");
 
-            // Function to update active link
-            function updateActiveLink() {
-                let currentSection = '';
-                let currentDistance = Infinity;
+        function updateActiveLink() {
+          let current = "";
+          let currentDistance = Infinity;
 
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const distance = Math.abs(rect.top - 120); // 120px offset for better UX
-
-                    if (rect.top <= 150 && distance < currentDistance) {
-                        currentSection = section.id;
-                        currentDistance = distance;
-                    }
-                });
-
-                sidebarLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + currentSection) {
-                        link.classList.add('active');
-                    }
-                });
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top - 120);
+            if (rect.top <= 150 && distance < currentDistance) {
+              current = section.id;
+              currentDistance = distance;
             }
+          });
 
-            // Update on scroll with throttling
-            let ticking = false;
-            function handleScroll() {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        updateActiveLink();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
+          sidebarLinks.forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+          });
+        }
+
+        window.addEventListener("scroll", () => requestAnimationFrame(updateActiveLink));
+        updateActiveLink();
+
+        sidebarLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
-
-            window.addEventListener('scroll', handleScroll);
-
-            // Update on click
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Initial update
-            updateActiveLink();
+          });
         });
+
+        /** Floating horizontal scrollbar sync */
+        const topBar = document.querySelector(".h-scroll");
+        const bodyBar = document.querySelector(".body-scroll");
+        const table = bodyBar.querySelector("table");
+        if (table) topBar.style.width = table.scrollWidth + "px";
+
+        topBar.addEventListener("scroll", () => {
+          bodyBar.scrollLeft = topBar.scrollLeft;
+        });
+        bodyBar.addEventListener("scroll", () => {
+          topBar.scrollLeft = bodyBar.scrollLeft;
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
