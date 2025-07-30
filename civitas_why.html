@@ -467,6 +467,7 @@
                   <li><a href="#maps-mech">Maps</a></li>
                   <li><a href="#yields-mech">Yields</a></li>
                   <li><a href="#resources-mech">Resources</a></li>
+                  <li><a href="#cs-mech">City States</a></li>
                   <li><a href="#city-mech">Cities</a></li>
                   <li><a href="#buildings-mech">Buildings</a></li>
                   <li><a href="#unit-mech">Units</a></li>
@@ -1086,6 +1087,7 @@
 
                   <!-- main table scroller -->
 
+              <div id="cs-mech" class="subsection"><h3>City States</h3></div>
 
               <div id="city-mech" class="subsection"><h3>Cities</h3></div>
               <p>
@@ -1492,6 +1494,40 @@
               <div id="culture-mech" class="subsection"><h3>Culture</h3></div>
               <div id="religion-mech" class="subsection"><h3>Religion</h3></div>
               <div id="trading-mech" class="subsection"><h3>Trading</h3></div>
+
+                <h4>Trade Routes</h4>
+                  <figure>
+                    <img src="./assets/optimized_images/traderoutes.png" alt="traderoute-example" style="max-width: 100%;">
+                    <figcaption style="
+                      font-size: 0.9em;
+                      font-style: italic;
+                      color: #555;
+                      padding-left: 1em;
+                      border-left: 3px solid #ccc;
+                      margin-top: 0.5em;
+                      margin-bottom: 0.75em;
+                    ">
+                      An example trade route between two cities in the same empire.
+                    </figcaption>
+                  </figure>
+
+                <p>
+                Trade routes are established by sending a caravan <img src="./assets/optimized_images/caravan.png" alt="caravan" style="height:1.25em; vertical-align:middle;"> between two cities. Caravans <img src="./assets/optimized_images/caravan.png" alt="caravan" style="height:1.25em; vertical-align:middle;"> may be sent between any two cities as long as they are within 10 tiles of one another. Trade routes may cross water, but cannot cross mountains or natural wonders. This creates three possible scenarios: (1) route between two cities within an empire, (2) route between two cities in two different empires, and (3) route between an agent's city and a city state.
+                </p>
+
+                <p>
+                Establishing a trade route between two cities within the same empire sends food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> and production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> to the receiving city. If the sending city has a granary, the receiving city receives four food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> per turn, otherwise one. If the sending city has a workshop, the receiving city receives four production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> per turn, otherwise zero. These trade routes also send religious pressure if the agent has founded a religion prior to sending the route.
+                </p>
+
+                <p>
+                Establishing a trade route between two empires exchanges gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> and science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">. The receiving city always receives half as much of either yield as the sending the city. The total amount depends on how much gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> the sending city is generating and the total number of technologies researched by the sending city. These trade routes also exert religious pressure on the receiving city as well as cultural pressure.
+                </p>
+
+                <p>
+                Establishing a trade route to a city state generates a small amount of gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> for the sending city, but exerts both religious pressure and influence over the receiving city state.
+                </p>
+
+                <h4>Trade Deals</h4>
 
             </section>
           </main>
