@@ -556,7 +556,7 @@
                     </h4>
                     <p>
                       Win the United Nations vote by forging alliances and
-                      currying city‑state favour.
+                      currying city‑state favor.
                     </p>
                   </div>
                 </div>
@@ -566,7 +566,7 @@
               <div id="scoring-system" class="subsection">
                 <h3>Scoring System</h3>
                 <p>
-                  Civilization V + LekMod comes with a built-in score function that rewards points for population growth, city settling, land ownership, wonders built, technologies discovered, and more. This score reflects overall civilization development but does not correlate direcly to likelihood of any victory type. This would be similar to giving a chess-playing agent points for developing pieces: generally a good thing to do, but not related directly to achieving checkmate.
+                  Civilization V + LekMod features a built-in score function that rewards points for population growth, city settling, land ownership, wonders built, technologies discovered, and more. This score reflects overall civilization development but does not correlate direcly to achieving any victory type. This would be similar to giving a chess-playing agent points for developing pieces: generally a good thing to do, but not related directly to achieving checkmate. Civitas also comes with this reward function.
                 </p>
               </div>
             </section>
@@ -631,6 +631,58 @@
 
 
               <div id="yields-mech" class="subsection"><h3>Yields</h3></div>
+                <p>
+                In Civitas, there are eight main yields, all with unique purposes. We first describe them briefly:
+                </p>
+
+                <p>
+                <ul style="margin-left: 1.25em;">
+                  <li> Food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> is used to grow cities.
+                  <li> Production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> is used to build things within cities.
+                  <li> Gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> is used to fund buildings within cities and can be used in trade deals with other agents.
+                  <li> Faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> is used to develop a religion.
+                  <li> Culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> is used to unlock Social Policies.
+                  <li> Science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> is used to discover new technologies.
+                  <li> Tourism <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"> is used to place cultural pressure on other agents.
+                  <li> Happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> is used to keep your empire happy.
+
+                </ul>
+                </p>
+
+                <p>
+                After every turn, food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> is stockpiled in each city. If a certain threshold is met, a city grows to an additional population. This threshold scales with the current population in the city. Each citizen in a city costs two food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> to maintain, and a city can starve and lose a population is the reserves go negative. Food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> is gained from tile yields, buildings, and traderoutes between cities.
+
+                </p>
+
+                <p>
+                Production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> is also stockpiled after each turn. Buildings and units cost an amount of production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> to complete. Production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> is gained from tiles, buildings, and traderoutes.
+                </p>
+
+                <p>
+                Gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> is stockpiled empire-wide, but spent on a per-city basis. Having negative gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> across an empire causes penalties on science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> and culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, reducing an agents ability to stockpile those yields. Gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> is gained from tiles, buildings, traderoutes, and trade deals with other agents.
+                </p>
+
+                <p>
+                Faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> is stockpiled empire-wide. When certain thresholds are met, an agent may spend their stockpiled faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to add tenets to their religion, which can lead to significant bonuses. Faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> is gained from tiles and buildings.
+                </p>
+
+                <p>
+                Culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> is stockpiled empire-wide. When certain thresholds are met, an agent may spend their stockpiled culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> to add social policies to their empire, which can lead to significant bonuses. Culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> is gained from tiles and buildings.
+                </p>
+
+                <p>
+                Science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> is stockpiled empire-wide. When certain thresholds are met, an agent may spend their stockpiled science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> to discover new technologies, which can unlock new buildings, units, resources, and more. Science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> is gained from tiles, buildings, and traderoutes.
+                </p>
+
+                <p>
+                Tourism <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"> is produced in each city by buildings and Great Works. Tourism <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"> exerts cultural pressure on the empires of other agents. If an agent builds up enough tourism <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"> to become influential over all other agents in the game, they achieve a cultural victory.
+                </p>
+
+                <p>
+                Happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> is critical to running an empire. Settling and growing cities costs happiness to maintain. Having negative happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> causes penalties to all yields. Happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> is gained by improving unique luxuries, buildings, religious tenets, and more.
+                </p>
+
+
               <div id="resources-mech" class="subsection"><h3>Resources</h3></div>
                 <p>
                 Maps in Civitas are populated with three types of resources: luxury, strategic, and bonus. Luxury resources are critical to empire growth, as they provide happiness when unique and improved, and can be traded with other players in the game. Strategic resources provide material to build certain units and buildings. Bonus resources provide boosts to a tile's yield output when worked. Each resource has a terrain-type spawn-bias. For example, the banana bonus resource is more likely to spawn in jungle tiles than anywhere else.
