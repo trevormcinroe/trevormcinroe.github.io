@@ -580,7 +580,7 @@
             <section id="mechanics" class="section">
               <h2>Environment Mechanics</h2>
 
-              <div id="maps-mech" class="subsection"><h3>Maps</h3></div>
+              <div id="maps-mech" class="subsection"><h3>Maps</h3>
               <figure>
                 <img src="./assets/map.png" alt="map-example" style="max-width: 100%;">
               </figure>
@@ -630,12 +630,12 @@
                   border-left: 3px solid #ccc;
                   margin-top: 0.5em;
                 ">
-                  Mount Fuji spawned in a plains tile to the south-west of a large jungle.
+                Mount Fuji spawned in a plains tile to the south-west of a large jungle.
                 </figcaption>
               </figure>
+</div>
 
-
-              <div id="yields-mech" class="subsection"><h3>Yields</h3></div>
+              <div id="yields-mech" class="subsection"><h3>Yields</h3>
                 <p>
                 In Civitas, there are eight main yields, all with unique purposes. We first describe them briefly:
                 </p>
@@ -686,9 +686,9 @@
                 <p>
                 Happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> is critical to running an empire. Settling and growing cities costs happiness to maintain. Having negative happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> causes penalties to all yields. Happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> is gained by improving unique luxuries, buildings, religious tenets, and more.
                 </p>
+              </div>
 
-
-              <div id="resources-mech" class="subsection"><h3>Resources</h3></div>
+              <div id="resources-mech" class="subsection"><h3>Resources</h3>
                 <p>
                 Maps in Civitas are populated with three types of resources: luxury, strategic, and bonus. Luxury resources are critical to empire growth, as they provide happiness when unique and improved, and can be traded with other players in the game. Strategic resources provide material to build certain units and buildings. Bonus resources provide boosts to a tile's yield output when worked. Each resource has a terrain-type spawn-bias. For example, the banana bonus resource is more likely to spawn in jungle tiles than anywhere else.
                 </p>
@@ -1083,13 +1083,63 @@
                   </div>
                 </details>
 
-
+              </div>
 
                   <!-- main table scroller -->
 
-              <div id="cs-mech" class="subsection"><h3>City States</h3></div>
+              <div id="cs-mech" class="subsection"><h3>City States</h3>
+                <p>
+                  City states are non-playable entities. They begin each game with a singular city and cannot settle more. Agent-controlled civilizations can exert influence over city states and receive bonuses. These bonuses depends on the city state type. The two level of influence: (1) friends and (2) allies.
+                </p>
 
-              <div id="city-mech" class="subsection"><h3>Cities</h3></div>
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 4em;">Type</th>
+                          <th>Friend Bonus</th>
+                          <th>Ally Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+                        <tr>
+                          <td>Cultural</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Agricultural</td>
+                          <td>+2 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
+                          <td>+2/+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other cities.</td>
+                        </tr>
+                        <tr>
+                          <td>Militaristic</td>
+                          <td>A free military unit every 30 turns</td>
+                          <td>A free military unit every 15 turns</td>
+                        </tr>
+                        <tr>
+                          <td>Mercantile</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Religious</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Scientific</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+              </div>
+
+              <div id="city-mech" class="subsection"><h3>Cities</h3>
               <p>
               Cities are the foundational building blocks of any game of Civitas, just as they are in Civilization V. They serve as the primary engines of growth, production, and progress, responsible for constructing buildings, training units, generating Great Works, and producing all major yields: Food, Production, Gold, Science, Culture, Faith, and more. At their core, cities are shaped by their population. A higher population allows more citizens to work tiles, directly increasing the city's output. However, growing cities comes at a cost: each additional citizen increases the empire’s Unhappiness. If a civilization expands faster than its Happiness can sustain, it suffers penalties across the board, including reduced growth, Gold, and Science, and eventually risks civil unrest. Balancing city development with empire-wide stability is central to long-term success.
               </p>
@@ -1111,10 +1161,185 @@
                   A coastal city surrounded by resource-rich lands. The city's border is shown in red, and its worked tiles highlighted in green.
                 </figcaption>
               </figure>
+              </div>
 
               <div id="buildings-mech" class="subsection">
                 <h3>Buildings</h3>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show building table ▸</span>
+                    <span class="open-label">Hide building table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <!-- floating scrollbar -->
+                  <div class="h-scroll" aria-hidden="true"></div>
+
+                  <!-- main table scroller -->
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Cost</th>
+                          <th><img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">
+ Maintenance</th>
+                          <th>Unlock Tech</th>
+                          <th>Prereq Building</th>
+                          <th>Prereq Resources</th>
+                          <th>National Wonder?</th>
+                          <th>World Wonder?</th>
+                        </tr>
+                      </thead>
+
+
+                        <tr><td>Courthouse</td><td>50</td><td>4</td><td>Mathematics</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Seaport</td><td>166</td><td>2</td><td>Navigation</td><td>Harbor</td><td></td><td></td><td></td></tr>
+                        <tr><td>Stable</td><td>66</td><td>1</td><td>Horseback Riding</td><td></td><td>Horses, Sheep, Cow</td><td></td><td></td></tr>
+                        <tr><td>Watermill</td><td>50</td><td>2</td><td>The Wheel</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Circus</td><td>50</td><td>0</td><td>Trapping</td><td></td><td>Horses, Ivory</td><td></td><td></td></tr>
+                        <tr><td>Forge</td><td>80</td><td>1</td><td>Metal Casting</td><td></td><td>Iron</td><td></td><td></td></tr>
+                        <tr><td>Windmill</td><td>166</td><td>2</td><td>Economics</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Hydro Plant</td><td>280</td><td>3</td><td>Electricity</td><td></td><td>Aluminium</td><td></td><td></td></tr>
+                        <tr><td>Solar Plant</td><td>333</td><td>3</td><td>Ecology</td><td>Factory</td><td></td><td></td><td></td></tr>
+                        <tr><td>Mint</td><td>66</td><td>0</td><td>Currency</td><td></td><td>Gold, Silver, Copper</td><td></td><td></td></tr>
+                        <tr><td>Observatory</td><td>133</td><td>1</td><td>Astronomy</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Monastery</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Garden</td><td>80</td><td>1</td><td>Drama</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Lighthouse</td><td>50</td><td>1</td><td>Optics</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Harbor</td><td>80</td><td>2</td><td>Compass</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Colosseum</td><td>66</td><td>1</td><td>Construction</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Theatre</td><td>120</td><td>2</td><td>Printing Press</td><td>Colosseum</td><td></td><td></td><td></td></tr>
+                        <tr><td>Stadium</td><td>333</td><td>2</td><td>Refrigeration</td><td>Theatre</td><td></td><td></td><td></td></tr>
+                        <tr><td>Monument</td><td>26</td><td>1</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Temple</td><td>66</td><td>2</td><td>Philosophy</td><td>Shrine</td><td></td><td></td><td></td></tr>
+                        <tr><td>Opera House</td><td>133</td><td>1</td><td>Acoustics</td><td>Amphitheater</td><td></td><td></td><td></td></tr>
+                        <tr><td>Museum</td><td>200</td><td>1</td><td>Archaeology</td><td>Amphitheater</td><td></td><td></td><td></td></tr>
+                        <tr><td>Broadcast Tower</td><td>333</td><td>3</td><td>Radio</td><td>Opera House</td><td></td><td></td><td></td></tr>
+                        <tr><td>Barracks</td><td>50</td><td>1</td><td>Bronze Working</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Armory</td><td>106</td><td>1</td><td>Steel</td><td>Barracks</td><td></td><td></td><td></td></tr>
+                        <tr><td>Military Academy</td><td>200</td><td>1</td><td>Military Science</td><td>Armory</td><td></td><td></td><td></td></tr>
+                        <tr><td>Arsenal</td><td>200</td><td>0</td><td>Metallurgy</td><td>Castle</td><td></td><td></td><td></td></tr>
+                        <tr><td>Walls</td><td>50</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Castle</td><td>106</td><td>0</td><td>Chivalry</td><td>Walls</td><td></td><td></td><td></td></tr>
+                        <tr><td>Military Base</td><td>333</td><td>0</td><td>Replaceable Parts</td><td>Arsenal</td><td></td><td></td><td></td></tr>
+                        <tr><td>Granary</td><td>40</td><td>1</td><td>Pottery</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Hospital</td><td>240</td><td>2</td><td>Biology</td><td>Aqueduct</td><td></td><td></td><td></td></tr>
+                        <tr><td>Medical Lab</td><td>333</td><td>3</td><td>Electronics</td><td>Hospital</td><td></td><td></td><td></td></tr>
+                        <tr><td>Workshop</td><td>80</td><td>2</td><td>Metal Casting</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Factory</td><td>240</td><td>3</td><td>Industrialization</td><td>Workshop</td><td>Coal</td><td></td><td></td></tr>
+                        <tr><td>Nuclear Plant</td><td>333</td><td>3</td><td>Nuclear Fission</td><td>Factory</td><td>Uranium</td><td></td><td></td></tr>
+                        <tr><td>Spaceship Factory</td><td>240</td><td>3</td><td>Robotics</td><td>Factory</td><td></td><td></td><td></td></tr>
+                        <tr><td>Market</td><td>66</td><td>0</td><td>Currency</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Bank</td><td>133</td><td>0</td><td>Banking</td><td>Market</td><td></td><td></td><td></td></tr>
+                        <tr><td>Stock Exchange</td><td>240</td><td>0</td><td>Electricity</td><td>Bank</td><td></td><td></td><td></td></tr>
+                        <tr><td>Library</td><td>50</td><td>1</td><td>Writing</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>University</td><td>106</td><td>2</td><td>Education</td><td>Library</td><td></td><td></td><td></td></tr>
+                        <tr><td>Public School</td><td>200</td><td>3</td><td>Scientific Theory</td><td>University</td><td></td><td></td><td></td></tr>
+                        <tr><td>Laboratory</td><td>333</td><td>3</td><td>Plastic</td><td>Public School</td><td></td><td></td><td></td></tr>
+                        <tr><td>Palace</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Heroic Epic</td><td>83</td><td>0</td><td>Iron Working</td><td>Barracks</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>National College</td><td>83</td><td>0</td><td>Philosophy</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>National Epic</td><td>83</td><td>0</td><td>Drama</td><td>Monument</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Circus Maximus</td><td>83</td><td>0</td><td>Horseback Riding</td><td>Circus</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>National Treasury</td><td>83</td><td>0</td><td>Guilds</td><td>Market</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Ironworks</td><td>83</td><td>0</td><td>Machinery</td><td>Workshop</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Oxford University</td><td>83</td><td>0</td><td>Education</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Hermitage</td><td>83</td><td>0</td><td>Architecture</td><td>Opera House</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Great Lighthouse</td><td>123</td><td>0</td><td>Optics</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Stonehenge</td><td>123</td><td>0</td><td>Calendar</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Great Library</td><td>123</td><td>0</td><td>Writing</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Pyramid</td><td>123</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Colossus</td><td>123</td><td>0</td><td>Iron Working</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Oracle</td><td>166</td><td>0</td><td>Philosophy</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Hanging Garden</td><td>166</td><td>0</td><td>Mathematics</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Great Wall</td><td>166</td><td>0</td><td>Engineering</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Angkor Wat</td><td>266</td><td>0</td><td>Education</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Hagia Sophia</td><td>200</td><td>0</td><td>Theology</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Chichen Itza</td><td>200</td><td>0</td><td>Civil Service</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Machu Pichu</td><td>200</td><td>0</td><td>Guilds</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Notre Dame</td><td>266</td><td>0</td><td>Physics</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Porcelain Tower</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Himeji Castle</td><td>333</td><td>0</td><td>Gunpowder</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Sistine Chapel</td><td>333</td><td>0</td><td>Acoustics</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Kremlin</td><td>706</td><td>0</td><td>Railroad</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Forbidden Palace</td><td>333</td><td>0</td><td>Banking</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Taj Mahal</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Big Ben</td><td>500</td><td>0</td><td>Industrialization</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Louvre</td><td>500</td><td>0</td><td>Archaeology</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Brandenburg Gate</td><td>500</td><td>0</td><td>Military Science</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Statue Of Liberty</td><td>706</td><td>0</td><td>Replaceable Parts</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Cristo Redentor</td><td>802</td><td>0</td><td>Plastic</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Eiffel Tower</td><td>706</td><td>0</td><td>Radio</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Pentagon</td><td>802</td><td>0</td><td>Combined Arms</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Sydney Opera House</td><td>833</td><td>0</td><td>Ecology</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Aqueduct</td><td>66</td><td>1</td><td>Engineering</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Stone Works</td><td>50</td><td>1</td><td>Calendar</td><td></td><td>Marble, Stone, Obsidian</td><td></td><td></td></tr>
+                        <tr><td>Statue Zeus</td><td>123</td><td>0</td><td>Bronze Working</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Temple Artemis</td><td>123</td><td>0</td><td>Archery</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Mausoleum Halicarnassus</td><td>123</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Amphitheater</td><td>66</td><td>1</td><td>Drama</td><td>Monument</td><td></td><td></td><td></td></tr>
+                        <tr><td>Shrine</td><td>26</td><td>1</td><td>Pottery</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Recycling Center</td><td>333</td><td>3</td><td>Ecology</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Bomb Shelter</td><td>200</td><td>1</td><td>Telecom</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Constable</td><td>106</td><td>1</td><td>Banking</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Police Station</td><td>200</td><td>1</td><td>Electricity</td><td>Constable</td><td></td><td></td><td></td></tr>
+                        <tr><td>Intelligence Agency</td><td>83</td><td>0</td><td>Radio</td><td>Constable</td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Alhambra</td><td>266</td><td>0</td><td>Chivalry</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Cn Tower</td><td>802</td><td>0</td><td>Radar</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Hubble</td><td>833</td><td>0</td><td>Satellites</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Leaning Tower</td><td>333</td><td>0</td><td>Printing Press</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Mosque Of Djenne</td><td>166</td><td>0</td><td>Philosophy</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Neuschwanstein</td><td>500</td><td>0</td><td>Rifling</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Petra</td><td>166</td><td>0</td><td>Currency</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Terracotta Army</td><td>166</td><td>0</td><td>Construction</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Great Firewall</td><td>833</td><td>0</td><td>Computers</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Cathedral</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Mosque</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Pagoda</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Grand Temple</td><td>83</td><td>0</td><td>Theology</td><td>Temple</td><td></td><td></td><td></td></tr>
+                        <tr><td>Tourist Center</td><td>266</td><td>2</td><td>Telecom</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Writers Guild</td><td>66</td><td>1</td><td>Drama</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Artists Guild</td><td>100</td><td>1</td><td>Guilds</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Musicians Guild</td><td>133</td><td>1</td><td>Acoustics</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Hotel</td><td>200</td><td>0</td><td>Refrigeration</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Caravansary</td><td>60</td><td>0</td><td>Horseback Riding</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Airport</td><td>266</td><td>5</td><td>Radar</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Uffizi</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Globe Theater</td><td>333</td><td>0</td><td>Printing Press</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Broadway</td><td>706</td><td>0</td><td>Radio</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Red Fort</td><td>416</td><td>0</td><td>Metallurgy</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Prora Resort</td><td>706</td><td>0</td><td>Flight</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Borobudur</td><td>200</td><td>0</td><td>Theology</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Parthenon</td><td>166</td><td>0</td><td>Drama</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>International Space Station</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Gurdwara</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Synagogue</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Conservatory</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Vihara</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Mandir</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Stpeters</td><td>83</td><td>0</td><td>Future Tech</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Althing</td><td>200</td><td>0</td><td>Metal Casting</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Gemcutter</td><td>50</td><td>1</td><td>Machinery</td><td></td><td>Gems, Jade, Amber, Lapis</td><td></td><td></td></tr>
+                        <tr><td>Textile</td><td>66</td><td>2</td><td>Economics</td><td></td><td>Silk, Cotton, Dyes, Furs</td><td></td><td></td></tr>
+                        <tr><td>Censer</td><td>50</td><td>1</td><td>Theology</td><td></td><td>Incense, Perfume, Tobacco</td><td></td><td></td></tr>
+                        <tr><td>Brewery</td><td>66</td><td>0</td><td>Guilds</td><td></td><td>Wine, Salt, Coffee, Tea, Sugar</td><td></td><td></td></tr>
+                        <tr><td>Grocer</td><td>66</td><td>1</td><td>Banking</td><td></td><td>Chocolate, Spices, Truffles, Citrus, Olives, Coconut</td><td></td><td></td></tr>
+                        <tr><td>Refinery</td><td>133</td><td>0</td><td>Biology</td><td></td><td>Oil</td><td></td><td></td></tr>
+                        <tr><td>Askum National Epic</td><td>83</td><td>0</td><td>Drama</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Panama</td><td>706</td><td>0</td><td>Railroad</td><td></td><td></td><td></td><td>Yes</td></tr>
+                        <tr><td>Artist House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Writer House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Music House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
+                        <tr><td>Lake Wonder</td><td>200</td><td>0</td><td>Civil Service</td><td></td><td></td><td></td><td>Yes</td></tr>
+
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
+            </details>
 
               <!-- Units subsection -->
               <div id="unit-mech" class="subsection">
@@ -1492,7 +1717,522 @@
 
               <div id="tech-mech" class="subsection"><h3>Technology</h3></div>
               <div id="culture-mech" class="subsection"><h3>Culture</h3></div>
-              <div id="religion-mech" class="subsection"><h3>Religion</h3></div>
+
+              <div id="religion-mech" class="subsection"><h3>Religion</h3>
+                <p>
+                Religion is a fluid mechanic in Civitas. Each agent manages their own religion that develops throughout the game. Agents can spend their faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> accumulation to add tenets to their religion. The bonuses from these tenets apply on a per-city basis, and the majority religious population within a city determines which religion's bonuses that city receives. The religious population's makeup within a city is effected each turn by religious pressures eminating from cities and trade caravans. Some tenet combinations favor a playstyle that aggressively spreads a religion to as many foreign-empire cities as possible, while others favor a more insular approach.
+
+                </p>
+
+                <p>
+                Religious tenets fall into four categories, and no tenet can be selected twice or by more than one agent in the same game. The tenets are designed to provide bonuses that are helpful in specific scenarios. This means that an agent must understand their position in the game and the map to leverage their religion optimally.
+
+                <br>
+                <br>
+
+                <h4>1. Pantheons</h4>
+
+                <br>
+                Pantheons do not officially found a religion, but they do provide bonuses for all an agent's cities upon selection. See the below table for a summary of pantheon choices.
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show pantheons table ▸</span>
+                    <span class="open-label">Hide pantheons table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 1.5em;">Name</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+                        <tr>
+                          <td>Altars Of Worship</td>
+                          <td>+20% production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> towards Ancient, Classical, and Medieval wonders</td>
+                        </tr>
+                        <tr>
+                          <td>Ancestor Worship</td>
+                          <td>+2 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from shrines</td>
+                        </tr>
+                        <tr>
+                          <td>Dance Of The Aurora</td>
+                          <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from tundra tiles</td>
+                        </tr>
+                        <tr>
+                          <td>Desert Folklore</td>
+                          <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from desert tiles</td>
+                        </tr>
+                        <tr>
+                          <td>Divine Judgement</td>
+                          <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from barracks and courthouses, +2 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                        </tr>
+                        <tr>
+                          <td>Earth Mother</td>
+                          <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from iron, +1 faith from mines <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"></td>
+                        </tr>
+
+                          <tr>
+                            <td>God Of Craftsmen</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> in every city</td>
+                          </tr>
+                          <tr>
+                            <td>God Of The Open Sky</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from pastures</td>
+                          </tr>
+                          <tr>
+                            <td>God Of The Sea</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from fish, whales, crabs, pearls, coral, atolls</td>
+                          </tr>
+                          <tr>
+                            <td>God Of War</td>
+                            <td>+2 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from barracks</td>
+                          </tr>
+                          <tr>
+                            <td>God King</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Goddess Of Festivals</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from sugar, wine, spices</td>
+                          </tr>
+                          <tr>
+                            <td>Goddess Of Love</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> in cities with 3+ population</td>
+                          </tr>
+                          <tr>
+                            <td>Goddess Of Protection</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from walls; +50% city-bombardment strength</td>
+                          </tr>
+                          <tr>
+                            <td>Goddess Of The Fields</td>
+                            <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from cotton, incense, tea, coffee</td>
+                          </tr>
+                          <tr>
+                            <td>Goddess Of The Hunt</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from camps</td>
+                          </tr>
+                          <tr>
+                            <td>Harvest Festival</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from wheat, maize</td>
+                          </tr>
+                          <tr>
+                            <td>Messenger Of The Gods</td>
+                            <td>+2 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> in cities with a city connection</td>
+                          </tr>
+                          <tr>
+                            <td>Mystic Rituals</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from silk, dyes, perfume, tobacco</td>
+                          </tr>
+                          <tr>
+                            <td>Oceans Bounty</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from fishing boats and atolls</td>
+                          </tr>
+                          <tr>
+                            <td>One With Nature</td>
+                            <td>+5 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from natural wonders</td>
+                          </tr>
+                          <tr>
+                            <td>Oral Tradition</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from plantation improvements</td>
+                          </tr>
+                          <tr>
+                            <td>Rain Dancing</td>
+                            <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from lakes and oases</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Idols</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from copper, silver, gold</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Settlements</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from cities; +25% border-expansion rate</td>
+                          </tr>
+                          <tr>
+                            <td>Rite Of Spring</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from deer, bison</td>
+                          </tr>
+                          <tr>
+                            <td>Ritual Sacrifice</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from ivory, furs, truffles</td>
+                          </tr>
+                          <tr>
+                            <td>Sacred Path</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from jungles and forest; +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from rubber, hardwood</td>
+                          </tr>
+                          <tr>
+                            <td>Seafood Rituals</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from fish</td>
+                          </tr>
+                          <tr>
+                            <td>Spirit Animals</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from horses, deer, bison</td>
+                          </tr>
+                          <tr>
+                            <td>Spirit Trees</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from lumbermills</td>
+                          </tr>
+                          <tr>
+                            <td>Starlight Guidance</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> from lighthouses</td>
+                          </tr>
+                          <tr>
+                            <td>Stone Circles</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from quarries; +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from marble, obsidian</td>
+                          </tr>
+                          <tr>
+                            <td>Sun God</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from bananas, citrus, olives, coconuts, cocoa</td>
+                          </tr>
+                          <tr>
+                            <td>Tears Of The Gods</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from gems, amber, lapis, jade</td>
+                          </tr>
+                          <tr>
+                            <td>Vision Quests</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from shrines</td>
+                          </tr>
+                          <tr>
+                            <td>Works Spirituals</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from plantation luxuries and bananas</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </details>
+
+              </div>
+
+              <h4>2. Founder</h4>
+                <br>
+                Founder tenets officially found a religion. This means that the agent begins spreading pressure from its religion to all nearby cities.
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show founder table ▸</span>
+                    <span class="open-label">Hide founder table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 1.5em;">Name</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+
+                          <tr>
+                            <td>Ceremonial Burial</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> for every 2 cities following this religion, +1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Church Property</td>
+                            <td>+2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from each city following this religion, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> in each city following this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Dawah</td>
+                            <td>+4 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Initiation Rites</td>
+                            <td>+67 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> when each city first converts to this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Messiah</td>
+                            <td>Great Prophets are 25% stronger and require 25% less faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to summon</td>
+                          </tr>
+                          <tr>
+                            <td>Missionary Zeal</td>
+                            <td>Missionaries cost 50% less faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 religious spread for missionaries</td>
+                          </tr>
+                          <tr>
+                            <td>Mithraea</td>
+                            <td>+1% gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> per follower (max 20%)</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Unity</td>
+                            <td>Religion spreads to friendly city-states at 2× rate, +45 influence resting point with city-states that follow this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Salat</td>
+                            <td>+4 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Tithe</td>
+                            <td>+1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> for every 4 followers of this religion</td>
+                          </tr>
+                          <tr>
+                            <td>World Church</td>
+                            <td>+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> for every 6 followers of this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Zakat</td>
+                            <td>+8 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </details>
+
+              <h4>3. Follower</h4>
+              <br>
+
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show follower table ▸</span>
+                    <span class="open-label">Hide follower table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 1.5em;">Name</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+
+                          <tr>
+                            <td>Cathedrals</td>
+                            <td>100 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to buy Cathedrals</td>
+                          </tr>
+                          <tr>
+                            <td>Choral Music</td>
+                            <td>+3 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from temples</td>
+                          </tr>
+                          <tr>
+                            <td>Devoted Elite</td>
+                            <td>+3 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +3 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> in cities with ≥ 10 population</td>
+                          </tr>
+                          <tr>
+                            <td>Devout Performers</td>
+                            <td>+2 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from circuses, +1 culture from colosseums, +3 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> and +4 culture from Circus Maximus</td>
+                          </tr>
+                          <tr>
+                            <td>Divine Inspiration</td>
+                            <td>+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from national, natural, and world wonders</td>
+                          </tr>
+                          <tr>
+                            <td>Feed The World</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from shrines, +2 food from temples</td>
+                          </tr>
+                          <tr>
+                            <td>Followers Of The Refined Crafts</td>
+                            <td>+2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from mints, gem cutters, breweries, groceries, censer makers, textile mills</td>
+                          </tr>
+                          <tr>
+                            <td>Gurdwaras</td>
+                            <td>180 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to buy Gurdwaras</td>
+                          </tr>
+                          <tr>
+                            <td>Guruship</td>
+                            <td>+2 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> in any city with specialists</td>
+                          </tr>
+                          <tr>
+                            <td>Holy Warriors</td>
+                            <td>Can purchase military units with faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          </tr>
+                          <tr>
+                            <td>Liturgical Drama</td>
+                            <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from amphitheaters and opera houses</td>
+                          </tr>
+                          <tr>
+                            <td>Mandirs</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build in city</td>
+                          </tr>
+                          <tr>
+                            <td>Mosques</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build in city</td>
+                          </tr>
+                          <tr>
+                            <td>Pagodas</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build in city</td>
+                          </tr>
+                          <tr>
+                            <td>Peace Gardens</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> from gardens, +2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> and +1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from watermills</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Art</td>
+                            <td>+5 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +10 tourism <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"> from the Hermitage</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Center</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from temples</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Community</td>
+                            <td>+1% production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> per follower (max 10%)</td>
+                          </tr>
+                          <tr>
+                            <td>Sacred Waters</td>
+                            <td>+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> for river cities; +2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;"> from gardens</td>
+                          </tr>
+                          <tr>
+                            <td>Synagogues</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build in city</td>
+                          </tr>
+                          <tr>
+                            <td>Viharas</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build in city</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </details>
+
+
+              <h4>4. Enhancer</h4>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show enhancer table ▸</span>
+                    <span class="open-label">Hide enhancer table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 1.5em;">Name</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+
+                          <tr>
+                            <td>Defender Of The Faith</td>
+                            <td>+15% combat strength within friendly territory</td>
+                          </tr>
+                          <tr>
+                            <td>Dharma</td>
+                            <td>+10 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> from the Grand Temple</td>
+                          </tr>
+                          <tr>
+                            <td>Disciples</td>
+                            <td>+2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +2 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from Great Person tile improvements</td>
+                          </tr>
+                          <tr>
+                            <td>Hajj</td>
+                            <td>+3 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +3 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +3 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Jizya</td>
+                            <td>+6 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +6 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from the Grand Temple</td>
+                          </tr>
+                          <tr>
+                            <td>Just War</td>
+                            <td>+20% combat strength near enemy cities that follow this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Karma</td>
+                            <td>+8 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> in the holy city</td>
+                          </tr>
+                          <tr>
+                            <td>Kotel</td>
+                            <td>+6 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"> from the palace</td>
+                          </tr>
+                          <tr>
+                            <td>Pilgrimage</td>
+                            <td>+4 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +3 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> from every foreign city following this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Promised Land</td>
+                            <td>Religion spreads 100% faster to your cities and to cities already following your religion</td>
+                          </tr>
+                          <tr>
+                            <td>Religious Troubadours</td>
+                            <td>+3 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> for every trade route sent to foreign cities, +1 trade route capacity</td>
+                          </tr>
+                          <tr>
+                            <td>Sanctified Innovations</td>
+                            <td>+1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from natural wonders</td>
+                          </tr>
+                          <tr>
+                            <td>Unity Of The Prophets</td>
+                            <td>+4 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +2 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> from holy sites; Inquisitors and Great Prophets reduce this religion by half instead of eliminating it</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </details>
+
+              <h4>5. Reformation</h4>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show reformation table ▸</span>
+                    <span class="open-label">Hide reformation table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <div class="h-scroll" aria-hidden="true"></div>
+                  <div class="body-scroll">
+                    <table class="comparison-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 1.5em;">Name</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thread>
+                      <tbody>
+
+                          <tr>
+                            <td>Apostolic Palace</td>
+                            <td>+5 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +5 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +5 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +5 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +5 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +5 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> from the Grand Temple</td>
+                          </tr>
+                          <tr>
+                            <td>City Of God</td>
+                            <td>+2 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> from holy sites; free Great Prophet</td>
+                          </tr>
+                          <tr>
+                            <td>Houses Of Worship</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build Art Hall, Writing Auditorium, Vocal Chamber in city</td>
+                          </tr>
+                          <tr>
+                            <td>Indulgences</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +1 production <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> in cities following this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Jesuit Education</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build libraries, universities, observatories, public schools, research labs</td>
+                          </tr>
+                          <tr>
+                            <td>Sacred Sites</td>
+                            <td>+2 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +2 gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> from buildings unlocked by religious beliefs (e.g., Pagodas)</td>
+                          </tr>
+                          <tr>
+                            <td>Swords Into Plowshares</td>
+                            <td>+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.25em; vertical-align: middle;">, +20% city growth rate</td>
+                          </tr>
+                          <tr>
+                            <td>Underground Sect</td>
+                            <td>+1 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> for every 4 followers of this religion</td>
+                          </tr>
+                          <tr>
+                            <td>Work Ethic</td>
+                            <td>150 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> to build workshops, windmills, factories, hydro plants</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                  </details>
+
               <div id="trading-mech" class="subsection"><h3>Trading</h3></div>
 
                 <h4>Trade Routes</h4>
