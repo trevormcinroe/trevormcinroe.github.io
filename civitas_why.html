@@ -1089,7 +1089,7 @@
 
               <div id="cs-mech" class="subsection"><h3>City States</h3>
                 <p>
-                  City states are non-playable entities. They begin each game with a singular city and cannot settle more. Agent-controlled civilizations can exert influence over city states and receive bonuses. These bonuses depends on the city state type. The two level of influence: (1) friends and (2) allies.
+                  City states are non-playable entities. They begin each game with a singular city and cannot settle more. Agent-controlled civilizations can exert influence over city states and receive bonuses. These bonuses depends on the city state type. The two level of influence: (1) friends and (2) allies. Agents become friends when their influence is 30 or more, and allies when their influece is 60 or more. Influence over city state requires constant care, and will degrade by one point per turn. Influence can be increased by sending trade routes to city states or by completing the quests they give.
                 </p>
 
                   <div class="h-scroll" aria-hidden="true"></div>
@@ -1105,37 +1105,55 @@
                       <tbody>
                         <tr>
                           <td>Cultural</td>
-                          <td></td>
-                          <td></td>
+                          <td>+2 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
+                          <td>+2/+1 culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other</td>
                         </tr>
                         <tr>
                           <td>Agricultural</td>
                           <td>+2 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
-                          <td>+2/+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other cities.</td>
+                          <td>+2/+1 food <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other cities</td>
                         </tr>
                         <tr>
                           <td>Militaristic</td>
-                          <td>A free military unit every 30 turns</td>
-                          <td>A free military unit every 15 turns</td>
+                          <td>2.5% combat bonus to a random unit every turn</td>
+                          <td>5% combat bonus to a random unit every turn</td>
                         </tr>
                         <tr>
                           <td>Mercantile</td>
-                          <td></td>
-                          <td></td>
+                          <td>+3 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
+                          <td>+3/+1 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other</td>
                         </tr>
                         <tr>
                           <td>Religious</td>
-                          <td></td>
-                          <td></td>
+                          <td>+2 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
+                          <td>+2/+1 faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other</td>
                         </tr>
                         <tr>
                           <td>Scientific</td>
-                          <td></td>
-                          <td></td>
+                          <td>+2 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital</td>
+                          <td>+2/+1 science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> in the capital/other</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+              <br>
+                <h4>Quests</h4>
+                <p>
+                City states will occasionally give out quests to the agents. Being the winning agent of a quest grants that agent +30 influece over the city state that gave the quest.
+                </p>
+
+                <p>
+                <ul style="margin-left: 1.25em;">
+                  <li> Whoever produces the most culture <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> over the span of the quest.
+                  <li> Whoever produces the most faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"> over the span of the quest.
+                  <li> Whoever researches the most technologies over the span of the quest.
+                  <li> Whoever maintains the most trade route turns over the span of the quest.
+                  <li> Whoever's religion is the majority religion in the city state for the most turns over the span of the quest.
+                  <li> Whoever has the most wonders constructed over the span of the quest.
+                  <li> Whoever owns the most resources over the span of the quest.
+                </ul>
+                </p>
+
 
               </div>
 
@@ -1725,15 +1743,14 @@
                 </p>
 
                 <p>
-                Religious tenets fall into four categories, and no tenet can be selected twice or by more than one agent in the same game. The tenets are designed to provide bonuses that are helpful in specific scenarios. This means that an agent must understand their position in the game and the map to leverage their religion optimally.
-
+                Religious tenets fall into five categories, and no tenet can be selected twice or by more than one agent in the same game. The tenets are designed to provide bonuses that are helpful in specific scenarios. This means that an agent must understand their position in the game and the map to leverage their religion optimally. When a religion is founded, the agent must choose one Founder tenet and two Follower tenets. An agent's cities will always receive its own Founder tenet, and no other Founder tenet, even if another agent's religion is the majority religion.
                 <br>
                 <br>
 
                 <h4>1. Pantheons</h4>
 
                 <br>
-                Pantheons do not officially found a religion, but they do provide bonuses for all an agent's cities upon selection. See the below table for a summary of pantheon choices.
+                Pantheons do not officially found a religion, but they do provide bonuses for all an agent's cities upon selection. See the below table for a summary of Pantheon choices.
 
                 <details class="units-table">
                   <summary>
