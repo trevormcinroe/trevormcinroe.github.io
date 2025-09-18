@@ -1184,6 +1184,14 @@
               <div id="buildings-mech" class="subsection">
                 <h3>Buildings</h3>
 
+                <p>
+                Cities can allocate their production towards making buildings. There are effectively three "classes" of buildings: World Wonders, National Wonders, and standard buildings. Only one instance of a World Wonder can exist within a game. This type of building grants the owner large bonuses, so agents should race to construct these if the bonuses synergize with the agent's chosen win wondition. National Wonders can exist on a one-per-player basis. These types of buildings often yield bonuses that scale the outputs of the city within which it is built. Standard buildings have no limit other the one-per-city.
+                </p>
+
+                <p>
+                Buildings often have one or several prerequisites that an agent must meet before construction can begin. These prerequisites can be based on technology, social policy, owned resources, or even other buildings. Most buildings cost a certain amount of gold <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> per turn to maintain. Some buildings cannot be constructed directly, but are earned through other avenues. For example, Mandirs can be purchased with faith <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"> if the appropriate religious tenet is owned by the agent. See the table below for more information on each building.
+                </p>
+
                 <details class="units-table">
                   <summary>
                     <span class="closed-label">Show building table ▸</span>
@@ -1200,8 +1208,8 @@
                         <tr>
                           <th>Name</th>
                           <th>Cost</th>
-                          <th><img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">
- Maintenance</th>
+                          <th><img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> Maintenance</th>
+                          <th>Bonus</th>
                           <th>Unlock Tech</th>
                           <th>Prereq Building</th>
                           <th>Prereq Resources</th>
@@ -1209,151 +1217,858 @@
                           <th>World Wonder?</th>
                         </tr>
                       </thead>
-
-
-                        <tr><td>Courthouse</td><td>50</td><td>4</td><td>Mathematics</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Seaport</td><td>166</td><td>2</td><td>Navigation</td><td>Harbor</td><td></td><td></td><td></td></tr>
-                        <tr><td>Stable</td><td>66</td><td>1</td><td>Horseback Riding</td><td></td><td>Horses, Sheep, Cow</td><td></td><td></td></tr>
-                        <tr><td>Watermill</td><td>50</td><td>2</td><td>The Wheel</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Circus</td><td>50</td><td>0</td><td>Trapping</td><td></td><td>Horses, Ivory</td><td></td><td></td></tr>
-                        <tr><td>Forge</td><td>80</td><td>1</td><td>Metal Casting</td><td></td><td>Iron</td><td></td><td></td></tr>
-                        <tr><td>Windmill</td><td>166</td><td>2</td><td>Economics</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Hydro Plant</td><td>280</td><td>3</td><td>Electricity</td><td></td><td>Aluminium</td><td></td><td></td></tr>
-                        <tr><td>Solar Plant</td><td>333</td><td>3</td><td>Ecology</td><td>Factory</td><td></td><td></td><td></td></tr>
-                        <tr><td>Mint</td><td>66</td><td>0</td><td>Currency</td><td></td><td>Gold, Silver, Copper</td><td></td><td></td></tr>
-                        <tr><td>Observatory</td><td>133</td><td>1</td><td>Astronomy</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Monastery</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Garden</td><td>80</td><td>1</td><td>Drama</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Lighthouse</td><td>50</td><td>1</td><td>Optics</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Harbor</td><td>80</td><td>2</td><td>Compass</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Colosseum</td><td>66</td><td>1</td><td>Construction</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Theatre</td><td>120</td><td>2</td><td>Printing Press</td><td>Colosseum</td><td></td><td></td><td></td></tr>
-                        <tr><td>Stadium</td><td>333</td><td>2</td><td>Refrigeration</td><td>Theatre</td><td></td><td></td><td></td></tr>
-                        <tr><td>Monument</td><td>26</td><td>1</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Temple</td><td>66</td><td>2</td><td>Philosophy</td><td>Shrine</td><td></td><td></td><td></td></tr>
-                        <tr><td>Opera House</td><td>133</td><td>1</td><td>Acoustics</td><td>Amphitheater</td><td></td><td></td><td></td></tr>
-                        <tr><td>Museum</td><td>200</td><td>1</td><td>Archaeology</td><td>Amphitheater</td><td></td><td></td><td></td></tr>
-                        <tr><td>Broadcast Tower</td><td>333</td><td>3</td><td>Radio</td><td>Opera House</td><td></td><td></td><td></td></tr>
-                        <tr><td>Barracks</td><td>50</td><td>1</td><td>Bronze Working</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Armory</td><td>106</td><td>1</td><td>Steel</td><td>Barracks</td><td></td><td></td><td></td></tr>
-                        <tr><td>Military Academy</td><td>200</td><td>1</td><td>Military Science</td><td>Armory</td><td></td><td></td><td></td></tr>
-                        <tr><td>Arsenal</td><td>200</td><td>0</td><td>Metallurgy</td><td>Castle</td><td></td><td></td><td></td></tr>
-                        <tr><td>Walls</td><td>50</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Castle</td><td>106</td><td>0</td><td>Chivalry</td><td>Walls</td><td></td><td></td><td></td></tr>
-                        <tr><td>Military Base</td><td>333</td><td>0</td><td>Replaceable Parts</td><td>Arsenal</td><td></td><td></td><td></td></tr>
-                        <tr><td>Granary</td><td>40</td><td>1</td><td>Pottery</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Hospital</td><td>240</td><td>2</td><td>Biology</td><td>Aqueduct</td><td></td><td></td><td></td></tr>
-                        <tr><td>Medical Lab</td><td>333</td><td>3</td><td>Electronics</td><td>Hospital</td><td></td><td></td><td></td></tr>
-                        <tr><td>Workshop</td><td>80</td><td>2</td><td>Metal Casting</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Factory</td><td>240</td><td>3</td><td>Industrialization</td><td>Workshop</td><td>Coal</td><td></td><td></td></tr>
-                        <tr><td>Nuclear Plant</td><td>333</td><td>3</td><td>Nuclear Fission</td><td>Factory</td><td>Uranium</td><td></td><td></td></tr>
-                        <tr><td>Spaceship Factory</td><td>240</td><td>3</td><td>Robotics</td><td>Factory</td><td></td><td></td><td></td></tr>
-                        <tr><td>Market</td><td>66</td><td>0</td><td>Currency</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Bank</td><td>133</td><td>0</td><td>Banking</td><td>Market</td><td></td><td></td><td></td></tr>
-                        <tr><td>Stock Exchange</td><td>240</td><td>0</td><td>Electricity</td><td>Bank</td><td></td><td></td><td></td></tr>
-                        <tr><td>Library</td><td>50</td><td>1</td><td>Writing</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>University</td><td>106</td><td>2</td><td>Education</td><td>Library</td><td></td><td></td><td></td></tr>
-                        <tr><td>Public School</td><td>200</td><td>3</td><td>Scientific Theory</td><td>University</td><td></td><td></td><td></td></tr>
-                        <tr><td>Laboratory</td><td>333</td><td>3</td><td>Plastic</td><td>Public School</td><td></td><td></td><td></td></tr>
-                        <tr><td>Palace</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Heroic Epic</td><td>83</td><td>0</td><td>Iron Working</td><td>Barracks</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>National College</td><td>83</td><td>0</td><td>Philosophy</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>National Epic</td><td>83</td><td>0</td><td>Drama</td><td>Monument</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Circus Maximus</td><td>83</td><td>0</td><td>Horseback Riding</td><td>Circus</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>National Treasury</td><td>83</td><td>0</td><td>Guilds</td><td>Market</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Ironworks</td><td>83</td><td>0</td><td>Machinery</td><td>Workshop</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Oxford University</td><td>83</td><td>0</td><td>Education</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Hermitage</td><td>83</td><td>0</td><td>Architecture</td><td>Opera House</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Great Lighthouse</td><td>123</td><td>0</td><td>Optics</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Stonehenge</td><td>123</td><td>0</td><td>Calendar</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Great Library</td><td>123</td><td>0</td><td>Writing</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Pyramid</td><td>123</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Colossus</td><td>123</td><td>0</td><td>Iron Working</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Oracle</td><td>166</td><td>0</td><td>Philosophy</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Hanging Garden</td><td>166</td><td>0</td><td>Mathematics</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Great Wall</td><td>166</td><td>0</td><td>Engineering</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Angkor Wat</td><td>266</td><td>0</td><td>Education</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Hagia Sophia</td><td>200</td><td>0</td><td>Theology</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Chichen Itza</td><td>200</td><td>0</td><td>Civil Service</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Machu Pichu</td><td>200</td><td>0</td><td>Guilds</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Notre Dame</td><td>266</td><td>0</td><td>Physics</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Porcelain Tower</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Himeji Castle</td><td>333</td><td>0</td><td>Gunpowder</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Sistine Chapel</td><td>333</td><td>0</td><td>Acoustics</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Kremlin</td><td>706</td><td>0</td><td>Railroad</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Forbidden Palace</td><td>333</td><td>0</td><td>Banking</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Taj Mahal</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Big Ben</td><td>500</td><td>0</td><td>Industrialization</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Louvre</td><td>500</td><td>0</td><td>Archaeology</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Brandenburg Gate</td><td>500</td><td>0</td><td>Military Science</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Statue Of Liberty</td><td>706</td><td>0</td><td>Replaceable Parts</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Cristo Redentor</td><td>802</td><td>0</td><td>Plastic</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Eiffel Tower</td><td>706</td><td>0</td><td>Radio</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Pentagon</td><td>802</td><td>0</td><td>Combined Arms</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Sydney Opera House</td><td>833</td><td>0</td><td>Ecology</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Aqueduct</td><td>66</td><td>1</td><td>Engineering</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Stone Works</td><td>50</td><td>1</td><td>Calendar</td><td></td><td>Marble, Stone, Obsidian</td><td></td><td></td></tr>
-                        <tr><td>Statue Zeus</td><td>123</td><td>0</td><td>Bronze Working</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Temple Artemis</td><td>123</td><td>0</td><td>Archery</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Mausoleum Halicarnassus</td><td>123</td><td>0</td><td>Masonry</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Amphitheater</td><td>66</td><td>1</td><td>Drama</td><td>Monument</td><td></td><td></td><td></td></tr>
-                        <tr><td>Shrine</td><td>26</td><td>1</td><td>Pottery</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Recycling Center</td><td>333</td><td>3</td><td>Ecology</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Bomb Shelter</td><td>200</td><td>1</td><td>Telecom</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Constable</td><td>106</td><td>1</td><td>Banking</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Police Station</td><td>200</td><td>1</td><td>Electricity</td><td>Constable</td><td></td><td></td><td></td></tr>
-                        <tr><td>Intelligence Agency</td><td>83</td><td>0</td><td>Radio</td><td>Constable</td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Alhambra</td><td>266</td><td>0</td><td>Chivalry</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Cn Tower</td><td>802</td><td>0</td><td>Radar</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Hubble</td><td>833</td><td>0</td><td>Satellites</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Leaning Tower</td><td>333</td><td>0</td><td>Printing Press</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Mosque Of Djenne</td><td>166</td><td>0</td><td>Philosophy</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Neuschwanstein</td><td>500</td><td>0</td><td>Rifling</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Petra</td><td>166</td><td>0</td><td>Currency</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Terracotta Army</td><td>166</td><td>0</td><td>Construction</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Great Firewall</td><td>833</td><td>0</td><td>Computers</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Cathedral</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Mosque</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Pagoda</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Grand Temple</td><td>83</td><td>0</td><td>Theology</td><td>Temple</td><td></td><td></td><td></td></tr>
-                        <tr><td>Tourist Center</td><td>266</td><td>2</td><td>Telecom</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Writers Guild</td><td>66</td><td>1</td><td>Drama</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Artists Guild</td><td>100</td><td>1</td><td>Guilds</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Musicians Guild</td><td>133</td><td>1</td><td>Acoustics</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Hotel</td><td>200</td><td>0</td><td>Refrigeration</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Caravansary</td><td>60</td><td>0</td><td>Horseback Riding</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Airport</td><td>266</td><td>5</td><td>Radar</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Uffizi</td><td>416</td><td>0</td><td>Architecture</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Globe Theater</td><td>333</td><td>0</td><td>Printing Press</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Broadway</td><td>706</td><td>0</td><td>Radio</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Red Fort</td><td>416</td><td>0</td><td>Metallurgy</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Prora Resort</td><td>706</td><td>0</td><td>Flight</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Borobudur</td><td>200</td><td>0</td><td>Theology</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Parthenon</td><td>166</td><td>0</td><td>Drama</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>International Space Station</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Gurdwara</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Synagogue</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Conservatory</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Vihara</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Mandir</td><td>0</td><td>0</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
-                        <tr><td>Stpeters</td><td>83</td><td>0</td><td>Future Tech</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Althing</td><td>200</td><td>0</td><td>Metal Casting</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Gemcutter</td><td>50</td><td>1</td><td>Machinery</td><td></td><td>Gems, Jade, Amber, Lapis</td><td></td><td></td></tr>
-                        <tr><td>Textile</td><td>66</td><td>2</td><td>Economics</td><td></td><td>Silk, Cotton, Dyes, Furs</td><td></td><td></td></tr>
-                        <tr><td>Censer</td><td>50</td><td>1</td><td>Theology</td><td></td><td>Incense, Perfume, Tobacco</td><td></td><td></td></tr>
-                        <tr><td>Brewery</td><td>66</td><td>0</td><td>Guilds</td><td></td><td>Wine, Salt, Coffee, Tea, Sugar</td><td></td><td></td></tr>
-                        <tr><td>Grocer</td><td>66</td><td>1</td><td>Banking</td><td></td><td>Chocolate, Spices, Truffles, Citrus, Olives, Coconut</td><td></td><td></td></tr>
-                        <tr><td>Refinery</td><td>133</td><td>0</td><td>Biology</td><td></td><td>Oil</td><td></td><td></td></tr>
-                        <tr><td>Askum National Epic</td><td>83</td><td>0</td><td>Drama</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Panama</td><td>706</td><td>0</td><td>Railroad</td><td></td><td></td><td></td><td>Yes</td></tr>
-                        <tr><td>Artist House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Writer House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Music House</td><td>0</td><td>0</td><td>Future Tech</td><td></td><td></td><td>Yes</td><td></td></tr>
-                        <tr><td>Lake Wonder</td><td>200</td><td>0</td><td>Civil Service</td><td></td><td></td><td></td><td>Yes</td></tr>
-
                       <tbody>
+
+                        <tr>
+                          <td>Courthouse</td><td>50</td><td>1</td>
+                          <td>+2 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Mathematics</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Seaport</td><td>166</td><td>2</td>
+                          <td>Sea resources: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +15% production to (re-routed) land units</td>
+                          <td>Navigation</td><td>Harbor</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Stable</td><td>66</td><td>1</td>
+                          <td>Horses/Sheep/Cattle: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> (visible); Maize: +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">; +15% production to mounted units</td>
+                          <td>Horseback Riding</td><td></td><td>Horses, Sheep, Cow</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Watermill</td><td>50</td><td>2</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> to city</td>
+                          <td>The Wheel</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Circus</td><td>50</td><td>0</td>
+                          <td>+2 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Trapping</td><td></td><td>Horses, Ivory</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Forge</td><td>80</td><td>1</td>
+                          <td>Iron tiles: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"> (visible); +15% production to land units</td>
+                          <td>Metal Casting</td><td></td><td>Iron</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Windmill</td><td>166</td><td>2</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; Lakes/Oasis: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +10% building production; +1 engineer specialist slot</td>
+                          <td>Economics</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Hydro Plant</td><td>280</td><td>3</td>
+                          <td>River tiles: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Electricity</td><td></td><td>Aluminium</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Solar Plant</td><td>333</td><td>3</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +15% production</td>
+                          <td>Ecology</td><td>Factory</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Mint</td><td>66</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; Gold/Silver/Copper tiles: +2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Currency</td><td></td><td>Gold, Silver, Copper</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Observatory</td><td>133</td><td>1</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; Tundra: +1 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; Mountains: +4 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Astronomy</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Monastery</td><td>0</td><td>0</td>
+                          <td>City: +2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Incense/Wine tiles: +1 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Garden</td><td>80</td><td>1</td>
+                          <td>+20% Great Person generation</td>
+                          <td>Drama</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Lighthouse</td><td>50</td><td>1</td>
+                          <td>Ocean tiles: +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">; Sea resources: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; Fish: +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"></td>
+                          <td>Optics</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Harbor</td><td>80</td><td>2</td>
+                          <td>Connects to capital over water; Sea trade route range +50%; External trade: +1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Compass</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Colosseum</td><td>66</td><td>1</td>
+                          <td>+2 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Construction</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Theatre</td><td>120</td><td>2</td>
+                          <td></td>
+                          <td>Printing Press</td><td>Colosseum</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Stadium</td><td>333</td><td>2</td>
+                          <td>+2 happiness <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Refrigeration</td><td>Theatre</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Monument</td><td>26</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Temple</td><td>66</td><td>2</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Philosophy</td><td>Shrine</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Opera House</td><td>133</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Music slot</td>
+                          <td>Acoustics</td><td>Amphitheater</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Museum</td><td>200</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 GW Art slots</td>
+                          <td>Archaeology</td><td>Amphitheater</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Broadcast Tower</td><td>333</td><td>3</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Music slot; +15% culture</td>
+                          <td>Radio</td><td>Opera House</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Barracks</td><td>50</td><td>1</td>
+                          <td>+15 XP to all units</td>
+                          <td>Bronze Working</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Armory</td><td>106</td><td>1</td>
+                          <td>+15 XP to all units</td>
+                          <td>Steel</td><td>Barracks</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Military Academy</td><td>200</td><td>1</td>
+                          <td>+15 XP to all units</td>
+                          <td>Military Science</td><td>Armory</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Arsenal</td><td>200</td><td>0</td>
+                          <td>+900 Defense</td>
+                          <td>Metallurgy</td><td>Castle</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Walls</td><td>50</td><td>0</td>
+                          <td>+500 Defense</td>
+                          <td>Masonry</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Castle</td><td>106</td><td>0</td>
+                          <td>+700 Defense</td>
+                          <td>Chivalry</td><td>Walls</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Military Base</td><td>333</td><td>0</td>
+                          <td>+1200 Defense</td>
+                          <td>Replaceable Parts</td><td>Arsenal</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Granary</td><td>40</td><td>1</td>
+                          <td>City: +2 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">; Wheat/Banana/Deer/Bison tiles: +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">; Allows food trade</td>
+                          <td>Pottery</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Hospital</td><td>240</td><td>2</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"></td>
+                          <td>Biology</td><td>Aqueduct</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Medical Lab</td><td>333</td><td>3</td>
+                          <td>+25% food carryover</td>
+                          <td>Electronics</td><td>Hospital</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Workshop</td><td>80</td><td>2</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +10% production; +1 engineer specialist slot; Can send production via trade</td>
+                          <td>Metal Casting</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Factory</td><td>240</td><td>3</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +10% production; +2 engineer specialist slots; Rubber tiles: +2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Industrialization</td><td>Workshop</td><td>Coal</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Nuclear Plant</td><td>333</td><td>3</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +15% production</td>
+                          <td>Nuclear Fission</td><td>Factory</td><td>Uranium</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Spaceship Factory</td><td>240</td><td>3</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +50% production to spaceship parts</td>
+                          <td>Robotics</td><td>Factory</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Market</td><td>66</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +25% gold; +1 merchant specialist slot; Trade routes: +1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> (owner &amp; destination)</td>
+                          <td>Currency</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Bank</td><td>133</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +25% gold; +1 merchant specialist slot; Trade routes: +1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> (owner &amp; destination)</td>
+                          <td>Banking</td><td>Market</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Stock Exchange</td><td>240</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +25% gold; +2 merchant specialist slots</td>
+                          <td>Electricity</td><td>Bank</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Library</td><td>50</td><td>1</td>
+                          <td>+50% science per population</td>
+                          <td>Writing</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>University</td><td>106</td><td>2</td>
+                          <td>+33% science; +2 scientist specialist slots; Jungle tiles: +2 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Education</td><td>Library</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Public School</td><td>200</td><td>3</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; +50% science; +1 scientist specialist slot</td>
+                          <td>Scientific Theory</td><td>University</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Laboratory</td><td>333</td><td>3</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; +50% science; +1 scientist specialist slot</td>
+                          <td>Plastic</td><td>Public School</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Palace</td><td>0</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +250 Defense</td>
+                          <td>Agriculture</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Heroic Epic</td><td>83</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Writing slot; +15 XP to all non-air units</td>
+                          <td>Iron Working</td><td>Barracks</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>National College</td><td>83</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +50% science</td>
+                          <td>Philosophy</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>National Epic</td><td>83</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Writing slot; +25% Great Person generation</td>
+                          <td>Drama</td><td>Monument</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Circus Maximus</td><td>83</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +5 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Horseback Riding</td><td>Circus</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>National Treasury</td><td>83</td><td>0</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +10% gold; +1 trade route; Trade routes: +4 (owner), +2 (destination) <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Guilds</td><td>Market</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Ironworks</td><td>83</td><td>0</td>
+                          <td>+8 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Machinery</td><td>Workshop</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Oxford University</td><td>83</td><td>0</td>
+                          <td>Free technology</td>
+                          <td>Education</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Hermitage</td><td>83</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +50% culture; +3 GW Art slots</td>
+                          <td>Architecture</td><td>Opera House</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Great Lighthouse</td><td>123</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Water tiles: +1 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; +1 Merchant GP point; Naval units: +1 movement, +1 sight</td>
+                          <td>Optics</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Stonehenge</td><td>123</td><td>0</td>
+                          <td>+6 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; −25% tile purchase costs empire-wide</td>
+                          <td>Calendar</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Great Library</td><td>123</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 GW Writing slots; +1 Scientist GP point; Free technology</td>
+                          <td>Writing</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Pyramid</td><td>123</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; Workers build improvements 25% faster; +2 free Workers</td>
+                          <td>Masonry</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Colossus</td><td>123</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Merchant GP point; +1 trade route &amp; free Cargo Ship; Trade routes: +2 (owner), +1 (destination) <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Iron Working</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Oracle</td><td>166</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Scientist GP point; Free Social Policy</td>
+                          <td>Philosophy</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Hanging Garden</td><td>166</td><td>0</td>
+                          <td>+6 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Free Garden; +1 Engineer GP point</td>
+                          <td>Mathematics</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Great Wall</td><td>166</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; Free Walls in all cities</td>
+                          <td>Engineering</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Angkor Wat</td><td>266</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; +1 Scientist GP point; Free University</td>
+                          <td>Education</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Hagia Sophia</td><td>200</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; Free Great Prophet; Free Temple</td>
+                          <td>Theology</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Chichen Itza</td><td>200</td><td>0</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; +50% Golden Age length</td>
+                          <td>Civil Service</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Machu Pichu</td><td>200</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; +1 Merchant GP point; +25% gold from city connections</td>
+                          <td>Guilds</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Notre Dame</td><td>266</td><td>0</td>
+                          <td>+10 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +4 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; +1 Artist GP point</td>
+                          <td>Physics</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Porcelain Tower</td><td>416</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 Scientist GP points; Luxury tiles: +3 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Architecture</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Himeji Castle</td><td>333</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 Engineer GP points; +15% combat strength in friendly territory; Free Castle</td>
+                          <td>Gunpowder</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Sistine Chapel</td><td>333</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +25% culture in all cities; +2 GW Art slots</td>
+                          <td>Acoustics</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Kremlin</td><td>706</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +50% production for armored units</td>
+                          <td>Railroad</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Forbidden Palace</td><td>333</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 World Congress delegates; −10% citizen unhappiness in unoccupied cities</td>
+                          <td>Banking</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Taj Mahal</td><td>416</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +4 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; Starts Golden Age</td>
+                          <td>Architecture</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Big Ben</td><td>500</td><td>0</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; −12% gold purchase costs</td>
+                          <td>Industrialization</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Louvre</td><td>500</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +4 GW Art slots; Free Great Artist</td>
+                          <td>Archaeology</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Brandenburg Gate</td><td>500</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 Scientist GP points; Free Great General; +15 XP to all units</td>
+                          <td>Military Science</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Statue Of Liberty</td><td>706</td><td>0</td>
+                          <td>+6 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +6 population; Free Social Policy</td>
+                          <td>Replaceable Parts</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Cristo Redentor</td><td>802</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; −10% policy culture cost</td>
+                          <td>Plastic</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Eiffel Tower</td><td>706</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +12 <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;">; +2 Merchant GP points</td>
+                          <td>Radio</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Pentagon</td><td>802</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 Merchant GP points; +15 unit XP</td>
+                          <td>Combined Arms</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Sydney Opera House</td><td>833</td><td>0</td>
+                          <td>+50% culture; +2 GW Music slots (theming bonus condition noted); Free Social Policy</td>
+                          <td>Ecology</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Aqueduct</td><td>66</td><td>1</td>
+                          <td>+40% food carryover</td>
+                          <td>Engineering</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Stone Works</td><td>50</td><td>1</td>
+                          <td>City: +1 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; Marble/Obsidian/Stone tiles: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Calendar</td><td></td><td>Marble, Stone, Obsidian</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Statue Zeus</td><td>123</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +15 combat strength to all units; +10% production to all military</td>
+                          <td>Bronze Working</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Temple Artemis</td><td>123</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; Ranged units: +15% production, +15 XP</td>
+                          <td>Archery</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Mausoleum Halicarnassus</td><td>123</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Merchant GP point; +100 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> per Great Person expended; Marble/Obsidian/Stone tiles: +2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Masonry</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Amphitheater</td><td>66</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Writing slot</td>
+                          <td>Drama</td><td>Monument</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Shrine</td><td>26</td><td>1</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Pottery</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Recycling Center</td><td>333</td><td>3</td>
+                          <td>Aluminium tiles: +3 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Ecology</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Bomb Shelter</td><td>200</td><td>1</td>
+                          <td>−75% nuke damage (large Defense boost)</td>
+                          <td>Telecom</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Constable</td><td>106</td><td>1</td>
+                          <td>−25% spy steal rate</td>
+                          <td>Banking</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Police Station</td><td>200</td><td>1</td>
+                          <td>−25% spy steal rate</td>
+                          <td>Electricity</td><td>Constable</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Intelligence Agency</td><td>83</td><td>0</td>
+                          <td>+1 Spy; +1 spy level to all spies; −15% enemy spy effectiveness</td>
+                          <td>Radio</td><td>Constable</td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Alhambra</td><td>266</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Units receive Drill I (non-air); +20% culture; Free Castle</td>
+                          <td>Chivalry</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Cn Tower</td><td>802</td><td>0</td>
+                          <td>+1 population, +1 happiness; Free Broadcast Tower</td>
+                          <td>Radar</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Hubble</td><td>833</td><td>0</td>
+                          <td>+10 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">; +3 Scientist GP points; Free Recycling Center; +200% production to spaceship parts</td>
+                          <td>Satellites</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Leaning Tower</td><td>333</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +20% Great Person generation in all cities</td>
+                          <td>Printing Press</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Mosque Of Djenne</td><td>166</td><td>0</td>
+                          <td>+6 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; Missionaries from this city spread 3 times</td>
+                          <td>Philosophy</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Neuschwanstein</td><td>500</td><td>0</td>
+                          <td>+6 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +4 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +1 Merchant GP point</td>
+                          <td>Rifling</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Petra</td><td>166</td><td>0</td>
+                          <td>+7 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"> (includes +6 at Archaeology); Desert (not flood plains): +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +1 trade route &amp; free caravan; +1 Engineer GP point</td>
+                          <td>Currency</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Terracotta Army</td><td>166</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Copies each military unit (effect)</td>
+                          <td>Construction</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Great Firewall</td><td>833</td><td>0</td>
+                          <td>−99.9% enemy spy effectiveness in city; −25% effectiveness of your other spies elsewhere; Negates Internet tourism bonus against you</td>
+                          <td>Computers</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Cathedral</td><td>0</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Art slot</td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Mosque</td><td>0</td><td>0</td>
+                          <td>City: +3 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Pagoda</td><td>0</td><td>0</td>
+                          <td>City: +2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +10% growth carryover</td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Grand Temple</td><td>83</td><td>0</td>
+                          <td>+8 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; Double religious pressure from this city</td>
+                          <td>Theology</td><td>Temple</td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Tourist Center</td><td>266</td><td>2</td>
+                          <td>100% of culture from wonders/improvements added to tourism; 2× tourism from Great Works</td>
+                          <td>Telecom</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Writers Guild</td><td>66</td><td>1</td>
+                          <td>+2 writer specialist slots</td>
+                          <td>Drama</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Artists Guild</td><td>100</td><td>1</td>
+                          <td>+2 artist specialist slots</td>
+                          <td>Guilds</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Musicians Guild</td><td>133</td><td>1</td>
+                          <td>+2 musician specialist slots</td>
+                          <td>Acoustics</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Hotel</td><td>200</td><td>0</td>
+                          <td>Wonders/improvements: 50% culture converted to tourism; +50% GW tourism; Lakes/Oasis: +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Refrigeration</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Caravansary</td><td>60</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; External land trade: +2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; Land trade route range +50%</td>
+                          <td>Horseback Riding</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Airport</td><td>266</td><td>5</td>
+                          <td>Wonders/improvements: 50% culture converted to tourism; +50% GW tourism; Increases air unit capacity</td>
+                          <td>Radar</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Uffizi</td><td>416</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +3 GW Art slots; Free Great Artist</td>
+                          <td>Architecture</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Globe Theater</td><td>333</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 GW Writing slots; +1 Writer GP point; Free Great Writer</td>
+                          <td>Printing Press</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Broadway</td><td>706</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +3 GW Music slots; Free Great Musician</td>
+                          <td>Radio</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Red Fort</td><td>416</td><td>0</td>
+                          <td>+8 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +4 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +1200 Defense; +1 Scientist GP point; +25% city defense empire-wide</td>
+                          <td>Metallurgy</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Prora Resort</td><td>706</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +1 happiness per two Social Policies; Free Social Policy</td>
+                          <td>Flight</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Borobudur</td><td>200</td><td>0</td>
+                          <td>+5 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; 3 free Missionaries; Free Garden</td>
+                          <td>Theology</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Parthenon</td><td>166</td><td>0</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 GW Art slot</td>
+                          <td>Drama</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>International Space Station</td><td>0</td><td>0</td>
+                          <td>+1 production from Scientists; +1 science from Engineers; +33% Great Scientist bulb yield; (collaborative project)</td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Gurdwara</td><td>0</td><td>0</td>
+                          <td>Per religion present: +2 <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Synagogue</td><td>0</td><td>0</td>
+                          <td>City: +2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; +15% building production</td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Conservatory</td><td>0</td><td>0</td>
+                          <td>+1 musician specialist slot; +1 <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Vihara</td><td>0</td><td>0</td>
+                          <td>City: +1 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +15% gold; +1 merchant specialist slot</td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Mandir</td><td>0</td><td>0</td>
+                          <td>All luxury tiles owned: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"></td>
+                          <td>Agriculture</td><td></td><td></td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Saint Peter's Basilica</td><td>200</td><td>0</td>
+                          <td>+8 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +4 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Education</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Althing</td><td>200</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 Scientist GP point; Tundra tiles: +1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Metal Casting</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Gemcutter</td><td>50</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Jade/Gems/Lapis/Amber tiles: +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Machinery</td><td></td><td>Gems, Jade, Amber, Lapis</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Textile</td><td>66</td><td>2</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;">; Dyes/Furs/Silk/Cotton tiles: +2 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Economics</td><td></td><td>Silk, Cotton, Dyes, Furs</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Censer</td><td>50</td><td>1</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; Incense/Tobacco/Perfume tiles: +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Theology</td><td></td><td>Incense, Perfume, Tobacco</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Brewery</td><td>66</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">; Wine/Coffee/Tea/Sugar/Salt tiles: +2 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Guilds</td><td></td><td>Wine, Salt, Coffee, Tea, Sugar</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Grocer</td><td>66</td><td>1</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">; Truffles/Citrus/Olives/Coconut/Chocolate/Spices tiles: +1 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;"></td>
+                          <td>Banking</td><td></td><td>Chocolate, Spices, Truffles, Citrus, Olives, Coconut</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Refinery</td><td>133</td><td>0</td>
+                          <td>Oil tiles: +3 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_prod.png" alt="yield-prod" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Biology</td><td></td><td>Oil</td><td></td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Askum National Epic</td><td>83</td><td>0</td>
+                          <td></td>
+                          <td>Drama</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Panama</td><td>706</td><td>0</td>
+                          <td>+3 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +2 Merchant GP points; +8 <img src="./assets/optimized_images/yields/yield_gold.png" alt="yield-gold" style="max-width: 1.25em; vertical-align: middle;"> from external sea trade; Free Great Merchant</td>
+                          <td>Railroad</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr>
+                          <td>Artist House</td><td>0</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 artist specialist slot</td>
+                          <td>Future Tech</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Writer House</td><td>0</td><td>0</td>
+                          <td>+1 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +3 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 writer specialist slot</td>
+                          <td>Future Tech</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Music House</td><td>0</td><td>0</td>
+                          <td>+2 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 musician specialist slot</td>
+                          <td>Future Tech</td><td></td><td></td><td>Yes</td><td></td>
+                        </tr>
+
+                        <tr>
+                          <td>Huey Teocali</td><td>200</td><td>0</td>
+                          <td>+4 <img src="./assets/optimized_images/yields/yield_faith.png" alt="yield-faith" style="max-width: 1.25em; vertical-align: middle;">; +1 Engineer GP point; Lakes: +2 <img src="./assets/optimized_images/yields/yield_food.png" alt="yield-food" style="max-width: 1.5em; vertical-align: middle;">, +2 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;"></td>
+                          <td>Civil Service</td><td></td><td></td><td></td><td>Yes</td>
+                        </tr>
+
+                        <tr><td>Apollo Program</td><td>1005</td><td>0</td><td></td><td>Rocketry</td><td></td><td>Aluminium</td><td></td><td>Yes</td></tr>
+                        <tr><td>SS Booster 1</td><td>1005</td><td>0</td><td></td><td>Advanced Ballistics</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+                        <tr><td>SS Booster 2</td><td>1005</td><td>0</td><td></td><td>Advanced Ballistics</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+                        <tr><td>SS Booster 3</td><td>1005</td><td>0</td><td></td><td>Advanced Ballistics</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+                        <tr><td>SS Engine</td><td>503</td><td>0</td><td></td><td>Particle Physics</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+                        <tr><td>SS Cockpit</td><td>503</td><td>0</td><td></td><td>Satellites</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+                        <tr><td>SS Stasis Chamber</td><td>503</td><td>0</td><td></td><td>Nanotechnology</td><td>Apollo Program</td><td>Aluminium</td><td>Yes</td><td></td></tr>
+
+                        <!-- Religion / Fine Arts mini-buildings (from later block) -->
+                        <tr><td>Gallery</td><td>0</td><td>0</td><td>+1 <img src="./assets/optimized_images/yields/yield_happiness.png" alt="yield-happiness" style="max-width: 1.25em; vertical-align: middle;">; +1 artist specialist slot</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Scriptorium</td><td>0</td><td>0</td><td>+1 <img src="./assets/optimized_images/yields/yield_culture.png" alt="yield-culture" style="max-width: 1.25em; vertical-align: middle;">; +1 writer specialist slot</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+                        <tr><td>Conservatory</td><td>0</td><td>0</td><td>+1 <img src="./assets/optimized_images/yields/yield_tourism.png" alt="yield-tourism" style="max-width: 1.25em; vertical-align: middle;">; +1 musician specialist slot</td><td>Agriculture</td><td></td><td></td><td></td><td></td></tr>
+
                       </tbody>
                     </table>
+
                   </div>
                 </div>
               </div>
@@ -1362,6 +2077,13 @@
               <!-- Units subsection -->
               <div id="unit-mech" class="subsection">
                 <h3>Units</h3>
+                <p>
+                Like buildings, cities can allocate production towards constructing units. Units are controlled by an agent as they move around and interact with the map. Units fall into two main categories: military and non-military. non-military units include Settlers <img src="./assets/optimized_images/settler.png" alt="settler" style="height:2.5em; vertical-align:middle;">, which can settle cities, workers <img src="./assets/optimized_images/worker.png" alt="worker" style="height:2.5em; vertical-align:middle;">, which can improve tiles, and caravans <img src="./assets/optimized_images/caravan.png" alt="caravan" style="height:2.5em; vertical-align:middle;">, which can establish trade routes.
+                </p>
+
+                <p>
+                Military units can engage in combat against another agent's units or cities. Many things alter the outcome of an attack, such as the unit type (e.g., mounted versus armored), terrain (e.g., hill versus flatland), and combat bonuses given to the unit by the city in which was built. Units may only engage in combat once war is declared, which can occur by either attacking another agent's units or city, or stepping into another agent's owned tiles. Agents can capture another agent's non-capital cities by bringing the city's health down to zero. If the agent does not have the capacity to own another city, the attacked city is instead razed.
+                </p>
 
                 <details class="units-table">
                   <summary>
@@ -1443,7 +2165,7 @@
                               <td>Chariot Archer</td>
                               <td>56</td>
                               <td>6</td>
-                              <td>Ranged</td>
+                              <td>Mounted/Ranged</td>
                               <td>The Wheel</td>
                               <td>Chivalry</td>
                             </tr>
@@ -1452,7 +2174,7 @@
                               <td>Pikeman</td>
                               <td>90</td>
                               <td>16</td>
-                              <td>Melee</td>
+                              <td>Anti-mounted</td>
                               <td>Civil Service</td>
                               <td>Metallurgy</td>
                             </tr>
@@ -1470,7 +2192,7 @@
                               <td>Spearman</td>
                               <td>56</td>
                               <td>11</td>
-                              <td>Melee</td>
+                              <td>Anti-mounted</td>
                               <td>Bronze Working</td>
                               <td>Civil Service</td>
                             </tr>
@@ -1497,7 +2219,7 @@
                               <td>Horseman</td>
                               <td>75</td>
                               <td>12</td>
-                              <td>Melee</td>
+                              <td>Mounted</td>
                               <td>Horseback Riding</td>
                               <td>Chivalry</td>
                             </tr>
@@ -1524,7 +2246,7 @@
                               <td>Knight</td>
                               <td>120</td>
                               <td>20</td>
-                              <td>Melee</td>
+                              <td>Mounted</td>
                               <td>Chivalry</td>
                               <td>Military Science</td>
                             </tr>
@@ -1560,7 +2282,7 @@
                               <td>Lancer</td>
                               <td>185</td>
                               <td>25</td>
-                              <td>Melee</td>
+                              <td>Mounted</td>
                               <td>Metallurgy</td>
                               <td>Railroad</td>
                             </tr>
@@ -1596,7 +2318,7 @@
                               <td>Cavalry</td>
                               <td>225</td>
                               <td>34</td>
-                              <td>Melee</td>
+                              <td>Mounted</td>
                               <td>Military Science</td>
                               <td>Combustion</td>
                             </tr>
@@ -1632,7 +2354,7 @@
                               <td>Anti Tank Rifle</td>
                               <td>300</td>
                               <td>30</td>
-                              <td>Melee</td>
+                              <td>Anti-armored</td>
                               <td>Railroad</td>
                               <td>Combined Arms</td>
                             </tr>
@@ -1650,7 +2372,7 @@
                               <td>Landship</td>
                               <td>390</td>
                               <td>60</td>
-                              <td>Melee</td>
+                              <td>Armored</td>
                               <td>Combustion</td>
                               <td>Combined Arms</td>
                             </tr>
@@ -1668,7 +2390,7 @@
                               <td>Anti Tank Gun</td>
                               <td>360</td>
                               <td>50</td>
-                              <td>Melee</td>
+                              <td>Anti-armored</td>
                               <td>Combined Arms</td>
                               <td>N/A</td>
                             </tr>
@@ -1686,7 +2408,7 @@
                               <td>Helicopter Gunship</td>
                               <td>510</td>
                               <td>70</td>
-                              <td>Melee</td>
+                              <td>Armored</td>
                               <td>Computers</td>
                               <td>N/A</td>
                             </tr>
@@ -1713,7 +2435,7 @@
                               <td>Tank</td>
                               <td>450</td>
                               <td>70</td>
-                              <td>Melee</td>
+                              <td>Armored</td>
                               <td>Combined Arms</td>
                               <td>N/A</td>
                             </tr>
@@ -1728,13 +2450,222 @@
                             </tr>
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 </div>
-              </div>
                 </details>
 
-              <div id="tech-mech" class="subsection"><h3>Technology</h3></div>
-              <div id="culture-mech" class="subsection"><h3>Culture</h3></div>
+              <div id="tech-mech" class="subsection"><h3>Technology</h3>
+              <p>
+              Agents allocate their generated science <img src="./assets/optimized_images/yields/yield_science.png" alt="yield-science" style="max-width: 1.25em; vertical-align: middle;"> towards unlocking new technologies. Unlocking a new technology often leads to new options for constructing buildings and units, reveals new resources and improvements, and, of course, leads to new possible technological advancements. The technology pathway in Terra Nova is tree shaped, just like in Civilization V. This ultimately leads to massive opportunity costs: investing turns going down one path in the tree inevitably leads to a lack of progress in another direction.
+              </p>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show technology table ▸</span>
+                    <span class="open-label">Hide technology table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <!-- floating scrollbar -->
+                  <div class="h-scroll" aria-hidden="true"></div>
+
+                  <!-- main table scroller -->
+                  <div class="body-scroll">
+
+                      <table class="comparison-table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Cost</th>
+                            <th>Era</th>
+                            <th>Prereq</th>
+                          </tr>
+                        </thead>
+                        <tr><td>Agriculture</td><td>20</td><td>Ancient</td><td>None</td></tr>
+                        <tr><td>Pottery</td><td>35</td><td>Ancient</td><td>Agriculture</td></tr>
+                        <tr><td>Animal Husbandry</td><td>35</td><td>Ancient</td><td>Agriculture</td></tr>
+                        <tr><td>Archery</td><td>35</td><td>Ancient</td><td>Agriculture</td></tr>
+                        <tr><td>Mining</td><td>35</td><td>Ancient</td><td>Agriculture</td></tr>
+                        <tr><td>Sailing</td><td>55</td><td>Ancient</td><td>Pottery</td></tr>
+                        <tr><td>Calendar</td><td>55</td><td>Ancient</td><td>Pottery</td></tr>
+                        <tr><td>Writing</td><td>55</td><td>Ancient</td><td>Pottery</td></tr>
+                        <tr><td>Trapping</td><td>55</td><td>Ancient</td><td>Animal Husbandry</td></tr>
+                        <tr><td>The Wheel</td><td>55</td><td>Ancient</td><td>Animal Husbandry, Archery</td></tr>
+                        <tr><td>Masonry</td><td>55</td><td>Ancient</td><td>Mining</td></tr>
+                        <tr><td>Bronze Working</td><td>55</td><td>Ancient</td><td>Mining</td></tr>
+                        <tr><td>Optics</td><td>68</td><td>Classical</td><td>Sailing</td></tr>
+                        <tr><td>Horseback Riding</td><td>105</td><td>Classical</td><td>The Wheel, Trapping</td></tr>
+                        <tr><td>Mathematics</td><td>105</td><td>Classical</td><td>The Wheel</td></tr>
+                        <tr><td>Construction</td><td>105</td><td>Classical</td><td>Masonry, The Wheel</td></tr>
+                        <tr><td>Philosophy</td><td>175</td><td>Classical</td><td>Calendar, Writing</td></tr>
+                        <tr><td>Drama</td><td>175</td><td>Classical</td><td>Writing</td></tr>
+                        <tr><td>Currency</td><td>175</td><td>Classical</td><td>Mathematics</td></tr>
+                        <tr><td>Engineering</td><td>175</td><td>Classical</td><td>Mathematics, Construction</td></tr>
+                        <tr><td>Iron Working</td><td>175</td><td>Classical</td><td>Bronze Working</td></tr>
+                        <tr><td>Theology</td><td>275</td><td>Medieval</td><td>Philosophy, Drama</td></tr>
+                        <tr><td>Civil Service</td><td>275</td><td>Medieval</td><td>Drama, Horseback Riding, Currency</td></tr>
+                        <tr><td>Guilds</td><td>275</td><td>Medieval</td><td>Currency</td></tr>
+                        <tr><td>Metal Casting</td><td>275</td><td>Medieval</td><td>Engineering, Iron Working</td></tr>
+                        <tr><td>Compass</td><td>375</td><td>Medieval</td><td>Theology, Optics</td></tr>
+                        <tr><td>Education</td><td>485</td><td>Medieval</td><td>Theology, Civil Service</td></tr>
+                        <tr><td>Chivalry</td><td>485</td><td>Medieval</td><td>Civil Service, Guilds</td></tr>
+                        <tr><td>Machinery</td><td>485</td><td>Medieval</td><td>Engineering, Guilds</td></tr>
+                        <tr><td>Physics</td><td>485</td><td>Medieval</td><td>Metal Casting</td></tr>
+                        <tr><td>Steel</td><td>485</td><td>Medieval</td><td>Metal Casting</td></tr>
+                        <tr><td>Astronomy</td><td>780</td><td>Renaissance</td><td>Compass, Education</td></tr>
+                        <tr><td>Acoustics</td><td>780</td><td>Renaissance</td><td>Education</td></tr>
+                        <tr><td>Banking</td><td>780</td><td>Renaissance</td><td>Education, Chivalry</td></tr>
+                        <tr><td>Printing Press</td><td>780</td><td>Renaissance</td><td>Machinery, Physics, Chivalry</td></tr>
+                        <tr><td>Gunpowder</td><td>780</td><td>Renaissance</td><td>Physics, Steel</td></tr>
+                        <tr><td>Navigation</td><td>1150</td><td>Renaissance</td><td>Astronomy</td></tr>
+                        <tr><td>Architecture</td><td>1150</td><td>Renaissance</td><td>Acoustics, Banking</td></tr>
+                        <tr><td>Economics</td><td>1150</td><td>Renaissance</td><td>Banking, Printing Press</td></tr>
+                        <tr><td>Metallurgy</td><td>1150</td><td>Renaissance</td><td>Gunpowder, Printing Press</td></tr>
+                        <tr><td>Chemistry</td><td>1150</td><td>Renaissance</td><td>Gunpowder</td></tr>
+                        <tr><td>Archaeology</td><td>1600</td><td>Industrial</td><td>Navigation</td></tr>
+                        <tr><td>Scientific Theory</td><td>1600</td><td>Industrial</td><td>Economics, Architecture</td></tr>
+                        <tr><td>Industrialization</td><td>1600</td><td>Industrial</td><td>Economics</td></tr>
+                        <tr><td>Rifling</td><td>1600</td><td>Industrial</td><td>Metallurgy</td></tr>
+                        <tr><td>Military Science</td><td>1600</td><td>Industrial</td><td>Chemistry, Metallurgy</td></tr>
+                        <tr><td>Fertilizer</td><td>1600</td><td>Industrial</td><td>Chemistry</td></tr>
+                        <tr><td>Biology</td><td>2350</td><td>Industrial</td><td>Archaeology, Scientific Theory</td></tr>
+                        <tr><td>Electricity</td><td>2350</td><td>Industrial</td><td>Scientific Theory</td></tr>
+                        <tr><td>Steam Power</td><td>2350</td><td>Industrial</td><td>Rifling, Industrialization</td></tr>
+                        <tr><td>Dynamite</td><td>2350</td><td>Industrial</td><td>Fertilizer, Military Science</td></tr>
+                        <tr><td>Refrigeration</td><td>3100</td><td>Modern</td><td>Electricity, Biology</td></tr>
+                        <tr><td>Radio</td><td>3100</td><td>Modern</td><td>Electricity</td></tr>
+                        <tr><td>Replaceable Parts</td><td>3100</td><td>Modern</td><td>Steam Power, Electricity</td></tr>
+                        <tr><td>Flight</td><td>3100</td><td>Modern</td><td>Steam Power</td></tr>
+                        <tr><td>Railroad</td><td>3100</td><td>Modern</td><td>Steam Power, Dynamite</td></tr>
+                        <tr><td>Plastic</td><td>4100</td><td>Modern</td><td>Radio, Replaceable Parts</td></tr>
+                        <tr><td>Electronics</td><td>4100</td><td>Modern</td><td>Replaceable Parts, Flight</td></tr>
+                        <tr><td>Ballistics</td><td>4100</td><td>Modern</td><td>Radio, Flight</td></tr>
+                        <tr><td>Combustion</td><td>4100</td><td>Modern</td><td>Railroad</td></tr>
+                        <tr><td>Penicilin</td><td>5100</td><td>Postmodern</td><td>Refrigeration, Plastic</td></tr>
+                        <tr><td>Atomic Theory</td><td>5100</td><td>Postmodern</td><td>Plastic, Electronics</td></tr>
+                        <tr><td>Radar</td><td>5100</td><td>Postmodern</td><td>Electronics, Ballistics</td></tr>
+                        <tr><td>Combined Arms</td><td>5100</td><td>Postmodern</td><td>Ballistics, Combustion</td></tr>
+                        <tr><td>Ecology</td><td>6400</td><td>Postmodern</td><td>Atomic Theory, Penicilin</td></tr>
+                        <tr><td>Nuclear Fission</td><td>6400</td><td>Postmodern</td><td>Atomic Theory, Radar</td></tr>
+                        <tr><td>Rocketry</td><td>6400</td><td>Postmodern</td><td>Radar</td></tr>
+                        <tr><td>Computers</td><td>6400</td><td>Postmodern</td><td>Radar, Combined Arms</td></tr>
+                        <tr><td>Telecom</td><td>8470</td><td>Future</td><td>Ecology</td></tr>
+                        <tr><td>Mobile Tactics</td><td>8470</td><td>Future</td><td>Ecology, Nuclear Fission</td></tr>
+                        <tr><td>Advanced Ballistics</td><td>8470</td><td>Future</td><td>Nuclear Fission, Rocketry</td></tr>
+                        <tr><td>Satellites</td><td>8470</td><td>Future</td><td>Rocketry</td></tr>
+                        <tr><td>Robotics</td><td>8470</td><td>Future</td><td>Rocketry, Computers</td></tr>
+                        <tr><td>Lasers</td><td>8470</td><td>Future</td><td>Computers</td></tr>
+                        <tr><td>Internet</td><td>9680</td><td>Future</td><td>Telecom</td></tr>
+                        <tr><td>Globalization</td><td>9680</td><td>Future</td><td>Telecom</td></tr>
+                        <tr><td>Particle Physics</td><td>9680</td><td>Future</td><td>Telecom, Mobile Tactics, Advanced Ballistics</td></tr>
+                        <tr><td>Nuclear Fusion</td><td>9680</td><td>Future</td><td>Advanced Ballistics, Satellites, Robotics</td></tr>
+                        <tr><td>Nanotechnology</td><td>9680</td><td>Future</td><td>Robotics</td></tr>
+                        <tr><td>Stealth</td><td>9680</td><td>Future</td><td>Robotics, Lasers</td></tr>
+                        <tr><td>Future Tech</td><td>10500</td><td>Future</td><td>Internet, Globalization, Particle Physics, Nuclear Fusion, Nanotechnology, Stealth</td></tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                </details>
+
+
+
+              <div id="culture-mech" class="subsection"><h3>Culture</h3>
+                <p>
+                Woo
+                </p>
+
+                <details class="units-table">
+                  <summary>
+                    <span class="closed-label">Show policy table ▸</span>
+                    <span class="open-label">Hide policy table ▾</span>
+                  </summary>
+                <div class="table-scroll">
+                  <!-- floating scrollbar -->
+                  <div class="h-scroll" aria-hidden="true"></div>
+
+                  <!-- main table scroller -->
+                  <div class="body-scroll">
+
+                      <table class="comparison-table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Tree</th>
+                            <th>Bonus</th>
+                            <th>Policy Prereq</th>
+                            <th>Tech Prereq</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>Tradition Opener</td><td>Tradition</td><td>Greatly increases border expansion in all cities; +3 culture in the capital; unlocks the Hanging Gardens.</td><td>None</td><td>Agriculture</td></tr>
+                          <tr><td>Aristocracy</td><td>Tradition</td><td>+15% production when building wonders; +1 happiness for every 10 citizens in a city.</td><td>Tradition Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Oligarchy</td><td>Tradition</td><td>Garrisoned units cost no maintenance; cities with a garrison gain +50% ranged combat strength.</td><td>Tradition Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Legalism</td><td>Tradition</td><td>Free culture building in first 4 cities; +2 culture from national wonders.</td><td>Tradition Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Landed Elite</td><td>Tradition</td><td>+15% growth; +2 food in capital.</td><td>Legalism</td><td>Agriculture</td></tr>
+                          <tr><td>Monarchy</td><td>Tradition</td><td>+1 gold and +1 happiness for every 2 population in capital.</td><td>Legalism</td><td>Agriculture</td></tr>
+
+                          <tr><td>Liberty Opener</td><td>Liberty</td><td>+1 culture per city; unlocks Pyramids.</td><td>None</td><td>Agriculture</td></tr>
+                          <tr><td>Collective Rule</td><td>Liberty</td><td>+50% settler creation speed in the capital; +1 free settler.</td><td>Republic</td><td>Agriculture</td></tr>
+                          <tr><td>Republic</td><td>Liberty</td><td>+1 production in all cities; +5% production towards buildings.</td><td>Liberty Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Citizenship</td><td>Liberty</td><td>+25% tile improvement rate; +1 free worker in the capital.</td><td>Liberty Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Meritocracy</td><td>Liberty</td><td>+1 happiness; +15% gold from city connections; -5% unhappiness from population in non-occupied cities.</td><td>Citizenship</td><td>Agriculture</td></tr>
+                          <tr><td>Representation</td><td>Liberty</td><td>Each city founded increases social policy cost by 33% less; +1 gold from monuments; starts Golden Age.</td><td>Citizenship</td><td>Agriculture</td></tr>
+
+                          <tr><td>Honor Opener</td><td>Honor</td><td>+33% combat bonus versus barbarians; gain culture for each unit killed; unlocks Temple of Artemis.</td><td>None</td><td>Agriculture</td></tr>
+                          <tr><td>Warrior Code</td><td>Honor</td><td>4 units are maintenance-free; 2 free warriors; gain gold for killed enemies.</td><td>Honor Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Professional Army</td><td>Honor</td><td>+100% production towards barracks, armories, military academies; those buildings give +1 production, +1 culture, +1 gold.</td><td>Honor Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Military Caste</td><td>Honor</td><td>Garrisoned units cost no maintenance; +2 culture & +1 happiness per garrison; courthouses give +2 happiness; +1 science per kill.</td><td>Warrior Code</td><td>Agriculture</td></tr>
+                          <tr><td>Military Tradition</td><td>Honor</td><td>+50% production towards courthouses; courthouses give +3 food, +3 production, +3 gold; citadels give +2 science, +2 culture, +1 food.</td><td>Professional Army</td><td>Agriculture</td></tr>
+                          <tr><td>Discipline</td><td>Honor</td><td>+100% bonus towards Heroic Epic; Heroic Epic gives +4 happiness, +4 production, +4 gold, +4 culture; non-air military units get +50% XP from combat.</td><td>Warrior Code</td><td>Agriculture</td></tr>
+
+                          <tr><td>Piety Opener</td><td>Piety</td><td>+1 culture and +1 faith in capital; +100% production towards shrines and temples; unlocks Mosque of Djenné.</td><td>None</td><td>Agriculture</td></tr>
+                          <tr><td>Organized Religion</td><td>Piety</td><td>+1 faith and +1 culture from shrines and temples.</td><td>Piety Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Mandate of Heaven</td><td>Piety</td><td>+1 faith in the capital; +1 happiness from each temple; 20% discount on faith purchases of religious units/buildings.</td><td>Piety Opener</td><td>Agriculture</td></tr>
+                          <tr><td>Religious Tolerance</td><td>Piety</td><td>Cities with a majority religion also get the pantheon belief bonus of the 2nd most popular religion; +2 science from each temple; +25% science from the Grand Temple.</td><td>Mandate of Heaven</td><td>Agriculture</td></tr>
+                          <tr><td>Reformation</td><td>Piety</td><td>If religion founded, gain bonus reformation belief; +15% border growth from culture.</td><td>Mandate of Heaven</td><td>Agriculture</td></tr>
+                          <tr><td>Theocracy</td><td>Piety</td><td>+1 gold from each shrine and temple; Holy Sites provide +3 gold; +33% gold output from Grand Temple.</td><td>Piety Opener</td><td>Agriculture</td></tr>
+
+                          <tr><td>Patronage Opener</td><td>Patronage</td><td>Resting influence on City-States +20; unlocks Forbidden Palace.</td><td>None</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Merchant Confederacy</td><td>Patronage</td><td>+2 food, +2 production, +1 influence/turn for trade routes with City-States.</td><td>Patronage Opener</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Scholasticism</td><td>Patronage</td><td>Friends/Allies CS provide bonus science per turn (ally bonus higher); flat +50% boost to CS yields.</td><td>Merchant Confederacy</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Cultural Diplomacy</td><td>Patronage</td><td>Strategic resources from CS doubled; +50% happiness from gifted luxuries.</td><td>Merchant Confederacy</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Philanthropy</td><td>Patronage</td><td>Gold gifts to CS grant +25% influence; influence degrades 25% slower.</td><td>Merchant Confederacy</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Consulates</td><td>Patronage</td><td>+1 World Congress delegate; +1 delegate per era beyond Renaissance.</td><td>Cultural Diplomacy</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+
+                          <tr><td>Aesthetics Opener</td><td>Aesthetics</td><td>+25% generation of Great Writers, Artists, Musicians; unlocks Uffizi.</td><td>None</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Cultural Centers</td><td>Aesthetics</td><td>+100% production towards amphitheatres, opera houses, museums, broadcast towers; +1 happiness from writer/artist/musician guilds.</td><td>Aesthetics Opener</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Ethics</td><td>Aesthetics</td><td>(“Cultural Exchange”) 1 free Great Writer.</td><td>Cultural Centers</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Artistic Genius</td><td>Aesthetics</td><td>1 free Great Artist; +1 science from amphitheatres, opera houses, museums, broadcast towers; +3 science from Great Works; +2 science from festivals.</td><td>Cultural Centers</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Flourishing of Arts</td><td>Aesthetics</td><td>+1 culture and +1 tourism from every Great Work and World Wonder; empire starts a Golden Age.</td><td>Ethics</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Fine Arts</td><td>Aesthetics</td><td>Free scriptorium, gallery, conservatory in all cities; +20% tourism from amphitheatres, opera houses, museums, broadcast towers.</td><td>Ethics, Artistic Genius</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+
+                          <tr><td>Commerce Opener</td><td>Commerce</td><td>+33% generation of Great Merchant; unlocks Big Ben.</td><td>None</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Trade Unions</td><td>Commerce</td><td>(“Mercenary Army”) Can purchase Landsknechts at Civil Service and Foreign Legion at Replaceable Parts.</td><td>Commerce Opener</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Caravans</td><td>Commerce</td><td>+50% production towards markets, banks, and stock exchanges.</td><td>Commerce Opener</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Mercantilism</td><td>Commerce</td><td>-20% cost for gold purchases in cities; +2 science from market, bank, stock exchange.</td><td>Caravans</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Entrepreneurship</td><td>Commerce</td><td>-25% maintenance on roads, railroads, buildings; +2 trade routes.</td><td>Caravans</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+                          <tr><td>Protectionism</td><td>Commerce</td><td>+4 production, +4 culture, +4 happiness from East India Trade Company.</td><td>Mercantilism</td><td>Theology, Civil Service, Guilds, Metal Casting, Compass, Education, Chivalry, Machinery, Physics, Steel</td></tr>
+
+                          <tr><td>Exploration Opener</td><td>Exploration</td><td>+1 movement and +1 line of sight for naval units.</td><td>None</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Merchant Navy</td><td>Exploration</td><td>(“Colonialism”) New cities start with 3 pop, free worker, 6 extra tiles, +2 happiness.</td><td>Exploration Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Maritime Infrastructure</td><td>Exploration</td><td>+3 production in all coastal cities; +50% production towards lighthouse, harbor, seaport.</td><td>Exploration Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Naval Tradition</td><td>Exploration</td><td>+1 happiness and +1 culture from lighthouse, harbor, seaport.</td><td>Exploration Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Navigation School</td><td>Exploration</td><td>+2 science in all coastal cities; +10% combat strength for naval military units.</td><td>Maritime Infrastructure, Naval Tradition</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Treasure Fleets</td><td>Exploration</td><td>+1 food, +1 production, +1 gold from ocean tiles without resources and improvements.</td><td>Navigation School</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+
+                          <tr><td>Rationalism Opener</td><td>Rationalism</td><td>+20% generation of Great Scientists; unlocks Porcelain Tower.</td><td>None</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Sovereignity</td><td>Rationalism</td><td>+1 gold from science buildings.</td><td>Rationalism Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Free Thought</td><td>Rationalism</td><td>+4 science from customs house, academy; +1 science from trading post, brazilwood camp, caer, chateau; +1 science from improvements.</td><td>Rationalism Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Humanism</td><td>Rationalism</td><td>+50% production towards library, university, observatory, public school, research labs.</td><td>Rationalism Opener</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Scientific Revolution</td><td>Rationalism</td><td>1 free Great Scientist.</td><td>Sovereignity, Free Thought</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                          <tr><td>Secularism</td><td>Rationalism</td><td>+2 science from each specialist. (Applied elsewhere in game logic.)</td><td>Scientific Revolution</td><td>Astronomy, Acoustics, Banking, Printing Press, Gunpowder, Navigation, Architecture, Economics, Metallurgy, Chemistry</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                </details>
 
               <div id="religion-mech" class="subsection"><h3>Religion</h3>
                 <p>
