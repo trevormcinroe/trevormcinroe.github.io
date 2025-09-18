@@ -230,7 +230,7 @@ pre {
   /* logical props = auto-RTL support */
   /* (min, preferred, max) */
   padding-inline: clamp(16px, 5vw, 90px);
-  padding-block: clamp(12px, 3vw); /* optional top/bottom */
+  padding-block: clamp(12px, 3vw, 32px); /* optional top/bottom */
 }
 
 
