@@ -377,9 +377,17 @@ pre > code {
 /**
  * Wrapper
  */
+/*
 .all-outer {
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: $spacing-unit * 3;
+  padding-right: $spacing-unit * 3;
+}
+*/
+.all-outer {
+  /* logical props = auto-RTL support */
+  /* (min, preferred, max) */
+  padding-inline: clamp(16px, 5vw, 90px);
+  padding-block: clamp(12px, 3vw, 32px); /* optional top/bottom */
 }
 
 /**
