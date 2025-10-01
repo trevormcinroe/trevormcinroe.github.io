@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civitas Documentation</title>
+    <title>Terra Nova Documentation</title>
     <style>
         * {
             margin: 0;
@@ -334,6 +334,21 @@
                 transform: translateY(0);
             }
         }
+
+        .text-block .ol-root{
+  list-style-position: outside;
+  margin-left: 1.25rem;   /* indent outer list */
+  padding-left: 1.25rem;
+}
+
+.text-block .ol-root > li{ margin: 0.25rem 0; }
+
+.text-block .ol-root .ol-nested{
+  margin-top: 0.25rem;
+  margin-left: 1.5rem;    /* one level deeper */
+  padding-left: 1.25rem;
+}
+
     </style>
     <script src="/terra_nova_header.js" defer></script>
     <link rel="stylesheet" href="/terra_nova_header.css">
@@ -344,7 +359,7 @@
 
         <!--
         <header>
-            <a href="civitas" class="logo">Civitas</a>
+            <a href="civitas" class="logo">Terra Nova</a>
             <nav>
                 <a href="#environment">Environment</a>
                 <a href="#research">Research</a>
@@ -357,7 +372,7 @@
         <div class="docs-container">
             <div class="docs-header">
                 <h1 class="docs-title">Environment Documentation</h1>
-                <p class="docs-subtitle">Complete guide to the Civitas reinforcement learning environment</p>
+                <p class="docs-subtitle">Complete guide to the Terra Nova reinforcement learning environment</p>
             </div>
 
             <div class="docs-layout">
@@ -366,13 +381,16 @@
                     <ul>
                         <li><a href="#installation" class="active">Installation</a></li>
                         <li><a href="#quickstart">Quick Start</a></li>
+                        <li><a href="#action-space">Action Space</a></li>
+                        <li><a href="#observation-space">Observation Space</a></li>
+                        <li><a href="#mapgen">Generating Maps</a></li>
                     </ul>
                 </aside>
 
                 <main class="main-content">
                     <section id="installation" class="section">
                         <h2>Installation</h2>
-                        <p>Install Civitas using pip from the official repository:</p>
+                        <p>Install Terra Nova using pip from the official repository:</p>
 
                         <div class="code-block">pip install civitas-env</div>
 
@@ -384,18 +402,18 @@ pip install -e .</div>
 
                         <div class="info-box">
                             <h4>Requirements</h4>
-                            <p>Civitas requires Python 3.8+ and has been tested on Linux, macOS, and Windows. GPU acceleration is optional but recommended for training.</p>
+                            <p>Terra Nova requires Python 3.8+ and has been tested on Linux, macOS, and Windows. GPU acceleration is optional but recommended for training.</p>
                         </div>
                     </section>
 
                     <section id="quickstart" class="section">
                         <h2>Quick Start</h2>
-                        <p>Get started with Civitas in just a few lines of code:</p>
+                        <p>Get started with Terra Nova in just a few lines of code:</p>
 
                         <div class="code-block">import civitas
 
 # Create the environment
-env = civitas.make('CivitasV0')
+env = civitas.make('Terra NovaV0')
 
 # Reset and get initial observation
 observation = env.reset()
@@ -413,7 +431,7 @@ print(f"Done: {done}")</div>
                         <div class="code-block">import civitas
 import numpy as np
 
-env = civitas.make('CivitasV0')
+env = civitas.make('Terra NovaV0')
 
 for episode in range(100):
     observation = env.reset()
@@ -432,9 +450,143 @@ for episode in range(100):
     print(f"Episode {episode}: Total Reward = {total_reward}")</div>
                     </section>
 
+                    <section id="action-space" class="section">
+                      <h2>Action Space</h2>
+                      <h3>Summary</h3>
+                      <p>
+                      Terra Nova's action space is made of several sub-action spaces that each control a different mechanic in the environment. Below is a high-level summary of the array shapes the environment expects to receive from each agent at each timestep. These actions should be given to the environment in the form of a nested tuple in the following order:
+                      </p>
+
+                      <div class="text-block">
+                        <ol class="ol-root">
+                          <li> Trade deal
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 6, 2)</code>
+                              <li> <code>(num_devices, num_games, 6, 56)</code>
+                              <li> <code>(num_devices, num_games, 56)</code>
+                              <li> <code>(num_devices, num_games, 6)</code>
+                            </ol>
+
+                          <li> Social Policies
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 54)</code>
+                            </ol>
+
+                          <li> Religion
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 91)</code>
+                            </ol>
+
+                          <li> Technology
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 81)</code>
+                            </ol>
+
+                          <li> Units
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 30, 19)</code>
+                              <li> <code>(num_devices, num_games, 30, 2772)</code>
+                            </ol>
+
+                          <li> Cities
+                            <ol class="ol-nested">
+                              <li> <code>(num_devices, num_games, 10, 36, 36)</code>
+                              <li> <code>(num_devices, num_games, 10, 185)</code>
+                            </ol>
+                        </ol>
+                      </div>
+
+                      <p>
+                      The action tuple should be nested exactly according to the order shown above. E.g., the tuple should be of length 6. The 0th element of the tuple should itself be a tuple of length 4, the next 3 elements should be arrays, and the 5th and 6th elements should be tuples of length 2.
+                      </p>
+
+                      <h3>Detail</h3>
+                      <p>
+                      The actions in Terra Nova represent a <b>preference order</b> over outcomes. As several mechanics require sequential resolution in Terra Nova, the most preferred outcome is not always a valid, executable action. For example, consider the following scenario:
+                      </p>
+
+                      <p>
+                      A given agent has two cities and inputs a preference order over things to build in those two cities like:
+                      </p>
+
+                      <div class="text-block">
+                        <ol class="ol-root">
+                          <li> City 1
+                            <ol class="ol-nested">
+                              <li> Swordsman
+                              <li> Great Library
+                              <li> ...
+                            </ol>
+
+                          <li> City 2
+                            <ol class="ol-nested">
+                              <li> Great Library
+                              <li> Worker
+                              <li> ...
+                            </ol>
+                        </ol>
+                      </div>
+
+                      <p>
+                      Swordsman require a connected iron resource to build, and the Great Library is a World Wonder (i.e., only one of a given agent's cities may attempt to build this at a time). If the agent has iron connected, City 1 will begin a swordsman and City 2 will begin the Great Library. However, if the agent does not have iron connected, City 1 will begin the Great Library and City 2 will begin a worker. It is due to the conditional and sequential nature of action resolution that the environment requires the full distribution over all possible actions for all controllable endpoints at each timestep.
+                      </p>
+
+                      <p>
+                      Because the environment automatically handles masking and ultimately the selection of specific actions, the user will not know the exact actions that will be executed ahead of time. To help with training, the environment will return a summary of which index was ultiamtely selected for each of the sub-action categories. See section [TODO] for specifics.
+                      </p>
+
+                      <p>
+                      Below is further detail on the endpoint being controlled by each sub-action space.
+                      </p>
+
+                      <h4>Trade Deals</h4>
+                      <p>
+                      These actions control the process through which agents may trade resources, embassies, etc. Only one trade deal can be offered per agent per turn.
+                      </p>
+
+                      <p>
+                      The <code>(num_devices, num_games, 6, 2)</code> array controls whether the agent accepts or denies the incoming trade requests from each other agent. The next three arrays control the outgoing trade offers that the agent wishes to make with the other agents in the game. The <code>(num_devices, num_games, 6, 56)</code> array is a distribution over the 56 items that can be traded, and represents what the agent would like to receive in the trade. The agent cannot ask to receive something that another agent cannot give, which is why there is a dimension of size <code>6</code> in the array. The <code>(num_devices, num_games, 56)</code> array is a distribution over all tradeable items that represents what the given agent is offering. Finally, the <code>(num_devices, num_games, 6)</code> is a distribution over other agents in the game.
+                      </p>
+
+                      <h4>Social Policies</h4>
+                      <p>
+                      The actions controlling social policy selection will only be executed if the agent has generated enough culture to allow for a new selection. The <code>(num_devices, num_games, 54)</code> array represents a distribution over all social policies in the environment.
+                      </p>
+
+                      <h4>Religion</h4>
+                      <p>
+                      Similar to social policies, the actions controlling religious tenet selection will only be executed if the agent has generated enough faith to allow for a new selection. The <code>(num_devices, num_games, 91)</code> array represents a distribution over all religious tenets in the environment.
+                      </p>
+
+                      <h4>Technology</h4>
+                      <p>
+                      Similar to religion, the actions controlling technology selection will only be executed if the agent has generated enough science to allow for a new selection. The <code>(num_devices, num_games, 81)</code> arry represents a distribution over all technologies in the environment.
+                      </p>
+
+                      <h4>Units</h4>
+                      <p>
+                      The actions for units control both the type of action and where on the map the selected action type should occur. The <code>(num_devices, num_games, 30, 19)</code> array is a distribution over all 19 action categories, an independent one per each of the maximum number of units an agent may have (30). The <code>(num_devices, num_games, 30, 2772)</code> is a distribution over each of the hexes on the game board (42 x 66), an independent one per each of the maximum number of units an agent may have (30).
+                      </p>
+
+                      <p>
+                      A unit's type (e.g., worker versus trade caravan) determines which action categories are valie. The tiles upon which a given action category can be executed depends on how many action points a given unit type has, the action category itself, the map's terrain, and several other factors.
+                      </p>
+
+                      <h4>Cities</h4>
+                      <p>
+                      The actions for cities control what is being made in each city as well as which tiles are being worked within the owned tiles of each city. The <code>(num_devices, num_games, 10, 36, 36)</code> array represents a distribution over the maximum number of workable tiles in a city (36), independent per the maximum employable population in each city (36), independent per the maximum numer of cities (10). The <code>(num_devices, num_games, 10, 185)</code> array represents a distribution over all of the things that can be built in each city (185), independent per the maximum number of cities an agent may have (10).
+                      </p>
+                    </section>
+
+                    <section id="observation-space" class="section">
+                      <h2>Observation Space</h2>
+                    </section>
+
+
+
                     <section id="environment" class="section">
                         <h2>Environment Overview</h2>
-                        <p>Civitas provides a turn-based strategy environment based on Civilization V with LekMod balance patches. The environment supports multiple agents in a 6-player free-for-all setting.</p>
+                        <p>Terra Nova provides a turn-based strategy environment based on Civilization V with LekMod balance patches. The environment supports multiple agents in a 6-player free-for-all setting.</p>
 
                         <h3>Environment Parameters</h3>
                         <table class="parameter-table">
@@ -482,7 +634,7 @@ for episode in range(100):
 
                     <section id="actions" class="section">
                         <h2>Action Space</h2>
-                        <p>Civitas uses a hierarchical action space that mirrors the decision-making process in Civilization V. Actions are structured as nested dictionaries with the following main categories:</p>
+                        <p>Terra Nova uses a hierarchical action space that mirrors the decision-making process in Civilization V. Actions are structured as nested dictionaries with the following main categories:</p>
 
                         <h3>Action Categories</h3>
                         <ul style="margin-left: 20px; margin-bottom: 20px;">
@@ -528,6 +680,27 @@ for episode in range(100):
 
                         <p>Each component of the observation provides detailed information necessary for strategic decision-making.</p>
                     </section>
+
+
+                    <section id="mapgen" class="section">
+                        <h2>Generating Maps</h2>
+                        <p>Terra Nova comes with 100 maps by default. We also provide a map-generation utility for users interested in larger training and/or evaluation runs. The map generation process is driven by jax's PRNG system, allowing for full determinism. To generate more maps, run the following:
+                        </p>
+
+                        <div class="code-block">
+                          CUDA_VISIBLE_DEVICES= python3 generate_maps.py --start_seed 1 --num_maps 10
+                        </div>
+
+                        <p>
+                        We recommend the user runs map generation on the CPU for speed considerations. One way to accomplish this is with the preamble <code>CUDA_VISIBLE_DEVICES=</code>, which effectively hides CUDA devices from the python process. The user only needs to specify <code>--start_seed</code> and <code>--num_maps</code>, which controlls the first attempted seed and the number of maps to generate, respectively.
+                        </p>
+
+                        <p>
+                        Not every seed will lead to successful map generation. Terra Nova's map generation process follows a similar ruleset as the map generation process from LekMod, which leads to maps that are balanced in terms of resource and fertility distribution across the landmass. If a given seed will not produce a map that satisfices the balance constraints, the generation script will automatically move onto the next seed.
+                        </p>
+
+                    </section>
+
                 </main>
             </div>
         </div>
