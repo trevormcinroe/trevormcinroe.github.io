@@ -221,11 +221,15 @@
             overflow-x: auto;
             margin: 20px 0;
             border-left: 4px solid #81ADC8;
+            /* preserve indentation */
+            white-space: pre;
+            tab-size: 4;
+            font-variant-ligatures: none;
         }
 
         .code-inline {
-            background: rgba(129, 173, 200, 0.15);
-            color: #2C363F;
+            background: #2C363F;
+            color: #F2F5EA;
             padding: 2px 6px;
             border-radius: 0px;
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -336,19 +340,122 @@
         }
 
         .text-block .ol-root{
-  list-style-position: outside;
-  margin-left: 1.25rem;   /* indent outer list */
-  padding-left: 1.25rem;
-}
+          list-style-position: outside;
+          margin-left: 1.25rem;   /* indent outer list */
+          padding-left: 1.25rem;
+        }
 
-.text-block .ol-root > li{ margin: 0.25rem 0; }
+        .text-block .ol-root > li{ margin: 0.25rem 0; }
 
-.text-block .ol-root .ol-nested{
-  margin-top: 0.25rem;
-  margin-left: 1.5rem;    /* one level deeper */
-  padding-left: 1.25rem;
-}
+        .text-block .ol-root .ol-nested{
+          margin-top: 0.25rem;
+          margin-left: 1.5rem;    /* one level deeper */
+          padding-left: 1.25rem;
+        }
 
+        /* ===== Terra Nova spec: manual / ledger (clean) ===== */
+        :root{
+          --ink:#2C363F; --paper:#F2F5EA; --sky:#81ADC8; --gold:#B68F40; --brick:#BB4430;
+        }
+
+        /* Manual headings */
+        .manual h2, .manual h3, .manual h4{font-weight:800; letter-spacing:-.2px; color:var(--ink)}
+        .manual h2{border-bottom:2px solid rgba(44,54,63,.18); padding-bottom:6px; margin-bottom:14px}
+        .manual h3{margin-top:28px; border-left:4px solid var(--sky); padding-left:10px}
+        .manual h4{margin-top:18px}
+
+        /* Spec block */
+        .spec-block{
+          background: var(--paper);
+          border:1px solid rgba(44,54,63,.18);
+          box-shadow: inset 0 0 0 3px rgba(129,173,200,.06);
+          font-family:'Monaco','Menlo','Ubuntu Mono',monospace;
+          font-size:.92rem; line-height:1.5; padding:12px 14px; overflow:auto; margin:12px 0;
+          color: var(--ink);
+        }
+
+        /* Ledger table */
+        .ledger{
+          width:100%; border-collapse:separate; border-spacing:0;
+          background: var(--paper);
+          border:1px solid rgba(44,54,63,.22);
+        }
+        .ledger td{
+          padding:9px 12px; vertical-align:top; border-bottom:1px solid rgba(44,54,63,.12);
+          color:rgba(44,54,63,.95);
+        }
+        .ledger tr:last-child td{ border-bottom:none; }
+
+        /* Column sizing */
+        .ledger col.col-field{width:20%}
+        .ledger col.col-shape{width:32%}
+
+        /* Header: darker, flat, no underline */
+        .ledger thead th,
+        .kv-table thead th,
+        .parameter-table thead th{
+          text-align:left; font-weight:900; letter-spacing:.15px; color:var(--ink);
+          background: rgba(129,173,200,.22);
+          border-bottom: 2px solid rgba(44,54,63,.28);
+          padding:10px 12px;
+        }
+        /* Make sure any old underline is off */
+        .ledger thead th::after,
+        .kv-table thead th::after,
+        .parameter-table thead th::after{ content:none !important; display:none !important; }
+
+        /* Body: zebra + hover */
+        .ledger tbody tr:nth-child(even),
+        .kv-table tbody tr:nth-child(even),
+        .parameter-table tbody tr:nth-child(even){ background: rgba(129,173,200,.08); }
+        .ledger tbody tr:hover,
+        .kv-table tbody tr:hover,
+        .parameter-table tbody tr:hover{ background: rgba(129,173,200,.12); }
+
+        /* Inline code chips */
+        .ledger code, .kv-table code, .parameter-table code, .spec-block code{
+          font-family:'Monaco','Menlo','Ubuntu Mono',monospace;
+          background: rgba(129,173,200,.14);
+          border: 1px solid rgba(129,173,200,.32);
+          padding:2px 6px; border-radius:2px; color: var(--ink);
+          white-space: nowrap;
+        }
+
+        /* Subsection label + rule */
+        .subhead{ display:flex; align-items:center; gap:10px; margin-top:24px; margin-bottom:6px; }
+        .subhead .num{
+          font-weight:900; font-variant-numeric:tabular-nums; color:var(--paper);
+          background:var(--ink); padding:2px 8px;
+        }
+        .subhead .rule{ flex:1; height:1px; background:linear-gradient(90deg, rgba(44,54,63,.25), rgba(44,54,63,0)); }
+
+        /* Muted inline tag */
+        .i-tag{
+          display:inline-block; font-size:.75rem; font-weight:800; letter-spacing:.3px;
+          padding:1px 6px; border:1px solid rgba(44,54,63,.2); color:var(--ink);
+          background:rgba(44,54,63,.06); border-radius:999px; margin-left:6px;
+        }
+
+        /* Responsive ledger */
+        @media (max-width:900px){
+          .ledger col.col-field{width:26%}
+          .ledger col.col-shape{width:40%}
+        }
+        @media (max-width:720px){
+          .ledger thead{display:none}
+          .ledger tr{display:block; padding:10px 12px; border-bottom:1px solid rgba(44,54,63,.12)}
+          .ledger td{display:block; padding:4px 0; border:none}
+          .ledger td::before{
+            content:attr(data-label) ": ";
+            font-weight:700; color:var(--ink); margin-right:6px;
+          }
+        }
+
+        /* Optional: slightly darker page header bar */
+        header{
+          background: linear-gradient(90deg, #E9EDE4 0%, rgba(129,173,200,0.18) 100%) !important;
+          border-bottom-color: rgba(44,54,63,0.28) !important;
+        }
     </style>
     <script src="/terra_nova_header.js" defer></script>
     <link rel="stylesheet" href="/terra_nova_header.css">
@@ -457,52 +564,156 @@ for episode in range(100):
                       Terra Nova's action space is made of several sub-action spaces that each control a different mechanic in the environment. Below is a high-level summary of the array shapes the environment expects to receive from each agent at each timestep. These actions should be given to the environment in the form of a nested tuple in the following order:
                       </p>
 
-                      <div class="text-block">
-                        <ol class="ol-root">
-                          <li> Trade deal
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 6, 2)</code>
-                              <li> <code>(num_devices, num_games, 6, 56)</code>
-                              <li> <code>(num_devices, num_games, 56)</code>
-                              <li> <code>(num_devices, num_games, 6)</code>
-                            </ol>
-
-                          <li> Social Policies
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 54)</code>
-                            </ol>
-
-                          <li> Religion
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 91)</code>
-                            </ol>
-
-                          <li> Technology
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 81)</code>
-                            </ol>
-
-                          <li> Units
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 30, 19)</code>
-                              <li> <code>(num_devices, num_games, 30, 2772)</code>
-                            </ol>
-
-                          <li> Cities
-                            <ol class="ol-nested">
-                              <li> <code>(num_devices, num_games, 10, 36, 36)</code>
-                              <li> <code>(num_devices, num_games, 10, 185)</code>
-                            </ol>
-                        </ol>
+                      <div class="code-block">
+action = Tuple[
+  Tuple[jnp.ndarray, jnp.ndarray, jnp.ndarray, jnp.ndarray],  # tuple of four arrays
+  jnp.ndarray,  # array
+  jnp.ndarray,  # array
+  jnp.ndarray,  # array
+  Tuple[jnp.ndarray, jnp.ndarray],  # tuple of two arrays
+  Tuple[jnp.ndarray, jnp.ndarray]  # tuple of two arrays
+]
                       </div>
 
                       <p>
-                      The action tuple should be nested exactly according to the order shown above. E.g., the tuple should be of length 6. The 0th element of the tuple should itself be a tuple of length 4, the next 3 elements should be arrays, and the 5th and 6th elements should be tuples of length 2.
+                      Below is further detail on the endpoint being controlled by each sub-action space. Each each given to the environment should have two leading axes. The first is the number of devices (e.g., GPUs) the simulator is distributed over (<code class="code-inline">num_devices</code>). The second is the number of parallel games per device (<code class="code-inline">num_games</code>).
                       </p>
+
+                      <!-- 3.1 Trade Deals -->
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Trade Deals</h3><div class="rule"></div></div>
+                      <p>
+                      These actions control the process through which agents may trade resources, embassies, etc. Only one trade deal can be offered per agent per turn.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead>
+                          <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Accept/Deny</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 6, 2)</code></td>
+                            <td data-label="Semantics">Binary {accept, deny} for each other agent's offer.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Ask (per agent)</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 6, 56)</code></td>
+                            <td data-label="Semantics">Distribution over 56 tradeables, represents what the agent would like to receive in the trade.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Offer</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 56)</code></td>
+                            <td data-label="Semantics">Distribution over 56 tradeables, represents what the given agent is offering.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Counterparty</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 6)</code></td>
+                            <td data-label="Semantics">Distribution over other agents. pairs with <em>Ask</em>/<em>Offer</em> to form a proposal.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- 3.2 Social Policies -->
+                      <div class="subhead"><span class="num">2</span><h3 style="margin:0">Social Policies</h3><div class="rule"></div></div>
+                      <p>
+                      The actions controlling social policy selection will only be executed if the agent has generated enough culture to allow for a new selection.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead>
+                          <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Policy</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 54)</code></td>
+                            <td data-label="Semantics">Distribution over all social policies.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- 3.3 Religion -->
+                      <div class="subhead"><span class="num">3</span><h3 style="margin:0">Religion</h3><div class="rule"></div></div>
+                      <p>
+                      Similar to social policies, the actions controlling religious tenet selection will only be executed if the agent has generated enough faith to allow for a new selection.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Tenet</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 91)</code></td>
+                            <td data-label="Semantics">Distribution over all religious tenets.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- 3.4 Technology -->
+                      <div class="subhead"><span class="num">4</span><h3 style="margin:0">Technology</h3><div class="rule"></div></div>
+                      <table class="ledger">
+                      <p>
+                      Similar to religion, the actions controlling technology selection will only be executed if the agent has generated enough science to allow for a new selection.
+                      </p>
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Tech</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 81)</code></td>
+                            <td data-label="Semantics">Distribution over all technologies.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- 3.5 Units -->
+                      <div class="subhead"><span class="num">5</span><h3 style="margin:0">Units</h3><div class="rule"></div></div>
+                      <p>
+                      The actions for units control both the type of action and where on the map the selected action type should occur. A unit's type (e.g., worker versus trade caravan) determines which action categories are valid. The tiles upon which a given action category can be executed depends on how many action points a given unit type has, the action category itself, the map's terrain, and several other factors.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Action Type</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 30, 19)</code></td>
+                            <td data-label="Semantics">19-category action distribution, independent per unit (30).</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Target Hex</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 30, 2772)</code></td>
+                            <td data-label="Semantics">Distribution over 42×66 hexes, independent per unit (30).</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- 3.6 Cities -->
+                      <div class="subhead"><span class="num">6</span><h3 style="margin:0">Cities</h3><div class="rule"></div></div>
+                      <p>
+                      The actions for cities control what is being made in each city as well as which tiles are being worked within the owned tiles of each city.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Worked Tiles</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 10, 36, 36)</code></td>
+                            <td data-label="Semantics">Citizen-to-tile assignment, independent per city (10)</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Build Choice</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 10, 185)</code></td>
+                            <td data-label="Semantics">Distribution over buildables (buildings & units), independent per city.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
 
                       <h3>Detail</h3>
                       <p>
-                      The actions in Terra Nova represent a <b>preference order</b> over outcomes. As several mechanics require sequential resolution in Terra Nova, the most preferred outcome is not always a valid, executable action. For example, consider the following scenario:
+                      The actions in Terra Nova represent a <b>preference order</b> over outcomes. As several mechanics require sequential resolution, the most preferred outcome is not always a valid, executable action. For example, consider the following scenario:
                       </p>
 
                       <p>
@@ -532,54 +743,425 @@ for episode in range(100):
                       </p>
 
                       <p>
-                      Because the environment automatically handles masking and ultimately the selection of specific actions, the user will not know the exact actions that will be executed ahead of time. To help with training, the environment will return a summary of which index was ultiamtely selected for each of the sub-action categories. See section [TODO] for specifics.
+                      Because the environment automatically handles masking and ultimately the selection of specific actions, the user will not know the exact actions that will be executed ahead of time (without an accurate world model). To help with training, the environment will return a summary of which index was ultimately selected for each of the sub-action categories. See section [TODO] for specifics.
                       </p>
 
-                      <p>
-                      Below is further detail on the endpoint being controlled by each sub-action space.
-                      </p>
 
-                      <h4>Trade Deals</h4>
-                      <p>
-                      These actions control the process through which agents may trade resources, embassies, etc. Only one trade deal can be offered per agent per turn.
-                      </p>
-
-                      <p>
-                      The <code>(num_devices, num_games, 6, 2)</code> array controls whether the agent accepts or denies the incoming trade requests from each other agent. The next three arrays control the outgoing trade offers that the agent wishes to make with the other agents in the game. The <code>(num_devices, num_games, 6, 56)</code> array is a distribution over the 56 items that can be traded, and represents what the agent would like to receive in the trade. The agent cannot ask to receive something that another agent cannot give, which is why there is a dimension of size <code>6</code> in the array. The <code>(num_devices, num_games, 56)</code> array is a distribution over all tradeable items that represents what the given agent is offering. Finally, the <code>(num_devices, num_games, 6)</code> is a distribution over other agents in the game.
-                      </p>
-
-                      <h4>Social Policies</h4>
-                      <p>
-                      The actions controlling social policy selection will only be executed if the agent has generated enough culture to allow for a new selection. The <code>(num_devices, num_games, 54)</code> array represents a distribution over all social policies in the environment.
-                      </p>
-
-                      <h4>Religion</h4>
-                      <p>
-                      Similar to social policies, the actions controlling religious tenet selection will only be executed if the agent has generated enough faith to allow for a new selection. The <code>(num_devices, num_games, 91)</code> array represents a distribution over all religious tenets in the environment.
-                      </p>
-
-                      <h4>Technology</h4>
-                      <p>
-                      Similar to religion, the actions controlling technology selection will only be executed if the agent has generated enough science to allow for a new selection. The <code>(num_devices, num_games, 81)</code> arry represents a distribution over all technologies in the environment.
-                      </p>
-
-                      <h4>Units</h4>
-                      <p>
-                      The actions for units control both the type of action and where on the map the selected action type should occur. The <code>(num_devices, num_games, 30, 19)</code> array is a distribution over all 19 action categories, an independent one per each of the maximum number of units an agent may have (30). The <code>(num_devices, num_games, 30, 2772)</code> is a distribution over each of the hexes on the game board (42 x 66), an independent one per each of the maximum number of units an agent may have (30).
-                      </p>
-
-                      <p>
-                      A unit's type (e.g., worker versus trade caravan) determines which action categories are valie. The tiles upon which a given action category can be executed depends on how many action points a given unit type has, the action category itself, the map's terrain, and several other factors.
-                      </p>
-
-                      <h4>Cities</h4>
-                      <p>
-                      The actions for cities control what is being made in each city as well as which tiles are being worked within the owned tiles of each city. The <code>(num_devices, num_games, 10, 36, 36)</code> array represents a distribution over the maximum number of workable tiles in a city (36), independent per the maximum employable population in each city (36), independent per the maximum numer of cities (10). The <code>(num_devices, num_games, 10, 185)</code> array represents a distribution over all of the things that can be built in each city (185), independent per the maximum number of cities an agent may have (10).
-                      </p>
                     </section>
 
                     <section id="observation-space" class="section">
                       <h2>Observation Space</h2>
+                      <p>
+                      The observation space in Terra Nova is large, but organized and hierarchical. Some components are in the shape of the map (i.e., a <code class="code-inline">(..., 42, 66, ...)</code>) array, some are continuous vectors, and some are scalars. The information also spans numerical type: some are continuous values and some are non-ordinal integers. Here we first describe the entire layout of a Terra Nova observation (along with the data shapes). Then we detail the contents of each item in an observation.
+                      </p>
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Main Observation</h3><div class="rule"></div></div>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead>
+                          <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><td data-label="Field">elevation_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the elevation level of each tile. Takes values in [0, 1, 2, 3], representing ocean, flatland, hill, and mountain, respectively.</td></tr>
+                          <tr><td data-label="Field">terrain_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the terrain type of each tile. Takes values in [0, 1, 2, 3, 4, 5] representing ocean, grassland, plains, desert, tundra, and snow, respectively.</td></tr>
+                          <tr><td data-label="Field">edge_river_map</td><td data-label="Shape"><code>(42, 66, 6)</code></td><td data-label="Semantics">Describes whether a river is on the edge of each tile. Takes values in [0, 1].</td></tr>
+                          <tr><td data-label="Field">lake_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes whether a lake exists on each tile. Takes values in [0, 1].</td></tr>
+                          <tr><td data-label="Field">feature_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the feature on each tile. Takes values in [0, 1, 2, 3, 4, 5, 6] representing none, forest, jungle, marsh, oasis, floodplains, and ice, respectively.</td></tr>
+                          <tr><td data-label="Field">nw_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the presence of Natural Wonders in each tile. Takes values in [0...17], where 0 indicates no Natural Wonder and the remaining integers represent one of the Natural Wonders.</td></tr>
+                          <tr><td data-label="Field">cs_ownership_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Described which city state owns each tile. Takes values in [0...12], where 0 indicates no ownership and the remaining integers represent ownership by one of the city states.</td></tr>
+
+                          <tr><td data-label="Field">units</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See "Units Observation".</td></tr>
+
+                          <tr><td data-label="Field">technologies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">policies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">player_cities</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">yield_map_players</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">visible_resources_map_players</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">science_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">culture_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">faith_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">is_researching</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">num_trade_routes</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">cs_perturn_influence</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">num_delegates</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">culture_threshold</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">religious_tenets</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">free_techs</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">free_policies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">great_works</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">culture_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">improvement_additional_yield_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">improvement_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">road_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">gpps</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">gp_threshold</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">golden_age_turns</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">tourism_total</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">culture_total</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">citystate_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">visibility_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">trade_offers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">trade_ledger</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">trade_length_ledger</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">trade_gpt_adjustment</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">trade_resource_adjustment</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">have_met</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">at_war</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">has_sacked</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">treasury</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">happiness</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <!-- Derived Information -->
+                          <tr><td data-label="Field">most_population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_crop_yield</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_crop_yield</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_manufactured_goods</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_manufactured_goods</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_gnp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_gnp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_land</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_land</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_soldiers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_soldiers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_approval</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_approval</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+
+                          <tr><td data-label="Field">most_literacy</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">least_literacy</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                        </tbody>
+                      </table>
+
+
+
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Units Observation</h3><div class="rule"></div></div>
+                      <p>
+                      All fields that being with 6 (the number of players) are revealed on a full-visibility basis only. That is, when a given player can see another player's units, the information about that unit is revealed. Likewise, when the seen units dieappear from full visibility, that information is removed from the observation.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">unit_type</td>
+                            <td data-label="Shape"><code>(6, 30)</code></td>
+                            <td data-label="Semantics">Describes the type of unit (e.g., worker versus settler). Takes values in [0...37], where 0 indicates no unit and the remaining integers represent one of the unit types.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">unit_rowcol</td>
+                            <td data-label="Shape"><code>(6, 30, 2)</code></td>
+                            <td data-label="Semantics">Describes the (row, col) location of units. Takes values in [0...65].</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">unit_ap</td>
+                            <td data-label="Shape"><code>(6, 30)</code></td>
+                            <td data-label="Semantics">Describes the action points of a unit, which determines how far a unit can move.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">engaged_for_n_turns</td>
+                            <td data-label="Shape"><code>(30)</code></td>
+                            <td data-label="Semantics">Describes for how may turns a unit is engaged in an action.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">engaged_action_id</td>
+                            <td data-label="Shape"><code>(30)</code></td>
+                            <td data-label="Semantics">Describes the action category the unit is currently engaged in.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">trade_to_player_int</td>
+                            <td data-label="Shape"><code>(30)</code></td>
+                            <td data-label="Semantics">If the unit is a caravan and is engaged in a traderoute, describes to which player the caravan is sent.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">trade_to_city_int</td>
+                            <td data-label="Shape"><code>(30)</code></td>
+                            <td data-label="Semantics">If the unit is a caravan and is engaged in a traderoute, describes to which city the caravan is sent.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">trade_from_city_int</td>
+                            <td data-label="Shape"><code>(30)</code></td>
+                            <td data-label="Semantics">If the unit is a caravan and is engaged in a traderoute, describes from which city the caravan is sent.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">trade_yields</td>
+                            <td data-label="Shape"><code>(30, 2, 10)</code></td>
+                            <td data-label="Semantics">If the unit is a caravan and is engaged in a traderoute, describes the yields produced by that trade route in a from/to format.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">combat_bonus_accel</td>
+                            <td data-label="Shape"><code>(6, 30)</code></td>
+                            <td data-label="Semantics">Describes the bonus the unit receives to its combat strength when attacked or attacking.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">health</td>
+                            <td data-label="Shape"><code>(6, 30)</code></td>
+                            <td data-label="Semantics">Describes the current health of the unit.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Culture Information</h3><div class="rule"></div></div>
+<table class="ledger">
+  <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+  <thead>
+    <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Field">building_yields</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">yields_per_kill</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">honor_finisher_yields_per_kill</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">cs_resting_influence</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">cs_trade_route_yields</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">additional_yield_map</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">City State Information</h3><div class="rule"></div></div>
+<table class="ledger">
+  <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+  <thead>
+    <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Field">religious_population</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">relationships</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">influence_level</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">cs_type</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">quest_type</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">culture_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">faith_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">tech_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">trade_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">religion_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">wonder_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">resource_tracker_mine</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">culture_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">faith_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">tech_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">trade_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">religion_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">wonder_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">resource_tracker_lead</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">city_rowcols</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">City Information</h3><div class="rule"></div></div>
+
+<table class="ledger">
+  <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+  <thead>
+    <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+  </thead>
+  <tbody>
+    <tr><td data-label="Field">city_ids</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">city_rowcols</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">ownership_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">city_center_yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">building_yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">worked_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">specialist_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">gw_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">food_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">growth_carryover</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">prod_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">prod_carryover</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">is_constructing</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">bldg_maintenance</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">defense</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">hp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">buildings_owned</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">resources_owned</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">additional_yield_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">is_coastal</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">religion_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">culture_reserves_for_border</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">great_person_points</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+  </tbody>
+</table>
+
+
+                    <div class="subhead"><span class="num">1</span><h3 style="margin:0">Religion Information</h3><div class="rule"></div></div>
+
+<table class="ledger">
+  <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+  <thead>
+    <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Field">religious_population</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">religious_tenets_per_city</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">building_yields</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">additional_yield_map</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">cs_perturn_influence_cumulative</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+    <tr>
+      <td data-label="Field">player_perturn_influence_cumulative</td>
+      <td data-label="Shape"><code>...</code></td>
+      <td data-label="Semantics">...</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+                      <h3>Summary</h3>
+
                     </section>
 
 
