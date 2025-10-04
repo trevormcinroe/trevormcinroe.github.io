@@ -768,102 +768,102 @@ action = Tuple[
                           <tr><td data-label="Field">lake_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes whether a lake exists on each tile. Takes values in [0, 1].</td></tr>
                           <tr><td data-label="Field">feature_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the feature on each tile. Takes values in [0, 1, 2, 3, 4, 5, 6] representing none, forest, jungle, marsh, oasis, floodplains, and ice, respectively.</td></tr>
                           <tr><td data-label="Field">nw_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the presence of Natural Wonders in each tile. Takes values in [0...17], where 0 indicates no Natural Wonder and the remaining integers represent one of the Natural Wonders.</td></tr>
-                          <tr><td data-label="Field">cs_ownership_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Described which city state owns each tile. Takes values in [0...12], where 0 indicates no ownership and the remaining integers represent ownership by one of the city states.</td></tr>
+                          <tr><td data-label="Field">cs_ownership_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes which city state owns each tile. Takes values in [0...12], where 0 indicates no ownership and the remaining integers represent ownership by one of the city states.</td></tr>
 
                           <tr><td data-label="Field">units</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See "Units Observation".</td></tr>
 
-                          <tr><td data-label="Field">technologies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">policies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">technologies</td><td data-label="Shape"><code>(81)</code></td><td data-label="Semantics">Describes the technologies researched as a boolean 1/0.</td></tr>
+                          <tr><td data-label="Field">policies</td><td data-label="Shape"><code>(54)</code></td><td data-label="Semantics">Describes the social policies selected as a boolean 1/0.</td></tr>
 
-                          <tr><td data-label="Field">player_cities</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">player_cities</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See "Player Cities Observation".</td></tr>
 
-                          <tr><td data-label="Field">yield_map_players</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">visible_resources_map_players</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">yield_map_players</td><td data-label="Shape"><code>(42, 66, 7)</code></td><td data-label="Semantics">Describes the yields given by the map's tiles.</td></tr>
+                          <tr><td data-label="Field">visible_resources_map_players</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the resources the agent can see with its current technology.</td></tr>
 
-                          <tr><td data-label="Field">science_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">culture_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">faith_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">science_reserves</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the built up science, empire-wide. This science is put towards completing research.</td></tr>
+                          <tr><td data-label="Field">culture_reserves</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the built up culture, empire-wide. This culture is put towards selecting social policies.</td></tr>
+                          <tr><td data-label="Field">faith_reserves</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the built up faith, empire-wide. This faith is put towards selecting religious tenets and purchasing religious buildings.</td></tr>
 
-                          <tr><td data-label="Field">is_researching</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">num_trade_routes</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">is_researching</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the technology being researched currently as a categorical integer.</td></tr>
+                          <tr><td data-label="Field">num_trade_routes</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The maximum number of trade caravans the agent can maintain currently.</td></tr>
 
-                          <tr><td data-label="Field">cs_perturn_influence</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">cs_perturn_influence</td><td data-label="Shape"><code>(12)</code></td><td data-label="Semantics">Describes the amount of influence the agent is exerting over each city state.</td></tr>
 
-                          <tr><td data-label="Field">num_delegates</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">num_delegates</td><td data-label="Shape"><code>(6)</code></td><td data-label="Semantics">Describes the number of World Congress delegates from each agent.</td></tr>
 
-                          <tr><td data-label="Field">culture_threshold</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">culture_threshold</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the amount of culture build up required to unlock the next social policy.</td></tr>
 
-                          <tr><td data-label="Field">religious_tenets</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">religious_tenets</td><td data-label="Shape"><code>(6, 91)</code></td><td data-label="Semantics">Describes the religious tenets belonging to each agent's religion.</td></tr>
 
-                          <tr><td data-label="Field">free_techs</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">free_policies</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">free_techs</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the number of technologies the agent can select for free on this turn. Only one free technology may be selected per turn.</td></tr>
+                          <tr><td data-label="Field">free_policies</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the number of social policies the agent can select for free on this turn. Only one free policy may be selected per turn.</td></tr>
 
-                          <tr><td data-label="Field">great_works</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">great_works</td><td data-label="Shape"><code>(4)</code></td><td data-label="Semantics">Describes the number of Great Works an agent has.</td></tr>
 
-                          <tr><td data-label="Field">culture_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">culture_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See "Culture Observation"</td></tr>
 
-                          <tr><td data-label="Field">improvement_additional_yield_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">improvement_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">road_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">improvement_additional_yield_map</td><td data-label="Shape"><code>(42, 66, 7)</code></td><td data-label="Semantics">Describes the yields from tile improvements in addition to the yields from the base map.</td></tr>
+                          <tr><td data-label="Field">improvement_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the improvements on the map tiles.</td></tr>
+                          <tr><td data-label="Field">road_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the presence of roads on the map tiles.</td></tr>
 
-                          <tr><td data-label="Field">gpps</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">gp_threshold</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">gpps</td><td data-label="Shape"><code>(6)</code></td><td data-label="Semantics">Describes the number of great person points toward each great person type, empire-wide.</td></tr>
+                          <tr><td data-label="Field">gp_threshold</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the number of great person points required to generate a new great person.</td></tr>
 
-                          <tr><td data-label="Field">golden_age_turns</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">golden_age_turns</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the number of turns remaining in the current golden age.</td></tr>
 
-                          <tr><td data-label="Field">tourism_total</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">culture_total</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">tourism_total</td><td data-label="Shape"><code>(6, 6)</code></td><td data-label="Semantics">Describes the amount of tourism generated by each agent onto each agent.</td></tr>
+                          <tr><td data-label="Field">culture_total</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes the cumulative amout of culture generated.</td></tr>
 
-                          <tr><td data-label="Field">citystate_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">citystate_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See "City State Observation."</td></tr>
 
-                          <tr><td data-label="Field">visibility_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">visibility_map</td><td data-label="Shape"><code>(42, 66)</code></td><td data-label="Semantics">Describes the visibility status of the map tiles. Takes values in [0, 1, 2] representing not ever seen, seen before but not currently, and currently see, respectively.</td></tr>
 
-                          <tr><td data-label="Field">trade_offers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">trade_ledger</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">trade_length_ledger</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">trade_gpt_adjustment</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">trade_resource_adjustment</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">trade_offers</td><td data-label="Shape"><code>(6, 2)</code></td><td data-label="Semantics">Describes the incoming trade offers from each agent in an ask/offer format.</td></tr>
+                          <tr><td data-label="Field">trade_ledger</td><td data-label="Shape"><code>(6, 10, 2)</code></td><td data-label="Semantics">Describes the currently-active trade deals with each other agent.</td></tr>
+                          <tr><td data-label="Field">trade_length_ledger</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the turns remaining for each active trade deal.</td></tr>
+                          <tr><td data-label="Field">trade_gpt_adjustment</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The net gold per turn adjustment due to trade deals.</td></tr>
+                          <tr><td data-label="Field">trade_resource_adjustment</td><td data-label="Shape"><code>(52)</code></td><td data-label="Semantics">The net resource adjustment due to trade deals.</td></tr>
 
-                          <tr><td data-label="Field">have_met</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">at_war</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">has_sacked</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">have_met</td><td data-label="Shape"><code>(16)</code></td><td data-label="Semantics">Describes whether the agent has met other agents and city states.</td></tr>
+                          <tr><td data-label="Field">at_war</td><td data-label="Shape"><code>(6, 6)</code></td><td data-label="Semantics">Describes the war status between each pair of agents.</td></tr>
+                          <tr><td data-label="Field">has_sacked</td><td data-label="Shape"><code>(6, 6)</code></td><td data-label="Semantics">Describes whether a given agent has sacked another agent's capital.</td></tr>
 
-                          <tr><td data-label="Field">treasury</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">happiness</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">treasury</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes how much gold the agent has built up.</td></tr>
+                          <tr><td data-label="Field">happiness</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">Describes how happiness an agent has, empire-wide.</td></tr>
 
                           <!-- Derived Information -->
-                          <tr><td data-label="Field">most_population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_population</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most population.</td></tr>
+                          <tr><td data-label="Field">least_population</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least population.</td></tr>
 
-                          <tr><td data-label="Field">most_crop_yield</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_crop_yield</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_crop_yield</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most food produced.</td></tr>
+                          <tr><td data-label="Field">least_crop_yield</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least food produced.</td></tr>
 
-                          <tr><td data-label="Field">most_manufactured_goods</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_manufactured_goods</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_manufactured_goods</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most production.</td></tr>
+                          <tr><td data-label="Field">least_manufactured_goods</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least production.</td></tr>
 
-                          <tr><td data-label="Field">most_gnp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_gnp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_gnp</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most gold per turn.</td></tr>
+                          <tr><td data-label="Field">least_gnp</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least gold per turn.</td></tr>
 
-                          <tr><td data-label="Field">most_land</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_land</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_land</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most land.</td></tr>
+                          <tr><td data-label="Field">least_land</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least land.</td></tr>
 
-                          <tr><td data-label="Field">most_soldiers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_soldiers</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_soldiers</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most miilaty.</td></tr>
+                          <tr><td data-label="Field">least_soldiers</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least military.</td></tr>
 
-                          <tr><td data-label="Field">most_approval</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_approval</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_approval</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most happiness.</td></tr>
+                          <tr><td data-label="Field">least_approval</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least happiness.</td></tr>
 
-                          <tr><td data-label="Field">most_literacy</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-                          <tr><td data-label="Field">least_literacy</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+                          <tr><td data-label="Field">most_literacy</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most technology researched.</td></tr>
+                          <tr><td data-label="Field">least_literacy</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least technology researched.</td></tr>
                         </tbody>
                       </table>
 
 
 
 
-                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Units Observation</h3><div class="rule"></div></div>
+                      <div class="subhead"><span class="num">2</span><h3 style="margin:0">Units Observation</h3><div class="rule"></div></div>
                       <p>
-                      All fields that being with 6 (the number of players) are revealed on a full-visibility basis only. That is, when a given player can see another player's units, the information about that unit is revealed. Likewise, when the seen units dieappear from full visibility, that information is removed from the observation.
+                      All fields that begin with 6 (the number of players) are revealed on a full-visibility basis only. That is, when a given player can see another player's units, the information about that unit is revealed. Likewise, when the seen units dieappear from full visibility, that information is removed from the observation.
                       </p>
                       <table class="ledger">
                         <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
@@ -927,7 +927,7 @@ action = Tuple[
                         </tbody>
                       </table>
 
-                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Culture Information</h3><div class="rule"></div></div>
+                      <div class="subhead"><span class="num">3</span><h3 style="margin:0">Culture Observation</h3><div class="rule"></div></div>
 <table class="ledger">
   <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
   <thead>
@@ -936,40 +936,40 @@ action = Tuple[
   <tbody>
     <tr>
       <td data-label="Field">building_yields</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 8)</code></td>
+      <td data-label="Semantics">Describes the additional yields from buildings due to the agent's social policies.</td>
     </tr>
     <tr>
       <td data-label="Field">yields_per_kill</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(8)</code></td>
+      <td data-label="Semantics">Describes the yields an agent generates for each unit killed.</td>
     </tr>
     <tr>
       <td data-label="Field">honor_finisher_yields_per_kill</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(8)</code></td>
+      <td data-label="Semantics">Describes the yields an agent generates for each unit killed due to having completed the Honor social policy tree.</td>
     </tr>
     <tr>
       <td data-label="Field">cs_resting_influence</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the minimum influence value an agent has over all city states.</td>
     </tr>
     <tr>
       <td data-label="Field">cs_trade_route_yields</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 2, 10)</code></td>
+      <td data-label="Semantics">Describes the additional yields from a trade route sent from each city to a city state in the order [food, production, gold, faith, culture, science, happiness, tourism, religious pressure, influence.]</td>
     </tr>
     <tr>
       <td data-label="Field">additional_yield_map</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(42, 66, 7)</code></td>
+      <td data-label="Semantics">Describes the yields due to social policies in addition to the yields from the base map.</td>
     </tr>
   </tbody>
 </table>
 
 
 
-                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">City State Information</h3><div class="rule"></div></div>
+                      <div class="subhead"><span class="num">4</span><h3 style="margin:0">City State Observation</h3><div class="rule"></div></div>
 <table class="ledger">
   <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
   <thead>
@@ -978,146 +978,148 @@ action = Tuple[
   <tbody>
     <tr>
       <td data-label="Field">religious_population</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12, 6)</code></td>
+      <td data-label="Semantics">The population count following each religion in the game for each city state.</td>
     </tr>
     <tr>
       <td data-label="Field">relationships</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12)</code></td>
+      <td data-label="Semantics">Describes the agent integer of each city state's ally.</td>
     </tr>
     <tr>
       <td data-label="Field">influence_level</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12)</code></td>
+      <td data-label="Semantics">Describes the agent's influence level over each city state.</td>
     </tr>
     <tr>
       <td data-label="Field">cs_type</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12,)</code></td>
+      <td data-label="Semantics">Describes the type of city state.</td>
     </tr>
     <tr>
       <td data-label="Field">quest_type</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12)</code></td>
+      <td data-label="Semantics">Describes the active quest for each city state.</td>
     </tr>
     <tr>
       <td data-label="Field">culture_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the amount of culture generated towards culture quests.</td>
     </tr>
     <tr>
       <td data-label="Field">faith_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the amount of faith generated towards faith quests.</td>
     </tr>
     <tr>
       <td data-label="Field">tech_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the number of technologies researched towards technology quests.</td>
     </tr>
     <tr>
       <td data-label="Field">trade_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12)</code></td>
+      <td data-label="Semantics">Describes the total number of turns put towards trade routes for trade route quests.</td>
     </tr>
     <tr>
       <td data-label="Field">religion_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the number of turns the agent's religion has spent as the majority population in a city state towards religion quests.</td>
     </tr>
     <tr>
       <td data-label="Field">wonder_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the number of wonders per turn the agent has built towards wonder quests.</td>
     </tr>
     <tr>
       <td data-label="Field">resource_tracker_mine</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the number of resources the agent has improved towards resource quests.</td>
     </tr>
     <tr>
       <td data-label="Field">culture_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in culture quests.</td>
     </tr>
     <tr>
       <td data-label="Field">faith_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in faith quests.</td>
     </tr>
     <tr>
       <td data-label="Field">tech_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in technology quests.</td>
     </tr>
     <tr>
       <td data-label="Field">trade_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in trade route quests.</td>
     </tr>
     <tr>
       <td data-label="Field">religion_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in religion quests.</td>
     </tr>
     <tr>
       <td data-label="Field">wonder_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in wonder quests.</td>
     </tr>
     <tr>
       <td data-label="Field">resource_tracker_lead</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>()</code></td>
+      <td data-label="Semantics">Describes the value for the leader in resource quests.</td>
     </tr>
     <tr>
       <td data-label="Field">city_rowcols</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(12, 2)</code></td>
+      <td data-label="Semantics">Desribes the (row, col) location of city states.</td>
     </tr>
   </tbody>
 </table>
 
 
-                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">City Information</h3><div class="rule"></div></div>
-
+                      <div class="subhead"><span class="num">5</span><h3 style="margin:0">Player Cities Observation</h3><div class="rule"></div></div>
+                      <p>
+                      Fields beginning with 6 (the number of agents in the game), are discoverable by all agents in the game.
+                      </p>
 <table class="ledger">
   <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
   <thead>
     <tr><th>Field</th><th>Shape</th><th>Semantics</th></tr>
   </thead>
   <tbody>
-    <tr><td data-label="Field">city_ids</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">city_rowcols</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">ownership_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">city_center_yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">building_yields</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">population</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">worked_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">specialist_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">gw_slots</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">food_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">growth_carryover</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">prod_reserves</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">prod_carryover</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">is_constructing</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">bldg_maintenance</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">defense</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">hp</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">buildings_owned</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">resources_owned</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">additional_yield_map</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">is_coastal</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">religion_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">culture_reserves_for_border</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
-    <tr><td data-label="Field">great_person_points</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">...</td></tr>
+    <tr><td data-label="Field">city_ids</td><td data-label="Shape"><code>(6, 10)</code></td><td data-label="Semantics">Describes the type of city. Takes values in [0, 1, 2] where 0 is no city, 1 is a capital city, and 2 is a non-capital city.</td></tr>
+    <tr><td data-label="Field">city_rowcols</td><td data-label="Shape"><code>(6, 10, 2)</code></td><td data-label="Semantics">Describes the (row, col) position of cities. Takes values in [0...65].</td></tr>
+    <tr><td data-label="Field">ownership_map</td><td data-label="Shape"><code>(6, 10, 54, 22)</code></td><td data-label="Semantics">Describes the ownership status of each tile on a per-player, player-city basis. Takes values in [0, 1, 2, 3] representing not owned, could own, does own, and city center, respectively.</td></tr>
+    <tr><td data-label="Field">yields</td><td data-label="Shape"><code>(10, 7)</code></td><td data-label="Semantics">Describes the yields for each city in the order [food, production, gold, faith, culture, science, happiness].</td></tr>
+    <tr><td data-label="Field">city_center_yields</td><td data-label="Shape"><code>(10, 7)</code></td><td data-label="Semantics">Describes the yields for each city center in the order [food, production, gold, faith, culture, science, happiness].</td></tr>
+    <tr><td data-label="Field">building_yields</td><td data-label="Shape"><code>(10, 8)</code></td><td data-label="Semantics">Describes the yields in total for each building per city in the order [food, production, gold, faith, culture, science, happiness, tourism].</td></tr>
+    <tr><td data-label="Field">population</td><td data-label="Shape"><code>(6, 10)</code></td><td data-label="Semantics">Describes the population of each city.</td></tr>
+    <tr><td data-label="Field">worked_slots</td><td data-label="Shape"><code>(10, 36)</code></td><td data-label="Semantics">Describes whether or not a tile is being worked in a city. Takes values in [0, 1].</td></tr>
+    <tr><td data-label="Field">specialist_slots</td><td data-label="Shape"><code>(10, 6)</code></td><td data-label="Semantics">Describes how many specialists are in each city in the order [artist, musician, writer, engineer, merchant, scientist].</td></tr>
+    <tr><td data-label="Field">gw_slots</td><td data-label="Shape"><code>(10, 5)</code></td><td data-label="Semantics">Describes the number of Great Works in each city in the order [writing, art, music, artifact].</td></tr>
+    <tr><td data-label="Field">food_reserves</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the amount of excess food each city has. This excess goes towards population growth.</td></tr>
+    <tr><td data-label="Field">growth_carryover</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the percent of excess food carried over as reserves when a city grows.</td></tr>
+    <tr><td data-label="Field">prod_reserves</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the amount of built up production a city has. This reserve goes towards construction.</td></tr>
+    <tr><td data-label="Field">prod_carryover</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the percent of excess built up production carried over after a city completes construction.</td></tr>
+    <tr><td data-label="Field">is_constructing</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the object the city is constructing as a categorical integer.</td></tr>
+    <tr><td data-label="Field">bldg_maintenance</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the amount of gold per turn each city is paying to maintain its buildings.</td></tr>
+    <tr><td data-label="Field">defense</td><td data-label="Shape"><code>(6, 10)</code></td><td data-label="Semantics">Describes the defensive prowess of each city.</td></tr>
+    <tr><td data-label="Field">hp</td><td data-label="Shape"><code>(6, 10)</code></td><td data-label="Semantics">Describes the current health of each city.</td></tr>
+    <tr><td data-label="Field">buildings_owned</td><td data-label="Shape"><code>(10, 148)</code></td><td data-label="Semantics">Describes the buildings each city owns. Takes values in [0, 1].</td></tr>
+    <tr><td data-label="Field">resources_owned</td><td data-label="Shape"><code>(10, 52)</code></td><td data-label="Semantics">Describes the resources connected to each city. Takes values in [0, 1].</td></tr>
+    <tr><td data-label="Field">additional_yield_map</td><td data-label="Shape"><code>(42, 66, 7)</code></td><td data-label="Semantics">Describes the yields provided by buildings in a city additional to the yields from the base map.</td></tr>
+    <tr><td data-label="Field">is_coastal</td><td data-label="Shape"><code>(6, 10)</code></td><td data-label="Semantics">Decribes whether a city is on the map coast. Takes values in [0, 1].</td></tr>
+    <tr><td data-label="Field">religion_info</td><td data-label="Shape"><code>...</code></td><td data-label="Semantics">See the "Religion Observation".</td></tr>
+    <tr><td data-label="Field">culture_reserves_for_border</td><td data-label="Shape"><code>(10)</code></td><td data-label="Semantics">Describes the culture build up that will be spent on expanding a city's border.</td></tr>
+    <tr><td data-label="Field">great_person_points</td><td data-label="Shape"><code>(10, 6)</code></td><td data-label="Semantics">Describes the build up of great person points per city in the order [artist, musician, writer, engineer, merchant, scientist].</td></tr>
   </tbody>
 </table>
 
 
-                    <div class="subhead"><span class="num">1</span><h3 style="margin:0">Religion Information</h3><div class="rule"></div></div>
+                    <div class="subhead"><span class="num">6</span><h3 style="margin:0">Religion Observation</h3><div class="rule"></div></div>
 
 <table class="ledger">
   <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
@@ -1127,141 +1129,39 @@ action = Tuple[
   <tbody>
     <tr>
       <td data-label="Field">religious_population</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 6)</code></td>
+      <td data-label="Semantics">Describes the population count that follows each religion in each city.</td>
     </tr>
     <tr>
       <td data-label="Field">religious_tenets_per_city</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 91)</code></td>
+      <td data-label="Semantics">Describes the religious tenets being applied to each city. This is determined by the religion with the majority population. Takes values in [0, 1].</td>
     </tr>
     <tr>
       <td data-label="Field">building_yields</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 8)</code></td>
+      <td data-label="Semantics">Describes the extra yields the buildings in each coty produces due to religion.</td>
     </tr>
     <tr>
       <td data-label="Field">additional_yield_map</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 42, 66, 7)</code></td>
+      <td data-label="Semantics">Describes the yields provided by religion in a city additional to the yields from the base map.</td>
     </tr>
     <tr>
       <td data-label="Field">cs_perturn_influence_cumulative</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 12)</code></td>
+      <td data-label="Semantics">Describes the cumulative religious pressure applied from each city onto each city state.</td>
     </tr>
     <tr>
       <td data-label="Field">player_perturn_influence_cumulative</td>
-      <td data-label="Shape"><code>...</code></td>
-      <td data-label="Semantics">...</td>
+      <td data-label="Shape"><code>(10, 6, 10)</code></td>
+      <td data-label="Semantics">Describes the cumulative religious pressure applied from ech city onto each other player's cities.</td>
     </tr>
   </tbody>
 </table>
 
 
 
-                      <h3>Summary</h3>
-
-                    </section>
-
-
-
-                    <section id="environment" class="section">
-                        <h2>Environment Overview</h2>
-                        <p>Terra Nova provides a turn-based strategy environment based on Civilization V with LekMod balance patches. The environment supports multiple agents in a 6-player free-for-all setting.</p>
-
-                        <h3>Environment Parameters</h3>
-                        <table class="parameter-table">
-                            <thead>
-                                <tr>
-                                    <th>Parameter</th>
-                                    <th>Type</th>
-                                    <th>Default</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code class="code-inline">map_size</code></td>
-                                    <td>str</td>
-                                    <td>'standard'</td>
-                                    <td>Map size: 'tiny', 'small', 'standard', 'large', 'huge'</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">num_players</code></td>
-                                    <td>int</td>
-                                    <td>6</td>
-                                    <td>Number of players (2-8)</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">difficulty</code></td>
-                                    <td>str</td>
-                                    <td>'prince'</td>
-                                    <td>AI difficulty level</td>
-                                </tr>
-                                <tr>
-                                    <td><code class="code-inline">turn_limit</code></td>
-                                    <td>int</td>
-                                    <td>500</td>
-                                    <td>Maximum number of turns</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="info-box warning">
-                            <h4>Performance Note</h4>
-                            <p>Larger maps and more players significantly increase computation time. Start with smaller configurations for development and testing.</p>
-                        </div>
-                    </section>
-
-                    <section id="actions" class="section">
-                        <h2>Action Space</h2>
-                        <p>Terra Nova uses a hierarchical action space that mirrors the decision-making process in Civilization V. Actions are structured as nested dictionaries with the following main categories:</p>
-
-                        <h3>Action Categories</h3>
-                        <ul style="margin-left: 20px; margin-bottom: 20px;">
-                            <li><strong>City Actions:</strong> Build units, buildings, or specialists</li>
-                            <li><strong>Unit Actions:</strong> Move, attack, or perform special abilities</li>
-                            <li><strong>Diplomacy:</strong> Trade deals, declarations, and negotiations</li>
-                            <li><strong>Research:</strong> Choose technology paths</li>
-                            <li><strong>Policy:</strong> Select social policies and government types</li>
-                        </ul>
-
-                        <div class="code-block">action = {
-    'city_actions': {
-        'city_id': 1,
-        'action_type': 'build_unit',
-        'target': 'warrior'
-    },
-    'unit_actions': [
-        {
-            'unit_id': 5,
-            'action_type': 'move',
-            'target_hex': (10, 15)
-        }
-    ],
-    'research': 'bronze_working',
-    'policy': 'tradition_opener'
-}</div>
-                    </section>
-
-                    <section id="observations" class="section">
-                        <h2>Observation Space</h2>
-                        <p>The observation space provides comprehensive information about the game state, including map data, unit positions, city information, and diplomatic status.</p>
-
-                        <h3>Observation Structure</h3>
-                        <div class="code-block">observation = {
-    'map': np.array(...),           # Terrain and improvement data
-    'units': {...},                 # Unit positions and properties
-    'cities': {...},                # City locations and statistics
-    'diplomacy': {...},             # Diplomatic relationships
-    'research': {...},              # Technology progress
-    'resources': {...},             # Available resources
-    'turn_info': {...}              # Current turn and player info
-}</div>
-
-                        <p>Each component of the observation provides detailed information necessary for strategic decision-making.</p>
-                    </section>
 
 
                     <section id="mapgen" class="section">
@@ -1270,7 +1170,7 @@ action = Tuple[
                         </p>
 
                         <div class="code-block">
-                          CUDA_VISIBLE_DEVICES= python3 generate_maps.py --start_seed 1 --num_maps 10
+CUDA_VISIBLE_DEVICES= python3 generate_maps.py --start_seed 1 --num_maps 10
                         </div>
 
                         <p>
