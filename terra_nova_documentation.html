@@ -489,6 +489,7 @@
                         <li><a href="#installation" class="active">Installation</a></li>
                         <li><a href="#quickstart">Quick Start</a></li>
                         <li><a href="#action-space">Action Space</a></li>
+                        <li><a href="#executed-actions">Executed Actions</a></li>
                         <li><a href="#observation-space">Observation Space</a></li>
                         <li><a href="#mapgen">Generating Maps</a></li>
                     </ul>
@@ -499,17 +500,11 @@
                         <h2>Installation</h2>
                         <p>Install Terra Nova using pip from the official repository:</p>
 
-                        <div class="code-block">pip install civitas-env</div>
-
-                        <p>Or install from source for the latest development version:</p>
-
-                        <div class="code-block">git clone https://github.com/civitas-ai/civitas-env.git
-cd civitas-env
-pip install -e .</div>
+                        <div class="code-block">git clone https://github.com/trevormcinroe/terra_nova/</div>
 
                         <div class="info-box">
                             <h4>Requirements</h4>
-                            <p>Terra Nova requires Python 3.8+ and has been tested on Linux, macOS, and Windows. GPU acceleration is optional but recommended for training.</p>
+                            <p>Terra Nova requires Python 3.9+, and has been tested on Linux with jax 4.30. GPU acceleration is optional but strongly recommended for training.</p>
                         </div>
                     </section>
 
@@ -653,7 +648,7 @@ action = Tuple[
                       <div class="subhead"><span class="num">4</span><h3 style="margin:0">Technology</h3><div class="rule"></div></div>
                       <table class="ledger">
                       <p>
-                      Similar to religion, the actions controlling technology selection will only be executed if the agent has generated enough science to allow for a new selection.
+                      Similar to religion, the actions controlling technology selection will only be executed if the agent has generated enough science to allow for a new selection. Once a technology has been selected, research towards that technology cannot be stopped.
                       </p>
                         <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
                         <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
@@ -691,7 +686,7 @@ action = Tuple[
                       <!-- 3.6 Cities -->
                       <div class="subhead"><span class="num">6</span><h3 style="margin:0">Cities</h3><div class="rule"></div></div>
                       <p>
-                      The actions for cities control what is being made in each city as well as which tiles are being worked within the owned tiles of each city.
+                      The actions for cities control what is being made in each city as well as which tiles are being worked within the owned tiles of each city. Once a construction target has been selected, the thing being constructed in each city cannot be changed.
                       </p>
                       <table class="ledger">
                         <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
@@ -743,10 +738,138 @@ action = Tuple[
                       </p>
 
                       <p>
-                      Because the environment automatically handles masking and ultimately the selection of specific actions, the user will not know the exact actions that will be executed ahead of time (without an accurate world model). To help with training, the environment will return a summary of which index was ultimately selected for each of the sub-action categories. See section [TODO] for specifics.
+                      Because the environment automatically handles masking and ultimately the selection of specific actions, the user will not know the exact actions that will be executed ahead of time (without an accurate world model). To help with training, the environment will return a summary of which index was ultimately selected for each of the sub-action categories.
                       </p>
 
 
+                    </section>
+
+
+                    <section id="executed-actions" class="section">
+                      <h2>Executed Actions</h2>
+                      <p>
+                      As described in the previous step, agent must submit their actions over all endpoints as a preference order over all possible actions. To help with training, the environment will return the actions that were ultimately exectuted in the environment. The sub-action spaces will be in the same order on the way out as they are on the way in.
+                      </p>
+
+                      <p>
+                      Similar to the observation space, when information is either missing or non-applicable, values will be <code>-1</code>. For example, if an agent has 10 of the maximum 30 units, selected-action information for the final 20 indices of unit-related arrays will be filled with <code>-1</code>.
+                      </p>
+
+                      <div class="subhead"><span class="num">1</span><h3 style="margin:0">Trade Deals</h3><div class="rule"></div></div>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Accept/Deny</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 6)</code></td>
+                            <td data-label="Semantics">Binary {accept, deny} for each other agent's offer.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Ask</td>
+                            <td data-label="Shape"><code>(num_devices, num_games)</code></td>
+                            <td data-label="Semantics">Integer corresponding to trade deal ask.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Offer</td>
+                            <td data-label="Shape"><code>(num_devices, num_games)</code></td>
+                            <td data-label="Semantics">Integer corresponding to trade deal offer.</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Counterparty</td>
+                            <td data-label="Shape"><code>(num_devices, num_games)</code></td>
+                            <td data-label="Semantics">Integer corresponding to trade deal counterpary.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <div class="subhead"><span class="num">2</span><h3 style="margin:0">Social Policies</h3><div class="rule"></div></div>
+                      <p>
+                      Certain actions in the game grant an agent a free social policy on occasion. Each game returns a vector of integers of shape (2,) representing the (non-free, free) selections, respectively.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Policy</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 2)</code></td>
+                            <td data-label="Semantics">Integers corresponding to social poicies selected (non-free, free).</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <div class="subhead"><span class="num">3</span><h3 style="margin:0">Religion</h3><div class="rule"></div></div>
+                      <p>
+                      When founding a religion, agents must select three tenets at once. To accomidate for this information, all turns will return a vector of integers of shape (3,). During religion founding, the indices correspond to Founder tenet, Follower tenet, Follower tenet. When other types of tenets are selected, only the first element will correspond to a tenet integer.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Policy</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 3)</code></td>
+                            <td data-label="Semantics">Integers corresponding to religions tenets selected.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <div class="subhead"><span class="num">4</span><h3 style="margin:0">Technology</h3><div class="rule"></div></div>
+                      <p>
+                      Certain actions in the game grant an agent a free technologies on occasion. Each game returns a vector of integers of shape (2,) representing the (non-free, free) selections, respectively.
+                      </p>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Tech</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 2)</code></td>
+                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="subhead"><span class="num">5</span><h3 style="margin:0">Units</h3><div class="rule"></div></div>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Action Type</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 30)</code></td>
+                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Target Hex</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 30)</code></td>
+                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                      <div class="subhead"><span class="num">6</span><h3 style="margin:0">Cities</h3><div class="rule"></div></div>
+                      <table class="ledger">
+                        <colgroup><col class="col-field"><col class="col-shape"><col></colgroup>
+                        <thead><tr><th>Field</th><th>Shape</th><th>Semantics</th></tr></thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="Field">Worked Tiles</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 10, 36)</code></td>
+                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                          </tr>
+                          <tr>
+                            <td data-label="Field">Build Choice</td>
+                            <td data-label="Shape"><code>(num_devices, num_games, 10)</code></td>
+                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </section>
 
                     <section id="observation-space" class="section">
@@ -855,6 +978,9 @@ action = Tuple[
 
                           <tr><td data-label="Field">most_literacy</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the most technology researched.</td></tr>
                           <tr><td data-label="Field">least_literacy</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer of the agent with the least technology researched.</td></tr>
+
+                          <tr><td data-label="Field">player_id</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The integer relating to the agent's id.</td></tr>
+                          <tr><td data-label="Field">current_turn</td><td data-label="Shape"><code>()</code></td><td data-label="Semantics">The turn number.</td></tr>
                         </tbody>
                       </table>
 
