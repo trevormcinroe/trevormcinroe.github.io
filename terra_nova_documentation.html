@@ -508,7 +508,7 @@
                 <main class="main-content">
                     <section id="installation" class="section">
                         <h2>Installation</h2>
-                        <p>Install Terra Nova using from the official repository:</p>
+                        <p>Install Terra Nova from the official repository:</p>
 
                         <div class="code-block">git clone https://github.com/trevormcinroe/terra_nova/</div>
 
@@ -878,12 +878,12 @@ action = Tuple[
                           <tr>
                             <td data-label="Field">Action Type</td>
                             <td data-label="Shape"><code>(num_devices, num_games, 30)</code></td>
-                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                            <td data-label="Semantics">Integers corresponding to the action-categories selected.</td>
                           </tr>
                           <tr>
                             <td data-label="Field">Target Hex</td>
                             <td data-label="Shape"><code>(num_devices, num_games, 30)</code></td>
-                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                            <td data-label="Semantics">Integers corresponding to the map's hex-tiles selected.</td>
                           </tr>
                         </tbody>
                       </table>
@@ -897,12 +897,12 @@ action = Tuple[
                           <tr>
                             <td data-label="Field">Worked Tiles</td>
                             <td data-label="Shape"><code>(num_devices, num_games, 10, 36)</code></td>
-                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                            <td data-label="Semantics">Integers corresponding to the tiles selected to be worked.</td>
                           </tr>
                           <tr>
                             <td data-label="Field">Build Choice</td>
                             <td data-label="Shape"><code>(num_devices, num_games, 10)</code></td>
-                            <td data-label="Semantics">Integers corresponding to technologies selected (non-free, free).</td>
+                            <td data-label="Semantics">Integers corresponding to the buildings/units selected to be constructed.</td>
                           </tr>
                         </tbody>
                       </table>
@@ -1353,6 +1353,10 @@ CUDA_VISIBLE_DEVICES= python3 generate_maps.py --start_seed 1 --num_maps 10
                         For more detail, see the file <code class="code-inline">recording_demo.py</code>.
                         </p>
 
+                        <p>
+                        We highly recommend using a CPU-only job to perform game recording due to the memory usage of the recorder.
+                        </p>
+
                         <pre class="code-block"><code class="language-python">from game.recorder import GameStateRecorder
 
 ...
@@ -1393,7 +1397,7 @@ recorder.save_replay(f"./renderer/saved_games/{args.save_filename}")</code></pre
                         <section id="viewer" class="section">
                         <h2>Viewing Games</h2>
                         <p>
-                        After recording a game, we can view the replay using the Viewer. The Viewer leverages WebGL and our browser's hardware acceleration to render images to the screen. To run the viewer, open a terminal window and run the following command from within the Terra Nova folder:
+                        After recording a game, we can view the replay using the Viewer. The Viewer leverages WebGL and your browser's hardware acceleration to render images to the screen. To run the viewer, open a terminal window and run the following command from within the Terra Nova folder:
                         </p>
                         <pre class="code-block"><code class="language-bash">bash ./run_viewer.sh</code></pre>
 
