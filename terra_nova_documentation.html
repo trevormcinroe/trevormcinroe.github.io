@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terra Nova Documentation</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <!-- Prism theme (dark) -->
 <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism-okaidia.css">
 <!-- Prism core + Python component -->
@@ -43,7 +46,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(90deg, #F2F5EA 0%, rgba(129, 173, 200, 0.1) 100%);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             min-height: 80px;
@@ -459,11 +461,6 @@
           }
         }
 
-        /* Optional: slightly darker page header bar */
-        header{
-          background: linear-gradient(90deg, #E9EDE4 0%, rgba(129,173,200,0.18) 100%) !important;
-          border-bottom-color: rgba(44,54,63,0.28) !important;
-        }
     </style>
     <script src="/terra_nova_header.js" defer></script>
     <link rel="stylesheet" href="/terra_nova_header.css">
@@ -486,8 +483,8 @@
 
         <div class="docs-container">
             <div class="docs-header">
-                <h1 class="docs-title">Environment Documentation</h1>
-                <p class="docs-subtitle">Complete guide to the Terra Nova reinforcement learning environment</p>
+                <h1 class="docs-title">Software Documentation</h1>
+                <p class="docs-subtitle">A guide on Terra Nova's software</p>
             </div>
 
             <div class="docs-layout">
@@ -911,7 +908,7 @@ action = Tuple[
                     <section id="observation-space" class="section">
                       <h2>Observation Space</h2>
                       <p>
-                      The observation space in Terra Nova is large, but organized and hierarchical. Some components are in the shape of the map (i.e., a <code class="code-inline">(..., 42, 66, ...)</code>) array, some are continuous vectors, and some are scalars. The information also spans numerical type: some are continuous values and some are non-ordinal integers. Here we first describe the entire layout of a Terra Nova observation (along with the data shapes). Then we detail the contents of each item in an observation.
+                      The observation space in Terra Nova is large, but organized and hierarchical. Some components are in the shape of the map (i.e., a <code class="code-inline">(..., 42, 66, ...)</code> array), some are arrays, some are vectors, and some are scalars. The information also spans numerical type: some are continuous values and some are non-ordinal integers. Also, due to partial observability, any of the information could be "unknown", which is always signified with a value of <code class="code-inline">-1</code>. Here we first describe the entire layout of a Terra Nova observation (along with the data shapes). Then we detail the contents of each item in an observation.
                       </p>
 
                       <div class="subhead"><span class="num">1</span><h3 style="margin:0">Main Observation</h3><div class="rule"></div></div>

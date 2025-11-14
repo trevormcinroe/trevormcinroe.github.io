@@ -52,7 +52,6 @@
           <a href="${href('terra_nova_environment')}" class="${active === 'environment' ? 'active' : ''}">Environment</a>
           <a href="${href('research.html')}" class="${active === 'research' ? 'active' : ''}">Research</a>
           <a href="${href('terra_nova_documentation')}" class="${active === 'docs' ? 'active' : ''}">Documentation</a>
-          <a href="${href('terra_nova_contact')}" class="${active === 'contact' ? 'active' : ''}">Contact</a>
         </nav>
       </header>
     `;

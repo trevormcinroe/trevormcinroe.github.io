@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terra Nova</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -13,7 +18,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 100%);
+            background: linear-gradient(135deg, #1A1F2A 0%, #303A47 100%);
             min-height: 100vh;
             color: #2C363F;
             -webkit-font-smoothing: antialiased;
@@ -22,10 +27,11 @@
             line-height: 1.5;
         }
 
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: #F2F5EA;
+            background: #FFFFF7;
             min-height: 100vh;
             box-shadow: 0 0 50px rgba(44, 54, 63, 0.3);
         }
@@ -88,8 +94,7 @@
         }
 
         .hero {
-            padding: 60px 40px 40px;
-            background: linear-gradient(135deg, #F2F5EA 0%, rgba(129, 173, 200, 0.05) 100%);
+            padding: 30px 40px 40px;
             position: relative;
         }
 
@@ -103,57 +108,48 @@
             background: radial-gradient(circle, rgba(182, 143, 64, 0.1) 0%, transparent 70%);
             border-radius: 50%;
         }
-
         .research-badge {
+            /* More muted, rich colors */
             background: linear-gradient(45deg, #BB4430 0%, #B68F40 100%);
-            color: #F2F5EA;
-            padding: 10px 20px;
-            border-radius: 0px;
-            font-size: 0.9rem;
-            font-weight: 700;
+            color: #F2F0E4;
+            padding: 8px 18px;
+            border-radius: 0px; /* Sharper corners */
+            box-shadow: 0 2px 10px rgba(187, 68, 48, 0.4);
+            margin-bottom: 15px;
+            overflow: hidden;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(187, 68, 48, 0.3);
-            position: relative;
-            overflow: hidden;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
 
-        .research-badge::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
 
         @keyframes shimmer {
             0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
+
         .hero-title {
-            font-size: clamp(3.5rem, 8vw, 6rem);
-            font-weight: 900;
-            line-height: 0.85;
-            background: linear-gradient(135deg, #2C363F 0%, #81ADC8 50%, #B68F40 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 30px;
-            letter-spacing: -3px;
-            text-shadow: 0 4px 8px rgba(44, 54, 63, 0.1);
+            font-size: clamp(4rem, 10vw, 7rem);
+            line-height: 0.9;
+            /* The image is replacing the text, so these text styles are removed/changed: */
+            text-shadow: none; /* No shadow */
+            margin-bottom: 0px;
+            text-align: center; /* Still useful for elements like the research badge above it */
         }
 
+        .hero-title img {
+            height: 450px;
+            width: auto;
+            /* The fix for centering */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             color: #2C363F;
-            max-width: 1000px;
             margin-bottom: 35px;
             line-height: 1.6;
             opacity: 0.9;
@@ -167,9 +163,9 @@
             background: linear-gradient(45deg, #81ADC8 0%, #B68F40 100%);
             color: #F2F5EA;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 0px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 16rem;
             transition: all 0.4s ease;
             margin-bottom: 50px;
             box-shadow: 0 8px 25px rgba(129, 173, 200, 0.4);
@@ -198,44 +194,35 @@
             box-shadow: 0 12px 35px rgba(182, 143, 64, 0.5);
         }
 
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            border-radius: 0px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #81ADC8 0%, #B68F40 50%, #BB4430 100%);
-            box-shadow: 0 15px 40px rgba(44, 54, 63, 0.3);
-            border: 3px solid rgba(129, 173, 200, 0.5);
-        }
 
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg,
-                rgba(129, 173, 200, 0.1) 0%,
-                transparent 25%,
-                transparent 75%,
-                rgba(182, 143, 64, 0.1) 100%);
-            z-index: 1;
-        }
+      .hero-image {
+          width: 100%;
+          height: 480px;
+          border-radius: 0px;
+          position: relative;
+          overflow: hidden;
+          margin: 0 auto 40px; /* center the whole hero block on the page if it has a max-width */
+          display: flex;
+          align-items: center;  /* vertical centering */
+          justify-content: center;  /* horizontal centering */
+      }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            filter: contrast(1.1) brightness(1.05);
-        }
+      .hero-image::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+      }
 
+      .hero-image img {
+          height: 100%;  /* fill the hero vertically */
+          width: auto;  /* keep aspect ratio */
+          object-fit: contain;  /* show the whole GIF */
+          object-position: center;
+          filter: contrast(1.1) brightness(1.05);
+          position: relative;
+          z-index: 2;  /* put it above the ::before overlay */
+      }
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -333,7 +320,7 @@
             }
 
             .hero-image {
-                height: 250px;
+                height: 500px;
             }
 
             .bottom-section {
@@ -375,8 +362,40 @@
             }
         }
 
+        .cta-container {
+            display: flex;
+            flex-wrap: wrap; /* Lets buttons stack on small screens */
+            justify-content: center;
+            gap: 20px; /* Adjust the space between buttons */
+            margin-bottom: 50px; /* Moved this margin from the button to the group */
+        }
+
+          .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: linear-gradient(45deg, #81ADC8 0%, #B68F40 100%);
+            color: #F2F5EA;
+            text-decoration: none;
+            border-radius: 0px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(129, 173, 200, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .hero-subtitle {
+            font-family: 'Crimson Text', serif;
+            font-weight: 500;
+        }
+
+
     </style>
-<script src="/terra_nova_header.js?v=101" defer></script>
+    <script src="/terra_nova_header.js?v=101" defer></script>
     <link rel="stylesheet" href="/terra_nova_header.css">
 </head>
 <body>
@@ -384,21 +403,40 @@
         <div id="header-container"></div>
 
         <main class="hero">
-            <div class="research-badge">RL Research Environment</div>
+
             <h1 class="hero-title">
-              TERRA NOVA
+                <img src="../assets/terra_nova_logo.png" alt="Terra Nova Logo" onerror="this.style.display='none'">
             </h1>
 
-            <p class="hero-subtitle">
-                Train reinforcement learning agents on the grand challenge of civilization building.
-                Terra Nova is an environment based on Civilization V, a 4X strategy game, and LekMod, a community-driven patch designed to balance play around six player free-for-alls.
+            <p class="hero-subtitle" style="text-align: center;">
+              Train reinforcement learning agents on the grand challenge of civilization building.
             </p>
 
+            <div class="cta-container">
 
-            <div class="hero-image">
-                <img src="../assets/map.png" alt="Civilization V Map" onerror="this.style.display='none'">
+                <a href="https://github.com/trevormcinroe/terra_nova" class="cta-button" target="_blank">
+                    <span>Codebase</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.247c-3.337.726-4.057-1.61-4.057-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.004.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+
+                <a href="mailto:trev.mcinroe@gmail.com" class="cta-button">
+                    <span>Contact Us</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                    </svg>
+                </a>
+
             </div>
 
+            <div class="hero-image">
+                <img src="../assets/viewer_demo.gif" alt="Civilization V Map" onerror="this.style.display='none'">
+            </div>
+
+            <p class="hero-subtitle" style="max-width: 60ch; margin: 0 auto; padding: 1rem 0; margin-inline: auto;">
+              Terra Nova is an RL environment based on Civilization V, a 4X strategy game. Terra Nova is designed to be a testbest for general intelligence research, requiring agents to reason over a large set of diverse information streams and control hundreds of heterogeneous endpoints simultaneously. Terra Nova is a <i>comprehensive challenge environment</i>, where many canonical RL challenges (e.g., credit assignment, partial observability, enormous action space, etc) occur simultaneously.
+            </p>
         </main>
 
     </div>
