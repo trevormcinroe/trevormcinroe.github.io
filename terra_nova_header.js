@@ -50,7 +50,7 @@
         <a href="${href('terra_nova')}" class="logo">Terra Nova</a>
         <nav>
           <a href="${href('terra_nova_environment')}" class="${active === 'environment' ? 'active' : ''}">Environment</a>
-          <a href="${href('terra_nova_research.html')}" class="${active === 'research' ? 'active' : ''}">Research</a>
+          <a href="${href('terra_nova_research')}" class="${active === 'research' ? 'active' : ''}">Research</a>
           <a href="${href('terra_nova_documentation')}" class="${active === 'docs' ? 'active' : ''}">Documentation</a>
         </nav>
       </header>
