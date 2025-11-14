@@ -2,14 +2,13 @@
 
 header {
     padding: 20px 40px;
-    border-bottom: 3px solid #81ADC8;
+    border-bottom: 3px solid #2C363F;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #F2F5EA 0%, rgba(129, 173, 200, 0.1) 100%);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     min-height: 80px;
+    font-size: 22px;
+    font-family: 'Crimson Text', serif;
 }
 
 .logo {
