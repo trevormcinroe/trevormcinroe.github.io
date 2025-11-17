@@ -8,13 +8,13 @@
 layout: homepage
 ---
 
-I am a 3rd year PhD student at The University of Edinburgh, advised by [Amos Storkey](https://homepages.inf.ed.ac.uk/amos/) as a member of the [Bayesian and Neural Systems Group](https://www.bayeswatch.com/) in the [Institute for Adaptive and Neural Computation](https://informatics.ed.ac.uk/anc).
+I am a final year PhD student at The University of Edinburgh, advised by [Amos Storkey](https://homepages.inf.ed.ac.uk/amos/) as a member of the [Bayesian and Neural Systems Group](https://www.bayeswatch.com/) in the [Institute for Adaptive and Neural Computation](https://informatics.ed.ac.uk/anc).
+
+I am on the job market for Spring 2026.
 
 I am interested in getting reinforcement learning into the real world by focusing on:
 
+- World models and other model-based methods
+- Off-policy methods
 - Offline settings (and variations therein)
 - Representation learning for high-dimensional observation spaces
-- Model-based methods
-- Off-policy methods
-
-
