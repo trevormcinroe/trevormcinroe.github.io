@@ -3,69 +3,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Secret Visitor Map</title>
+  <title>Secret Visitor Maps</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Keep this so search engines are less likely to index it -->
   <meta name="robots" content="noindex, nofollow">
-
-  <!-- Optional: your site stylesheet -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
-
   <style>
-    /* Optional lightweight styling so it doesn’t look totally raw */
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #0b1020;
-      color: #f5f5f5;
-    }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background: #0b1020;
+    color: #f5f5f5;
+  }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-    h1 {
-      margin-bottom: 0.5rem;
-    }
+  h1 {
+    margin-bottom: 1rem;
+  }
 
-    .visitor-map {
-      margin-top: 2rem;
-    }
-  </style>
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  iframe.map-frame {
+    width: 100%;
+    max-width: 700px;    /* optional, to avoid huge stretch on 4K */
+    height: 350px;       /* bump this up until nothing is cut off */
+    border: 0;           /* no frame border */
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;    /* hide any extra just in case */
+  }
+</style>
 </head>
 <body>
   <div class="container">
-    <div class="visitor-map">
-  <h2>Visitors around the world</h2>
-  <p>Homepage</p>
+    <h1>Secret Visitor Maps</h1>
 
-  <div>
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=ujpjNGmVrdWti53wqBuAxF7eHAjpY90xVVy6lWB7ZdI&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9'></script>
-  </div>
-</div>
+    <div class="section">
+      <h2>Homepage</h2>
+      <iframe class="map-frame" src="dashboard_home.html"></iframe>
+    </div>
 
-  <p>Terra Nova Homepage</p>
+    <div class="section">
+      <h2>Terra Nova Homepage</h2>
+      <iframe class="map-frame" src="dashboard_tn_home.html"></iframe>
+    </div>
 
-  <div>
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=dsI52V14rM4JM8KcP-ZK0wuUVr9jX2LdaY9qcPasqQ0&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9'></script>
-  </div>
-</div>
+    <div class="section">
+      <h2>Terra Nova Environment</h2>
+      <iframe class="map-frame" src="dashboard_tn_env.html"></iframe>
+    </div>
 
-
-  <p>Terra Nova Environment</p>
-  <div>
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=qvXIlIHMPU-IvyStiPW5Q6EEqv-Q75lumyKE8Uc7b5w&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9'></script>
-  </div>
-</div>
-
-  <p>Terra Nova Documentation</p>
-  <div>
-    <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=qCoS3yUzS4jWQfI5Y0iBPtfxuNYPab8gM4F72HM7HU8&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9'></script>
-  </div>
-</div>
-
+    <div class="section">
+      <h2>Terra Nova Documentation</h2>
+      <iframe class="map-frame" src="dashboard_tn_docs.html"></iframe>
+    </div>
   </div>
 </body>
 </html>
