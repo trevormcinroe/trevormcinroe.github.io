@@ -423,8 +423,8 @@ pre > code {
  * Tables
  */
 .pubs-table {
-  top: 75px;
   position: relative;
+  transform: translateY(4em);
 }
 
 table {
@@ -700,6 +700,7 @@ table td {
 }
 
 .post-content {
+  padding-bottom: 20em;
   margin-top: -30px;
 }
 .post-content h1, .post-content h2, .post-content h3 {
