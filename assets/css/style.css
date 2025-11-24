@@ -423,7 +423,7 @@ pre > code {
  * Tables
  */
 .pubs-table {
-  top: 90px;
+  top: 75px;
   position: relative;
 }
 
@@ -680,7 +680,7 @@ table td {
  * Posts
  */
 .post-header {
-  margin-top: 67.5px;
+  margin-top: 37.5px;
   margin-bottom: 30px;
 }
 
@@ -700,7 +700,7 @@ table td {
 }
 
 .post-content {
-  margin-bottom: 30px;
+  margin-top: -30px;
 }
 .post-content h1, .post-content h2, .post-content h3 {
   margin-top: 30px;
