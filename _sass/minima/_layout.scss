@@ -281,11 +281,12 @@
 
 .post-content {
   //margin-bottom: -$spacing-unit;
+  padding-bottom: 20em;
   margin-top: -$spacing-unit * 1;
   h1, h2, h3 { margin-top: $spacing-unit }
   h4 {
-  margin-top: $spacing-unit * 0.0
-}
+    margin-top: $spacing-unit * 0.0
+  }
 
   h2 {
     @include relative-font-size(1.75);

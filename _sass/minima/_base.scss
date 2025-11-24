@@ -272,8 +272,10 @@ pre {
  */
 .pubs-table {
   //top: $spacing-unit * 6;
-  top: 75px;
+  //top: 7em;
+  //position: relative;
   position: relative;
+  transform: translateY(4em);
 }
 
 table {
