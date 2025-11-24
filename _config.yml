@@ -51,8 +51,9 @@ minima:
 
   # Generate social links in footer.
   social_links:
+    - { platform: terra_nova, user_url: "https://trevormcinroe.github.io/terra_nova" }
     - { platform: google_scholar, user_url: "https://scholar.google.com/citations?user=ZjG8iOUAAAAJ" }
-    - {platform: email, user_url: "mailto:t.mcinroe@ed.ac.uk"}
+    - { platform: email, user_url: "mailto:t.mcinroe@ed.ac.uk" }
     - { platform: github, user_url: "https://github.com/trevormcinroe/" }
     - { platform: twitter, user_url: "https://twitter.com/trevormcinroe" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/trevor-mcinroe/" }

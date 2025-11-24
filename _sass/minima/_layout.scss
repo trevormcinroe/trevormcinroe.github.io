@@ -261,7 +261,7 @@
  * Posts
  */
 .post-header {
-  margin-top: $spacing-unit * 2.25;
+  margin-top: $spacing-unit * 1.25;
   margin-bottom: $spacing-unit;
 }
 
@@ -280,8 +280,8 @@
 }
 
 .post-content {
-  margin-bottom: $spacing-unit;
-
+  //margin-bottom: -$spacing-unit;
+  margin-top: -$spacing-unit * 1;
   h1, h2, h3 { margin-top: $spacing-unit }
   h4 {
   margin-top: $spacing-unit * 0.0

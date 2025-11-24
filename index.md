@@ -10,7 +10,10 @@ layout: homepage
 
 I am a final year PhD student at The University of Edinburgh, advised by [Amos Storkey](https://homepages.inf.ed.ac.uk/amos/) as a member of the [Bayesian and Neural Systems Group](https://www.bayeswatch.com/) in the [Institute for Adaptive and Neural Computation](https://informatics.ed.ac.uk/anc).
 
-I am on the job market for Spring 2026.
+Check out [<span style="color: #00ff41;">Terra Nova</span>](https://trevormcinroe.github.io/terra_nova), a new comprehensive challenge environment for reinforcement learning research inspired by Civilization V.
+
+<span style="color: #EE4B2B">I am on the job market for Spring 2026.</span>
+
 
 I am interested in getting reinforcement learning into the real world by focusing on:
 
