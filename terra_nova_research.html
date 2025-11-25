@@ -395,6 +395,31 @@
             font-weight: 500;
         }
 
+        .bibliography {
+          list-style: none;       /* remove default numbers */
+          margin: 0;
+          padding: 0;
+        }
+
+        .bibliography li {
+          margin: 0.4em 0;
+          padding-top: 2em;
+          padding-left: 2.3em;    /* space for the [1] label */
+          text-indent: -2.3em;    /* hanging indent, like LaTeX references */
+          font-family: "Latin Modern Roman", "Times New Roman", serif;
+          font-size: 1.5rem;
+          line-height: 1.4;
+        }
+
+        .bib-label {
+          font-weight: bold;
+          margin-right: 0.4em;
+        }
+
+        .bib-title {
+          font-style: italic;     /* titles often italicized in BibTeX styles */
+        }
+
 
     </style>
     <script src="/terra_nova_header.js?v=101" defer></script>
@@ -407,9 +432,16 @@
         <main class="hero">
 
 
-            <p class="hero-subtitle" style="text-align: center; padding: 3em 0em 0em 0em;">
-              Coming soon.
-            </p>
+            <ol class="bibliography">
+              <li>
+                <span class="bib-label">[1]</span>
+                Trevor McInroe.
+                <span class="bib-title">
+                  Terra Nova: A Comprehensive Challenge Environment for Intelligent Agents.
+                </span>
+                arXiv preprint arXiv:2511.15378, 2025.
+              </li>
+            </ol>
 
         </main>
 
