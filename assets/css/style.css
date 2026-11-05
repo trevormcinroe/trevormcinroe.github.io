@@ -178,7 +178,7 @@ a:hover {
  */
 blockquote {
   color: #999999;
-  border-left: 4px solid rgb(63.75, 63.75, 63.75);
+  border-left: 4px solid rgb(25%, 25%, 25%);
   padding-left: 15px;
   font-size: 1.125rem;
   font-style: italic;
@@ -197,7 +197,7 @@ pre,
 code {
   font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
   font-size: 0.9375em;
-  border: 1px solid rgb(63.75, 63.75, 63.75);
+  border: 1px solid rgb(25%, 25%, 25%);
   border-radius: 3px;
   background-color: #212121;
 }
@@ -282,7 +282,7 @@ table {
   border: 2.625px solid #ffffff;
 }
 table tr:nth-child(even) {
-  background-color: rgb(10.2, 10.2, 10.2);
+  background-color: rgb(4%, 4%, 4%);
 }
 table th, table td {
   padding: 10px 15px;
@@ -293,7 +293,7 @@ table th {
   border: 1px solid #ffffff;
 }
 table td {
-  border: 1px solid rgb(127.5, 127.5, 127.5);
+  border: 1px solid rgb(50%, 50%, 50%);
 }
 @media screen and (max-width: 800px) {
   table {
@@ -351,7 +351,7 @@ table td {
   top: 0px;
   right: 15px;
   background-color: #000000;
-  border: 1px solid rgb(63.75, 63.75, 63.75);
+  border: 1px solid rgb(25%, 25%, 25%);
   border-radius: 5px;
   text-align: right;
 }
@@ -410,7 +410,7 @@ table td {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid rgb(63.75, 63.75, 63.75);
+  border-top: 1px solid rgb(25%, 25%, 25%);
   padding: 30px 0;
 }
 
@@ -554,10 +554,10 @@ table td {
 .social-media-list li a {
   display: block;
   padding: 10px 12px;
-  border: 1px solid rgb(63.75, 63.75, 63.75);
+  border: 1px solid rgb(25%, 25%, 25%);
 }
 .social-media-list li a:hover {
-  border-color: rgb(165.75, 165.75, 165.75);
+  border-color: rgb(65%, 65%, 65%);
 }
 
 /**
